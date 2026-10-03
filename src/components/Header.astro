@@ -196,12 +196,12 @@ const isActive = (path: string) => {
 
     <!-- Header Actions (Donate & Mobile Trigger) -->
     <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-      <!-- Donate CTA -->
+      <!-- Donate CTA: Desktop only (Hidden on mobile header bar as requested) -->
       <a
         href="/donate"
-        class="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-full bg-primary-container text-on-primary font-label-lg text-xs sm:text-sm hover:bg-primary transition-all duration-200 shadow-[0_4px_16px_rgba(74,18,40,0.2)] hover:shadow-[0_6px_20px_rgba(74,18,40,0.3)] hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+        class="hidden xl:inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary-container text-on-primary font-label-lg text-sm hover:bg-primary transition-all duration-200 shadow-[0_4px_16px_rgba(74,18,40,0.2)] hover:shadow-[0_6px_20px_rgba(74,18,40,0.3)] hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
       >
-        <Heart class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current text-secondary-fixed" />
+        <Heart class="w-4 h-4 fill-current text-secondary-fixed" />
         <span>Donate</span>
       </a>
 
@@ -212,7 +212,7 @@ const isActive = (path: string) => {
         aria-label="Open Navigation Menu"
         aria-expanded="false"
         aria-controls="mobileMenuDrawer"
-        class="xl:hidden p-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors cursor-pointer flex items-center justify-center focus:outline-none"
+        class="xl:hidden p-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors cursor-pointer flex items-center justify-center focus:outline-none"
       >
         <span class="sr-only">Toggle Menu</span>
         <svg class="w-6 h-6 menu-open-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -226,116 +226,125 @@ const isActive = (path: string) => {
   </div>
 </header>
 
-<!-- Mobile Navigation Drawer (Rendered outside <header> to avoid backdrop-filter containing block trap) -->
+<!-- Mobile Navigation Drawer (Vertical Dropdown Structure) -->
 <div
   id="mobileMenuDrawer"
-  class="fixed inset-x-0 top-20 bottom-0 bg-surface/98 backdrop-blur-2xl border-t border-outline-variant/30 overflow-y-auto px-4 sm:px-6 py-6 hidden xl:hidden z-40 transition-opacity"
+  class="fixed inset-x-0 top-20 bottom-0 bg-surface/98 backdrop-blur-2xl border-t border-outline-variant/30 overflow-y-auto px-6 py-6 hidden xl:hidden z-40 transition-opacity"
   role="dialog"
   aria-modal="true"
   aria-label="Mobile Navigation Menu"
 >
-  <div class="flex flex-col gap-2.5 max-w-lg mx-auto pb-12">
+  <nav class="flex flex-col max-w-md mx-auto divide-y divide-outline-variant/20 pb-12" aria-label="Mobile Menu Links">
     <!-- Home -->
-    <a
-      href="/"
-      class="py-3 px-4 rounded-2xl font-title-md text-primary hover:bg-surface-container-low transition-colors flex items-center justify-between"
-    >
-      <span>Home</span>
-    </a>
+    <div class="py-2.5">
+      <a
+        href="/"
+        class={`block py-2 text-base font-title-md transition-colors ${
+          isActive('/') && currentPath === '/' ? 'text-secondary font-bold' : 'text-primary hover:text-secondary'
+        }`}
+      >
+        Home
+      </a>
+    </div>
 
-    <!-- About Submenu Accordion -->
-    <div class="mobile-accordion rounded-2xl border border-outline-variant/20 bg-surface-container-lowest/50 overflow-hidden">
+    <!-- About Submenu (Vertical Dropdown) -->
+    <div class="mobile-accordion py-2.5">
       <button
         type="button"
-        class="w-full flex items-center justify-between py-3 px-4 font-title-md text-primary hover:bg-surface-container-low transition-colors text-left cursor-pointer"
+        class="w-full flex items-center justify-between py-2 text-base font-title-md text-primary hover:text-secondary transition-colors text-left cursor-pointer"
         aria-expanded="false"
       >
         <span>About Us</span>
         <ChevronDown class="w-4 h-4 text-outline transition-transform duration-200 mobile-chevron" />
       </button>
-      <div class="hidden flex-col gap-1 px-3 pb-3 pt-1 border-t border-outline-variant/10 bg-surface-container-low/40">
-        <a href="/about" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">About Overview</a>
-        <a href="/about/story" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Our Story (3+ Years)</a>
-        <a href="/about/mission" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Mission & Vision</a>
-        <a href="/about/team" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Leadership Team</a>
+      <div class="hidden flex-col gap-2 pl-4 pt-2 pb-2 mt-1 border-l-2 border-secondary/20">
+        <a href="/about" class="block py-1.5 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">About Overview</a>
+        <a href="/about/story" class="block py-1.5 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Our 3-Year Story</a>
+        <a href="/about/mission" class="block py-1.5 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Mission & Vision</a>
+        <a href="/about/team" class="block py-1.5 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Leadership & Team</a>
+        <a href="/about/partners" class="block py-1.5 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Partners</a>
       </div>
     </div>
 
-    <!-- Our Work Submenu Accordion -->
-    <div class="mobile-accordion rounded-2xl border border-outline-variant/20 bg-surface-container-lowest/50 overflow-hidden">
+    <!-- Our Work Submenu (Vertical Dropdown) -->
+    <div class="mobile-accordion py-2.5">
       <button
         type="button"
-        class="w-full flex items-center justify-between py-3 px-4 font-title-md text-primary hover:bg-surface-container-low transition-colors text-left cursor-pointer"
+        class="w-full flex items-center justify-between py-2 text-base font-title-md text-primary hover:text-secondary transition-colors text-left cursor-pointer"
         aria-expanded="false"
       >
         <span>Our Work</span>
         <ChevronDown class="w-4 h-4 text-outline transition-transform duration-200 mobile-chevron" />
       </button>
-      <div class="hidden flex-col gap-1 px-3 pb-3 pt-1 border-t border-outline-variant/10 bg-surface-container-low/40">
-        <a href="/our-work" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">All Programs Overview</a>
-        <a href="/our-work/menstrual-health" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Menstrual Health & Dignity</a>
-        <a href="/our-work/education" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Education & Mentorship</a>
-        <a href="/our-work/empowerment" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Girl-Child Empowerment</a>
-        <a href="/our-work/girls-hangouts" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Girls' Hangouts</a>
-        <a href="/our-work/community-outreach" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Community & Orphanages</a>
+      <div class="hidden flex-col gap-2 pl-4 pt-2 pb-2 mt-1 border-l-2 border-secondary/20">
+        <a href="/our-work" class="block py-1.5 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">All Programs Overview</a>
+        <a href="/our-work/menstrual-health" class="block py-1.5 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Menstrual Health & Dignity</a>
+        <a href="/our-work/education" class="block py-1.5 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Education & Mentorship</a>
+        <a href="/our-work/empowerment" class="block py-1.5 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Girl-Child Empowerment</a>
+        <a href="/our-work/girls-hangouts" class="block py-1.5 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Girls' Hangouts</a>
+        <a href="/our-work/community-outreach" class="block py-1.5 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Community Outreach</a>
       </div>
     </div>
 
-    <!-- Impact Submenu Accordion -->
-    <div class="mobile-accordion rounded-2xl border border-outline-variant/20 bg-surface-container-lowest/50 overflow-hidden">
+    <!-- Impact Submenu (Vertical Dropdown) -->
+    <div class="mobile-accordion py-2.5">
       <button
         type="button"
-        class="w-full flex items-center justify-between py-3 px-4 font-title-md text-primary hover:bg-surface-container-low transition-colors text-left cursor-pointer"
+        class="w-full flex items-center justify-between py-2 text-base font-title-md text-primary hover:text-secondary transition-colors text-left cursor-pointer"
         aria-expanded="false"
       >
-        <span>Impact & Stories</span>
+        <span>Impact</span>
         <ChevronDown class="w-4 h-4 text-outline transition-transform duration-200 mobile-chevron" />
       </button>
-      <div class="hidden flex-col gap-1 px-3 pb-3 pt-1 border-t border-outline-variant/10 bg-surface-container-low/40">
-        <a href="/impact" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Our Impact & Data</a>
-        <a href="/stories" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Stories of Blooming</a>
-        <a href="/gallery" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Field Media Gallery</a>
-        <a href="/impact/reports" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Annual Reports</a>
+      <div class="hidden flex-col gap-2 pl-4 pt-2 pb-2 mt-1 border-l-2 border-secondary/20">
+        <a href="/impact" class="block py-1.5 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Impact Overview & Data</a>
+        <a href="/stories" class="block py-1.5 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Stories of Blooming</a>
+        <a href="/gallery" class="block py-1.5 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Field Photo Gallery</a>
+        <a href="/impact/reports" class="block py-1.5 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Annual Reports</a>
       </div>
     </div>
 
-    <!-- Get Involved Submenu Accordion -->
-    <div class="mobile-accordion rounded-2xl border border-outline-variant/20 bg-surface-container-lowest/50 overflow-hidden">
+    <!-- Get Involved Submenu (Vertical Dropdown) -->
+    <div class="mobile-accordion py-2.5">
       <button
         type="button"
-        class="w-full flex items-center justify-between py-3 px-4 font-title-md text-primary hover:bg-surface-container-low transition-colors text-left cursor-pointer"
+        class="w-full flex items-center justify-between py-2 text-base font-title-md text-primary hover:text-secondary transition-colors text-left cursor-pointer"
         aria-expanded="false"
       >
         <span>Get Involved</span>
         <ChevronDown class="w-4 h-4 text-outline transition-transform duration-200 mobile-chevron" />
       </button>
-      <div class="hidden flex-col gap-1 px-3 pb-3 pt-1 border-t border-outline-variant/10 bg-surface-container-low/40">
-        <a href="/get-involved" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Involvement Hub</a>
-        <a href="/get-involved/volunteer" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Volunteer With Us</a>
-        <a href="/get-involved/partner" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Partner With Us</a>
-        <a href="/get-involved/sponsor" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Sponsor a Program</a>
+      <div class="hidden flex-col gap-2 pl-4 pt-2 pb-2 mt-1 border-l-2 border-secondary/20">
+        <a href="/get-involved" class="block py-1.5 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Involvement Hub</a>
+        <a href="/get-involved/volunteer" class="block py-1.5 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Volunteer With Us</a>
+        <a href="/get-involved/partner" class="block py-1.5 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Partner With Us</a>
+        <a href="/get-involved/sponsor" class="block py-1.5 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Sponsor a Program</a>
       </div>
     </div>
 
     <!-- Contact -->
-    <a
-      href="/contact"
-      class="py-3 px-4 rounded-2xl font-title-md text-primary hover:bg-surface-container-low transition-colors flex items-center justify-between"
-    >
-      <span>Contact</span>
-    </a>
+    <div class="py-2.5">
+      <a
+        href="/contact"
+        class={`block py-2 text-base font-title-md transition-colors ${
+          isActive('/contact') ? 'text-secondary font-bold' : 'text-primary hover:text-secondary'
+        }`}
+      >
+        Contact
+      </a>
+    </div>
 
-    <!-- Mobile Donate Button -->
-    <div class="pt-4 flex flex-col gap-3">
+    <!-- Mobile Donate Button: Sole Donate Action on Mobile -->
+    <div class="pt-6 border-t-0">
       <a
         href="/donate"
-        class="w-full py-3.5 px-6 rounded-full bg-primary-container text-on-primary font-label-lg flex items-center justify-center gap-2 shadow-md hover:bg-primary transition-all text-center"
+        class="w-full py-4 px-6 rounded-full bg-primary-container text-on-primary font-label-lg flex items-center justify-center gap-2.5 shadow-md hover:bg-primary transition-all text-center text-sm font-semibold"
       >
         <Heart class="w-4 h-4 fill-current text-secondary-fixed" />
         <span>Support Our Mission (Donate)</span>
       </a>
     </div>
-  </div>
+  </nav>
 </div>
 
 <script>
@@ -376,7 +385,7 @@ const isActive = (path: string) => {
       }
     };
 
-    // Mobile accordions
+    // Mobile vertical accordions
     const accordions = drawer.querySelectorAll('.mobile-accordion');
     accordions.forEach((acc) => {
       const toggle = acc.querySelector('button');
