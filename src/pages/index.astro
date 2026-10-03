@@ -1,0 +1,424 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProgramCard from '../components/ProgramCard.astro';
+import StoryCard from '../components/StoryCard.astro';
+import ImpactStat from '../components/ImpactStat.astro';
+import PartnerLogos from '../components/PartnerLogos.astro';
+import DonationSelector from '../components/DonationSelector.astro';
+import { getCollection } from 'astro:content';
+import {
+  Sparkles,
+  ArrowRight,
+  Heart,
+  Verified,
+  Droplets,
+  BookOpen,
+  Users2,
+  Smile,
+  HandHeart,
+  Image as ImageIcon
+} from 'lucide-astro';
+
+// Fetch featured stories
+const allStories = await getCollection('stories');
+const featuredStories = allStories.slice(0, 3);
+---
+
+<BaseLayout
+  title="The Blooming Ones Initiative | Helping Every Girl Bloom, Never Wither"
+  description="We edify, nourish, and empower adolescent girls across Nigeria with the knowledge, menstrual dignity care, and community opportunities they need to flourish."
+>
+  <!-- SECTION 1: HERO SECTION -->
+  <section class="relative w-full pt-8 pb-20 md:pt-14 md:pb-28 overflow-hidden bg-surface">
+    <!-- Ambient organic blush blur -->
+    <div class="absolute top-12 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-secondary-container/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <div class="absolute -top-24 right-0 w-96 h-96 bg-tertiary-fixed/30 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <!-- Text Narrative Column -->
+        <div class="lg:col-span-6 flex flex-col items-start gap-6">
+          <!-- Petal Pill Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-high/80 text-secondary backdrop-blur-sm shadow-sm border border-secondary/20">
+            <Sparkles class="w-4 h-4 text-secondary" />
+            <span class="font-label-caps tracking-wider font-semibold">
+              3+ Years of Community Flourishing • Formerly The Testybam Initiative
+            </span>
+          </div>
+
+          <!-- Main Serif Headline -->
+          <h1 class="font-display-hero text-primary tracking-tight">
+            Helping Every Girl Bloom, <span class="italic font-normal text-secondary">Never Wither.</span>
+          </h1>
+
+          <!-- Lead Paragraph -->
+          <p class="font-body-lg text-on-surface-variant max-w-xl leading-relaxed">
+            We edify, nourish, and empower adolescent girls with the knowledge, safe care, and community opportunities they need to flourish with quiet confidence and unshakeable dignity.
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <Button href="/our-work" variant="primary" size="lg">
+              <span>Explore Our Work</span>
+              <ArrowRight class="w-4 h-4" />
+            </Button>
+            <Button href="/donate" variant="secondary" size="lg">
+              <Heart class="w-4 h-4 fill-current text-secondary" />
+              <span>Support Our Mission</span>
+            </Button>
+          </div>
+
+          <!-- Grassroots Proof Strip -->
+          <div class="pt-4 flex items-center gap-4 text-on-surface-variant font-body-sm">
+            <div class="flex -space-x-2">
+              <div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-semibold shadow-sm">NG</div>
+              <div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center text-xs font-semibold shadow-sm">48+</div>
+              <div class="w-8 h-8 rounded-full bg-tertiary-container text-tertiary-fixed flex items-center justify-center text-xs font-semibold shadow-sm">
+                <BookOpen class="w-3.5 h-3.5" />
+              </div>
+            </div>
+            <p class="font-body-sm">
+              Rooted in public schools, faith centers, and underserved community wards across Nigeria.
+            </p>
+          </div>
+        </div>
+
+        <!-- Hero Visual Documentary Column -->
+        <div class="lg:col-span-6 relative">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl bg-surface-container aspect-[4/3] group border border-outline-variant/30">
+            <img
+              src="/images/hero-schoolgirls.png"
+              alt="Joyful Nigerian schoolgirls in green checked uniforms smiling warmly while walking together holding books in golden sunlight"
+              width="1376"
+              height="768"
+              class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+              loading="eager"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent pointer-events-none"></div>
+
+            <!-- Floated Institutional Proof Badge -->
+            <div class="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-surface-bright/95 backdrop-blur-md shadow-xl border border-outline-variant/30 flex items-center justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center text-tertiary-fixed shadow-sm">
+                  <Verified class="w-5 h-5 text-tertiary-leaf" />
+                </div>
+                <div>
+                  <div class="font-title-md text-primary leading-tight font-semibold">100% Grassroots Grounded</div>
+                  <div class="font-body-sm text-on-surface-variant">Community Rooted & Transparent</div>
+                </div>
+              </div>
+              <span class="hidden sm:inline-flex items-center gap-1 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-caps uppercase font-bold text-xs">
+                Nigeria
+              </span>
+            </div>
+          </div>
+
+          <!-- Decorative Floral Pill Accents -->
+          <div class="absolute -bottom-6 -left-6 w-20 h-20 rounded-2xl bg-tertiary-fixed-dim/40 backdrop-blur-md -z-10 rotate-6"></div>
+          <div class="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-primary-fixed/40 -z-10"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: THREE YEARS OF GROWING TOGETHER (Narrative & Metrics) -->
+  <section class="w-full py-20 bg-surface-container-low border-y border-outline-variant/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end mb-16">
+        <div class="lg:col-span-7 flex flex-col gap-4">
+          <SectionHeading
+            eyebrow="Evolution of Purpose"
+            title="Three Years of Growing Together: <br/><span class='font-normal italic text-secondary'>From Humble Outreaches to Lasting Change</span>"
+            subtitle="Founded initially as <strong class='text-primary'>The Testybam Initiative</strong>, our grassroots work started with a singular, urgent calling: no girl should ever choose between her education and basic menstrual dignity. As our sisterhood expanded across public secondary schools, underserved neighborhoods, and orphanages, we evolved into <strong class='text-primary'>The Blooming Ones Initiative</strong>—a dedicated, multi-dimensional movement committed to nourishing the intellect, dignity, and inner strength of young African women."
+          />
+        </div>
+
+        <div class="lg:col-span-5 flex flex-col gap-4 p-6 rounded-3xl bg-surface-bright shadow-sm border border-outline-variant/30">
+          <div class="flex items-center gap-3">
+            <Sparkles class="w-6 h-6 text-secondary" />
+            <h3 class="font-title-lg text-primary">Our Triple Grounding</h3>
+          </div>
+          <div class="grid grid-cols-3 gap-3 pt-2 text-center">
+            <div class="p-3.5 rounded-2xl bg-surface-container border border-outline-variant/20">
+              <span class="font-label-caps text-secondary uppercase font-bold">Edify</span>
+              <p class="font-body-sm text-on-surface-variant mt-1">Nurturing mind & spirit</p>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-surface-container border border-outline-variant/20">
+              <span class="font-label-caps text-secondary uppercase font-bold">Nourish</span>
+              <p class="font-body-sm text-on-surface-variant mt-1">Holistic health & care</p>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-surface-container border border-outline-variant/20">
+              <span class="font-label-caps text-secondary uppercase font-bold">Empower</span>
+              <p class="font-body-sm text-on-surface-variant mt-1">Agency to lead boldly</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stat Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <ImpactStat
+          value="3+ Years"
+          label="Direct Grassroots Service"
+          description="Uninterrupted dedication to underserved public secondary schools and rural communities."
+          badge="Since 2023"
+          badgeVariant="rose"
+        />
+        <ImpactStat
+          value="12,500+"
+          label="Girls Reached & Edified"
+          description="Active participants in workshops, dignity circles, and academic mentorship programs."
+          badge="Beneficiaries"
+          badgeVariant="leaf"
+        />
+        <ImpactStat
+          value="48+"
+          label="Schools & Communities"
+          description="Community footprints across Lagos, Ogun, Oyo States, and regional partner hubs."
+          badge="Footprint"
+          badgeVariant="cream"
+        />
+        <ImpactStat
+          value="28,000+"
+          label="Dignity Kits Distributed"
+          description="High-grade menstrual kits and personal hygiene packs delivered free of cost."
+          badge="Essential Care"
+          badgeVariant="leaf"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: HOW WE HELP GIRLS BLOOM (5 Core Programs) -->
+  <section class="w-full py-24 bg-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <SectionHeading
+          align="center"
+          eyebrow="What We Do"
+          title="Five Pillars of Flourishing"
+          subtitle="We address the complete ecosystem of a girl’s adolescence—from reproductive dignity and mental health to secondary school retention and leadership."
+        />
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <!-- Pillar 1: Menstrual Health -->
+        <ProgramCard
+          title="Menstrual Health & Dignity"
+          badge="Core Dignity Pillar"
+          description="Eradicating menstrual poverty and monthly school absenteeism. We provide free biodegradable sanitary pads, personal hygiene kits, and clinical menstrual health education in public schools."
+          features={["Dignity Kits Distribution", "Hygiene Management Clinics", "School Attendance Tracking"]}
+          link="/our-work/menstrual-health"
+          image="/images/menstrual-mentor.png"
+          imageAlt="Healthcare mentor guiding a young student on menstrual hygiene"
+        />
+
+        <!-- Pillar 2: Education & Mentorship -->
+        <ProgramCard
+          title="Education & Mentorship"
+          badge="Intellectual Flourishing"
+          description="Connecting promising girls with experienced female mentors, academic scholarships, STEM career coaching, and secondary-to-tertiary transition pathways."
+          features={["1-on-1 Career Mentorship", "Scholarship Micro-Grants", "STEM & Coding Workshops"]}
+          link="/our-work/education"
+          image="/images/hero-schoolgirls.png"
+          imageAlt="Secondary schoolgirls reading textbooks in sunlight"
+        />
+
+        <!-- Pillar 3: Girl-Child Empowerment -->
+        <ProgramCard
+          title="Girl-Child Empowerment"
+          badge="Agency & Leadership"
+          description="Nurturing self-esteem, rights awareness, assertiveness, and leadership abilities. We equip young women to make informed bodily decisions and resist gender-based limitations."
+          features={["Rights & Voice Training", "Public Speaking Clinics", "Mental Wellness Support"]}
+          link="/our-work/empowerment"
+          image="/images/girls-circle.png"
+          imageAlt="Adolescent girls sitting in a supportive empowerment circle"
+        />
+
+        <!-- Pillar 4: Girls' Hangouts -->
+        <ProgramCard
+          title="Girls' Hangouts"
+          badge="Safe Sisterhood Circles"
+          description="Welcoming, judgment-free weekend gatherings where girls speak candidly about life transitions, mental wellbeing, relationships, and dreams in a warm sisterhood."
+          features={["Bi-Weekly Safe Spaces", "Creative Arts & Expression", "Peer Counseling Circles"]}
+          link="/our-work/girls-hangouts"
+          image="/images/volunteer-coordinator.png"
+          imageAlt="Coordinator smiling warmly with young participants"
+        />
+
+        <!-- Pillar 5: Community Outreach & Orphanage Care (Wide Card) -->
+        <ProgramCard
+          title="Community Outreach & Orphanage Care"
+          badge="Grassroots Humanitarian Care"
+          description="Reaching beyond classrooms into remote settlements, internally displaced communities, and children's homes. We provide wholesome nutritional provisions, personal hygiene supplies, beddings, and compassionate relational warmth."
+          features={["Quarterly Village Missions", "12 Partner Orphanages", "Emergency Hygiene Care"]}
+          link="/our-work/community-outreach"
+          image="/images/volunteers-healthcare.png"
+          imageAlt="Volunteers and medical staff providing care at a local outreach hub"
+          isWide={true}
+        />
+      </div>
+
+      <div class="mt-12 text-center">
+        <Button href="/our-work" variant="outline" size="lg">
+          <span>View All Program Details & Methodologies</span>
+          <ArrowRight class="w-4 h-4" />
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: STORIES OF BLOOMING (Featured Editorial Stories) -->
+  <section class="w-full py-24 bg-surface-container-low border-y border-outline-variant/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+        <SectionHeading
+          eyebrow="Voices From The Ground"
+          title="Stories of Blooming"
+          subtitle="Real dispatches of transformation, dignity restored, and academic dreams unlocked across Nigerian schools and communities."
+        />
+        <Button href="/stories" variant="secondary" class="flex-shrink-0 self-start md:self-end">
+          <span>Read All Stories</span>
+          <ArrowRight class="w-4 h-4" />
+        </Button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {featuredStories.map((story) => (
+          <StoryCard
+            title={story.data.title}
+            description={story.data.description}
+            date={story.data.date}
+            category={story.data.category}
+            image={story.data.image}
+            imageAlt={story.data.imageAlt}
+            slug={story.id.replace(/\.md$/, '')}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: SEE THE WORK IN ACTION (Documentary Visual Mosaic) -->
+  <section class="w-full py-24 bg-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <SectionHeading
+          align="center"
+          eyebrow="Field Dispatches"
+          title="See The Work in Action"
+          subtitle="Documenting moments of courage, warmth, mentorship, and solidarity across our project hubs."
+        />
+      </div>
+
+      <!-- Photo Mosaic Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="rounded-3xl overflow-hidden shadow-sm aspect-[4/3] bg-surface-container border border-outline-variant/30 group relative">
+          <img
+            src="/images/girls-circle.png"
+            alt="Schoolgirls in a safe circle discussion"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-on-primary">
+            <span class="text-xs uppercase font-bold tracking-wider text-secondary-fixed">Mentorship Circle</span>
+            <p class="text-sm font-medium mt-1">Girls' Hangout session discussing self-worth and bodily changes.</p>
+          </div>
+        </div>
+
+        <div class="rounded-3xl overflow-hidden shadow-sm aspect-[4/3] bg-surface-container border border-outline-variant/30 group relative">
+          <img
+            src="/images/menstrual-mentor.png"
+            alt="Healthcare mentor distributing dignity kits"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-on-primary">
+            <span class="text-xs uppercase font-bold tracking-wider text-secondary-fixed">Menstrual Health Clinic</span>
+            <p class="text-sm font-medium mt-1">Providing sanitary hygiene kits and clinical guidance.</p>
+          </div>
+        </div>
+
+        <div class="rounded-3xl overflow-hidden shadow-sm aspect-[4/3] bg-surface-container border border-outline-variant/30 group relative">
+          <img
+            src="/images/volunteers-healthcare.png"
+            alt="Volunteers and medical team ready for outreach"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-on-primary">
+            <span class="text-xs uppercase font-bold tracking-wider text-secondary-fixed">Volunteer Field Network</span>
+            <p class="text-sm font-medium mt-1">Our healthcare volunteers on an outreach mission in Lagos.</p>
+          </div>
+        </div>
+
+        <div class="rounded-3xl overflow-hidden shadow-sm aspect-[4/3] bg-surface-container border border-outline-variant/30 group relative">
+          <img
+            src="/images/volunteer-coordinator.png"
+            alt="Volunteer coordinator smiling outdoors"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-on-primary">
+            <span class="text-xs uppercase font-bold tracking-wider text-secondary-fixed">Community Engagement</span>
+            <p class="text-sm font-medium mt-1">Building trusting relationships with local caregivers.</p>
+          </div>
+        </div>
+
+        <div class="rounded-3xl overflow-hidden shadow-sm aspect-[4/3] bg-surface-container border border-outline-variant/30 group relative">
+          <img
+            src="/images/doctor-portrait.png"
+            alt="Volunteer female doctor providing guidance"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-on-primary">
+            <span class="text-xs uppercase font-bold tracking-wider text-secondary-fixed">Clinical Guidance</span>
+            <p class="text-sm font-medium mt-1">Healthcare professionals answering adolescent questions.</p>
+          </div>
+        </div>
+
+        <div class="rounded-3xl overflow-hidden shadow-sm aspect-[4/3] bg-surface-container border border-outline-variant/30 group relative">
+          <img
+            src="/images/founder-portrait.png"
+            alt="Founder Temitope Babatunde"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-on-primary">
+            <span class="text-xs uppercase font-bold tracking-wider text-secondary-fixed">Leadership & Vision</span>
+            <p class="text-sm font-medium mt-1">Steering three years of girl-child advocacy across Nigeria.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <Button href="/gallery" variant="secondary" size="md">
+          <ImageIcon class="w-4 h-4" />
+          <span>Explore Full Media Gallery & Lightbox</span>
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: TOGETHER, WE CAN HELP HER BLOOM (Interactive Gift Matrix & Donation Widget) -->
+  <section class="w-full py-24 bg-surface-container-low relative overflow-hidden border-t border-outline-variant/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <SectionHeading
+          align="center"
+          eyebrow="Make a Direct Impact"
+          title="Together, We Can Help Her Bloom"
+          subtitle="Your gift directly purchases verified, high-quality sanitary kits, sponsors safe mentorship gatherings, and guarantees that adolescent girls remain proudly in school."
+        />
+      </div>
+
+      <DonationSelector />
+    </div>
+  </section>
+
+  <!-- SECTION 7: GROWING WITH PARTNERS & CHAMPIONS -->
+  <PartnerLogos />
+</BaseLayout>

@@ -1,0 +1,73 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+interface Props {
+  title: string;
+  eyebrow?: string;
+  description?: string;
+  lead?: string;
+  breadcrumbs?: { label: string; href?: string }[];
+  seoDescription?: string;
+  image?: string;
+  heroBgClass?: string;
+}
+
+const {
+  title,
+  eyebrow,
+  description,
+  lead,
+  breadcrumbs = [],
+  seoDescription,
+  image,
+  heroBgClass = "bg-gradient-to-b from-surface-container-high/40 via-surface to-surface",
+} = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={seoDescription || lead || description}
+  image={image}
+>
+  <!-- Page Hero Header -->
+  <section class={`relative w-full py-12 md:py-16 overflow-hidden border-b border-outline-variant/20 ${heroBgClass}`}>
+    <!-- Ambient organic blush blur -->
+    <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-[600px] h-[280px] bg-secondary-container/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <div class="absolute -top-16 right-0 w-80 h-80 bg-tertiary-fixed/30 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {breadcrumbs.length > 0 && (
+        <div class="mb-4">
+          <Breadcrumbs items={breadcrumbs} />
+        </div>
+      )}
+
+      <div class="max-w-3xl flex flex-col items-start gap-4">
+        {eyebrow && (
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-bright text-secondary text-xs font-bold tracking-wider uppercase shadow-sm border border-secondary/20">
+            <span class="w-1.5 h-1.5 rounded-full bg-secondary" aria-hidden="true"></span>
+            <span>{eyebrow}</span>
+          </div>
+        )}
+
+        <h1 class="font-display-hero text-primary tracking-tight">
+          <Fragment set:html={title} />
+        </h1>
+
+        {(lead || description) && (
+          <p class="font-body-lg text-on-surface-variant leading-relaxed">
+            <Fragment set:html={lead || description} />
+          </p>
+        )}
+
+        <slot name="hero-actions" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Page Body -->
+  <div class="w-full">
+    <slot />
+  </div>
+</BaseLayout>

@@ -1,0 +1,393 @@
+---
+import { Heart, Menu, X, ChevronDown } from 'lucide-astro';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = Astro.url.pathname } = Astro.props;
+
+const isActive = (path: string) => {
+  if (path === '/' && currentPath === '/') return true;
+  if (path !== '/' && currentPath.startsWith(path)) return true;
+  return false;
+};
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(74,18,40,0.05)] border-b border-outline-variant/30">
+  <div class="h-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+    <!-- Logo Brand -->
+    <a href="/" class="flex items-center gap-3 group focus:outline-none" aria-label="The Blooming Ones Initiative - Return to Homepage">
+      <img
+        src="/images/logo.png"
+        alt="The Blooming Ones Initiative Emblem"
+        width="44"
+        height="44"
+        class="h-11 w-11 object-contain transition-transform duration-300 group-hover:scale-105"
+        loading="eager"
+      />
+      <div class="flex flex-col">
+        <span class="font-headline-sm text-primary tracking-tight group-hover:text-secondary transition-colors font-semibold">
+          The Blooming Ones
+        </span>
+        <span class="font-label-caps text-secondary font-bold tracking-wider">
+          Edifying • Nourishing • Empowering
+        </span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation (5 Main Items + Contact) -->
+    <nav class="hidden xl:flex items-center gap-6" aria-label="Main Navigation">
+      <!-- Home -->
+      <a
+        href="/"
+        class={`relative py-2 font-label-lg transition-colors ${
+          isActive('/') && currentPath === '/'
+            ? 'text-primary font-bold after:scale-x-100'
+            : 'text-on-surface-variant hover:text-primary'
+        } after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary-container after:transition-transform after:origin-left`}
+      >
+        Home
+      </a>
+
+      <!-- About Dropdown -->
+      <div class="relative group nav-dropdown">
+        <button
+          type="button"
+          class={`flex items-center gap-1 py-2 font-label-lg transition-colors cursor-pointer ${
+            isActive('/about') ? 'text-primary font-bold' : 'text-on-surface-variant hover:text-primary'
+          }`}
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
+          <span>About</span>
+          <ChevronDown class="w-4 h-4 text-outline group-hover:rotate-180 group-hover:text-primary transition-transform duration-200" />
+        </button>
+        <div class="absolute left-0 top-full pt-2 opacity-0 -translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:pointer-events-auto transition-all duration-200 z-50">
+          <div class="w-60 p-2 rounded-2xl bg-surface-container-lowest shadow-[0_12px_32px_-4px_rgba(74,18,40,0.12),0_2px_8px_-1px_rgba(74,18,40,0.06)] border border-outline-variant/30 flex flex-col gap-1">
+            <a href="/about" class="px-3.5 py-2.5 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">
+              About Overview
+            </a>
+            <a href="/about/story" class="px-3.5 py-2.5 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">
+              Our Story (3+ Years)
+            </a>
+            <a href="/about/mission" class="px-3.5 py-2.5 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">
+              Mission, Vision & Values
+            </a>
+            <a href="/about/team" class="px-3.5 py-2.5 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">
+              Leadership & Team
+            </a>
+            <a href="/about/partners" class="px-3.5 py-2.5 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">
+              Partners & Champions
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Our Work Dropdown -->
+      <div class="relative group nav-dropdown">
+        <button
+          type="button"
+          class={`flex items-center gap-1 py-2 font-label-lg transition-colors cursor-pointer ${
+            isActive('/our-work') ? 'text-primary font-bold' : 'text-on-surface-variant hover:text-primary'
+          }`}
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
+          <span>Our Work</span>
+          <ChevronDown class="w-4 h-4 text-outline group-hover:rotate-180 group-hover:text-primary transition-transform duration-200" />
+        </button>
+        <div class="absolute left-0 top-full pt-2 opacity-0 -translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:pointer-events-auto transition-all duration-200 z-50">
+          <div class="w-72 p-2 rounded-2xl bg-surface-container-lowest shadow-[0_12px_32px_-4px_rgba(74,18,40,0.12),0_2px_8px_-1px_rgba(74,18,40,0.06)] border border-outline-variant/30 flex flex-col gap-1">
+            <a href="/our-work" class="px-3.5 py-2.5 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">
+              Programs Overview
+            </a>
+            <a href="/our-work/menstrual-health" class="px-3.5 py-2.5 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">
+              Menstrual Health & Dignity
+            </a>
+            <a href="/our-work/education" class="px-3.5 py-2.5 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">
+              Education & Mentorship
+            </a>
+            <a href="/our-work/empowerment" class="px-3.5 py-2.5 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">
+              Girl-Child Empowerment
+            </a>
+            <a href="/our-work/girls-hangouts" class="px-3.5 py-2.5 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">
+              Girls' Hangouts
+            </a>
+            <a href="/our-work/community-outreach" class="px-3.5 py-2.5 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">
+              Community & Orphanage Care
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Impact Dropdown -->
+      <div class="relative group nav-dropdown">
+        <button
+          type="button"
+          class={`flex items-center gap-1 py-2 font-label-lg transition-colors cursor-pointer ${
+            isActive('/impact') || isActive('/stories') || isActive('/gallery') ? 'text-primary font-bold' : 'text-on-surface-variant hover:text-primary'
+          }`}
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
+          <span>Impact</span>
+          <ChevronDown class="w-4 h-4 text-outline group-hover:rotate-180 group-hover:text-primary transition-transform duration-200" />
+        </button>
+        <div class="absolute left-0 top-full pt-2 opacity-0 -translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:pointer-events-auto transition-all duration-200 z-50">
+          <div class="w-64 p-2 rounded-2xl bg-surface-container-lowest shadow-[0_12px_32px_-4px_rgba(74,18,40,0.12),0_2px_8px_-1px_rgba(74,18,40,0.06)] border border-outline-variant/30 flex flex-col gap-1">
+            <a href="/impact" class="px-3.5 py-2.5 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">
+              Our Impact & Metrics
+            </a>
+            <a href="/stories" class="px-3.5 py-2.5 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">
+              Stories of Blooming
+            </a>
+            <a href="/gallery" class="px-3.5 py-2.5 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">
+              Media & Field Gallery
+            </a>
+            <a href="/impact/reports" class="px-3.5 py-2.5 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">
+              Annual Reports & Governance
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Get Involved Dropdown -->
+      <div class="relative group nav-dropdown">
+        <button
+          type="button"
+          class={`flex items-center gap-1 py-2 font-label-lg transition-colors cursor-pointer ${
+            isActive('/get-involved') ? 'text-primary font-bold' : 'text-on-surface-variant hover:text-primary'
+          }`}
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
+          <span>Get Involved</span>
+          <ChevronDown class="w-4 h-4 text-outline group-hover:rotate-180 group-hover:text-primary transition-transform duration-200" />
+        </button>
+        <div class="absolute left-0 top-full pt-2 opacity-0 -translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:pointer-events-auto transition-all duration-200 z-50">
+          <div class="w-64 p-2 rounded-2xl bg-surface-container-lowest shadow-[0_12px_32px_-4px_rgba(74,18,40,0.12),0_2px_8px_-1px_rgba(74,18,40,0.06)] border border-outline-variant/30 flex flex-col gap-1">
+            <a href="/get-involved" class="px-3.5 py-2.5 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">
+              Involvement Hub
+            </a>
+            <a href="/get-involved/volunteer" class="px-3.5 py-2.5 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">
+              Volunteer With Us
+            </a>
+            <a href="/get-involved/partner" class="px-3.5 py-2.5 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">
+              Partner With Us
+            </a>
+            <a href="/get-involved/sponsor" class="px-3.5 py-2.5 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">
+              Sponsor a Program
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <a
+        href="/contact"
+        class={`relative py-2 font-label-lg transition-colors ${
+          isActive('/contact') ? 'text-primary font-bold' : 'text-on-surface-variant hover:text-primary'
+        }`}
+      >
+        Contact
+      </a>
+    </nav>
+
+    <!-- Header Actions (Donate & Mobile Trigger) -->
+    <div class="flex items-center gap-3">
+      <!-- Donate CTA -->
+      <a
+        href="/donate"
+        class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary-container text-on-primary font-label-lg hover:bg-primary transition-all duration-200 shadow-[0_4px_16px_rgba(74,18,40,0.2)] hover:shadow-[0_6px_20px_rgba(74,18,40,0.3)] hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      >
+        <Heart class="w-4 h-4 fill-current text-secondary-fixed" />
+        <span>Donate</span>
+      </a>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button
+        id="mobileMenuBtn"
+        type="button"
+        aria-label="Open Navigation Menu"
+        aria-expanded="false"
+        aria-controls="mobileMenuDrawer"
+        class="xl:hidden p-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors cursor-pointer"
+      >
+        <Menu class="w-6 h-6" id="menuOpenIcon" />
+        <X class="w-6 h-6 hidden" id="menuCloseIcon" />
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div
+    id="mobileMenuDrawer"
+    class="fixed inset-x-0 top-20 bottom-0 bg-surface/98 backdrop-blur-2xl border-t border-outline-variant/30 overflow-y-auto px-6 py-6 hidden xl:hidden z-40 transition-all duration-300"
+    role="dialog"
+    aria-label="Mobile Navigation"
+  >
+    <div class="flex flex-col gap-4 max-w-lg mx-auto pb-12">
+      <!-- Home -->
+      <a
+        href="/"
+        class="py-3 px-4 rounded-xl font-title-md text-primary hover:bg-surface-container-low transition-colors border-b border-outline-variant/20"
+      >
+        Home
+      </a>
+
+      <!-- About Submenu -->
+      <div class="mobile-accordion border-b border-outline-variant/20 pb-2">
+        <button
+          type="button"
+          class="w-full flex items-center justify-between py-3 px-4 font-title-md text-primary hover:bg-surface-container-low rounded-xl transition-colors text-left"
+          aria-expanded="false"
+        >
+          <span>About</span>
+          <ChevronDown class="w-5 h-5 text-outline transition-transform duration-200 mobile-chevron" />
+        </button>
+        <div class="hidden flex-col gap-1 pl-4 pt-1 pb-2">
+          <a href="/about" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">About Overview</a>
+          <a href="/about/story" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Our Story</a>
+          <a href="/about/mission" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Mission & Vision</a>
+          <a href="/about/team" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Leadership & Team</a>
+          <a href="/about/partners" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Partners</a>
+        </div>
+      </div>
+
+      <!-- Our Work Submenu -->
+      <div class="mobile-accordion border-b border-outline-variant/20 pb-2">
+        <button
+          type="button"
+          class="w-full flex items-center justify-between py-3 px-4 font-title-md text-primary hover:bg-surface-container-low rounded-xl transition-colors text-left"
+          aria-expanded="false"
+        >
+          <span>Our Work</span>
+          <ChevronDown class="w-5 h-5 text-outline transition-transform duration-200 mobile-chevron" />
+        </button>
+        <div class="hidden flex-col gap-1 pl-4 pt-1 pb-2">
+          <a href="/our-work" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Programs Overview</a>
+          <a href="/our-work/menstrual-health" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Menstrual Health & Dignity</a>
+          <a href="/our-work/education" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Education & Mentorship</a>
+          <a href="/our-work/empowerment" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Girl-Child Empowerment</a>
+          <a href="/our-work/girls-hangouts" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Girls' Hangouts</a>
+          <a href="/our-work/community-outreach" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Community & Orphanage Care</a>
+        </div>
+      </div>
+
+      <!-- Impact Submenu -->
+      <div class="mobile-accordion border-b border-outline-variant/20 pb-2">
+        <button
+          type="button"
+          class="w-full flex items-center justify-between py-3 px-4 font-title-md text-primary hover:bg-surface-container-low rounded-xl transition-colors text-left"
+          aria-expanded="false"
+        >
+          <span>Impact</span>
+          <ChevronDown class="w-5 h-5 text-outline transition-transform duration-200 mobile-chevron" />
+        </button>
+        <div class="hidden flex-col gap-1 pl-4 pt-1 pb-2">
+          <a href="/impact" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Impact Overview</a>
+          <a href="/stories" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Stories of Blooming</a>
+          <a href="/gallery" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Photo Gallery</a>
+          <a href="/impact/reports" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Annual Reports</a>
+        </div>
+      </div>
+
+      <!-- Get Involved Submenu -->
+      <div class="mobile-accordion border-b border-outline-variant/20 pb-2">
+        <button
+          type="button"
+          class="w-full flex items-center justify-between py-3 px-4 font-title-md text-primary hover:bg-surface-container-low rounded-xl transition-colors text-left"
+          aria-expanded="false"
+        >
+          <span>Get Involved</span>
+          <ChevronDown class="w-5 h-5 text-outline transition-transform duration-200 mobile-chevron" />
+        </button>
+        <div class="hidden flex-col gap-1 pl-4 pt-1 pb-2">
+          <a href="/get-involved" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Involvement Hub</a>
+          <a href="/get-involved/volunteer" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Volunteer With Us</a>
+          <a href="/get-involved/partner" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Partner With Us</a>
+          <a href="/get-involved/sponsor" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Sponsor a Program</a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <a
+        href="/contact"
+        class="py-3 px-4 rounded-xl font-title-md text-primary hover:bg-surface-container-low transition-colors border-b border-outline-variant/20"
+      >
+        Contact
+      </a>
+
+      <!-- Mobile Donate Button -->
+      <div class="pt-4 flex flex-col gap-3">
+        <a
+          href="/donate"
+          class="w-full py-3.5 rounded-full bg-primary-container text-on-primary font-label-lg flex items-center justify-center gap-2 shadow-md hover:bg-primary transition-all text-center"
+        >
+          <Heart class="w-4 h-4 fill-current text-secondary-fixed" />
+          <span>Support Our Mission (Donate)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile drawer logic with clean accessibility
+  const initMobileNav = () => {
+    const btn = document.getElementById('mobileMenuBtn');
+    const drawer = document.getElementById('mobileMenuDrawer');
+    const openIcon = document.getElementById('menuOpenIcon');
+    const closeIcon = document.getElementById('menuCloseIcon');
+
+    if (!btn || !drawer || !openIcon || !closeIcon) return;
+
+    const toggleDrawer = () => {
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isExpanded));
+      drawer.classList.toggle('hidden');
+      openIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+      document.body.style.overflow = isExpanded ? '' : 'hidden';
+    };
+
+    btn.addEventListener('click', toggleDrawer);
+
+    // Mobile accordions
+    const accordions = document.querySelectorAll('.mobile-accordion');
+    accordions.forEach((acc) => {
+      const toggle = acc.querySelector('button');
+      const panel = acc.querySelector('div');
+      const chevron = acc.querySelector('.mobile-chevron');
+      if (toggle && panel && chevron) {
+        toggle.addEventListener('click', () => {
+          const isOpened = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!isOpened));
+          panel.classList.toggle('hidden');
+          chevron.classList.toggle('rotate-180');
+        });
+      }
+    });
+
+    // Close drawer on link click
+    const drawerLinks = drawer.querySelectorAll('a');
+    drawerLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        if (!drawer.classList.contains('hidden')) {
+          toggleDrawer();
+        }
+      });
+    });
+
+    // Close drawer on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !drawer.classList.contains('hidden')) {
+        toggleDrawer();
+      }
+    });
+  };
+
+  initMobileNav();
+  document.addEventListener('astro:after-swap', initMobileNav);
+</script>

@@ -1,0 +1,160 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Button from '../../components/Button.astro';
+import { HeartHandshake, Send, ShieldCheck, Heart } from 'lucide-astro';
+---
+
+<PageLayout
+  title="Sponsor a Program"
+  eyebrow="Targeted Philanthropy"
+  description="Direct your philanthropic support toward specific programs: adopt a school, finance dignity pantries, or sponsor orphanages."
+  breadcrumbs={[
+    { label: 'Get Involved', href: '/get-involved' },
+    { label: 'Sponsor a Program' },
+  ]}
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="mb-12">
+      <SectionHeading
+        eyebrow="Direct Sponsorship"
+        title="Fuel A Dedicated Initiative"
+        subtitle="Choose the specific program pillar you wish to champion. We provide comprehensive quarterly monitoring, expenditure transparency, and impact documentation."
+      />
+    </div>
+
+    <!-- Form Container -->
+    <div class="p-8 sm:p-12 rounded-3xl bg-surface-container-low border border-outline-variant/30 shadow-sm">
+      <form id="sponsorForm" class="space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Name / Organization -->
+          <div>
+            <label for="sponsorName" class="block text-xs font-bold uppercase tracking-wider text-secondary font-label-caps mb-2">
+              Sponsor Name / Organization <span class="text-error">*</span>
+            </label>
+            <input
+              type="text"
+              id="sponsorName"
+              name="sponsorName"
+              required
+              placeholder="e.g. Dr. Babatunde / Apex Capital Foundation"
+              class="w-full px-4 py-3 rounded-xl bg-surface-bright border border-outline-variant/40 text-on-surface placeholder:text-outline text-sm focus:outline-none focus:ring-2 focus:ring-secondary/40"
+            />
+          </div>
+
+          <!-- Email Address -->
+          <div>
+            <label for="sponsorEmail" class="block text-xs font-bold uppercase tracking-wider text-secondary font-label-caps mb-2">
+              Email Address <span class="text-error">*</span>
+            </label>
+            <input
+              type="email"
+              id="sponsorEmail"
+              name="email"
+              required
+              placeholder="e.g. contact@foundation.org"
+              class="w-full px-4 py-3 rounded-xl bg-surface-bright border border-outline-variant/40 text-on-surface placeholder:text-outline text-sm focus:outline-none focus:ring-2 focus:ring-secondary/40"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Program Selection -->
+          <div>
+            <label for="sponsorProgram" class="block text-xs font-bold uppercase tracking-wider text-secondary font-label-caps mb-2">
+              Program to Sponsor <span class="text-error">*</span>
+            </label>
+            <select
+              id="sponsorProgram"
+              name="program"
+              required
+              class="w-full px-4 py-3 rounded-xl bg-surface-bright border border-outline-variant/40 text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-secondary/40"
+            >
+              <option value="">Select a program</option>
+              <option value="menstrual-health">Menstrual Health & Dignity (Pads & Hygiene)</option>
+              <option value="education-mentorship">Education & STEM Mentorship (Scholarships & Exams)</option>
+              <option value="girls-hangouts">Girls' Hangouts (Safe Sisterhood Circles)</option>
+              <option value="orphanage-care">Community Outreach & Orphanage Care (Provisions & Medical)</option>
+              <option value="unrestricted">Where Most Urgently Needed (General Pool)</option>
+            </select>
+          </div>
+
+          <!-- Support Type -->
+          <div>
+            <label for="supportType" class="block text-xs font-bold uppercase tracking-wider text-secondary font-label-caps mb-2">
+              Support Type <span class="text-error">*</span>
+            </label>
+            <select
+              id="supportType"
+              name="supportType"
+              required
+              class="w-full px-4 py-3 rounded-xl bg-surface-bright border border-outline-variant/40 text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-secondary/40"
+            >
+              <option value="">Select support type</option>
+              <option value="financial">Financial Grant / Donation</option>
+              <option value="goods-kits">Goods / Sanitary Pad Kits in Bulk</option>
+              <option value="venue-facility">Venue / Facility Hosting for Hangouts</option>
+              <option value="in-kind">In-Kind Professional Services (Medical / Legal / Tech)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Amount if applicable -->
+        <div>
+          <label for="sponsorAmount" class="block text-xs font-bold uppercase tracking-wider text-secondary font-label-caps mb-2">
+            Target Amount / Budget (₦ or USD, if applicable)
+          </label>
+          <input
+            type="text"
+            id="sponsorAmount"
+            name="amount"
+            placeholder="e.g. ₦250,000 or $1,000"
+            class="w-full px-4 py-3 rounded-xl bg-surface-bright border border-outline-variant/40 text-on-surface placeholder:text-outline text-sm focus:outline-none focus:ring-2 focus:ring-secondary/40"
+          />
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label for="sponsorMessage" class="block text-xs font-bold uppercase tracking-wider text-secondary font-label-caps mb-2">
+            Specific Intentions or Requirements <span class="text-error">*</span>
+          </label>
+          <textarea
+            id="sponsorMessage"
+            name="message"
+            rows="4"
+            required
+            placeholder="Tell us about your specific goals, preferred school/orphanage location, or any reporting criteria..."
+            class="w-full px-4 py-3 rounded-xl bg-surface-bright border border-outline-variant/40 text-on-surface placeholder:text-outline text-sm focus:outline-none focus:ring-2 focus:ring-secondary/40"
+          ></textarea>
+        </div>
+
+        <!-- Feedback Box -->
+        <div id="sponsorFeedback" class="hidden p-4 rounded-2xl bg-secondary-fixed text-on-secondary-fixed text-sm font-medium text-center">
+          Thank you! Your program sponsorship interest has been submitted. Our sponsorship officer will contact you within 24–48 hours with program cost schedules and tailored execution plans.
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="w-full py-4 rounded-full bg-primary-container text-on-primary font-label-lg text-base flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(74,18,40,0.25)] hover:bg-primary transition-all cursor-pointer"
+        >
+          <Heart class="w-4 h-4 fill-current text-secondary-fixed" />
+          <span>Submit Sponsorship Expression</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</PageLayout>
+
+<script>
+  const sForm = document.getElementById('sponsorForm') as HTMLFormElement;
+  const sFeedback = document.getElementById('sponsorFeedback');
+  if (sForm && sFeedback) {
+    sForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      sFeedback.classList.remove('hidden');
+      sForm.reset();
+      window.scrollTo({ top: sFeedback.offsetTop - 100, behavior: 'smooth' });
+    });
+  }
+</script>

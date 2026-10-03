@@ -1,0 +1,192 @@
+---
+import { Mail, Phone, MapPin, Send, Globe, MessageSquare, Share2, Users } from 'lucide-astro';
+---
+
+<footer class="w-full bg-surface-container-low text-on-surface border-t border-outline-variant/30 mt-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+    <!-- Main Footer Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-16 border-b border-outline-variant/30">
+      <!-- Col 1: Brand & Contact Info -->
+      <div class="lg:col-span-4 flex flex-col gap-4">
+        <div class="flex items-center gap-3">
+          <img
+            src="/images/logo.png"
+            alt="The Blooming Ones Initiative Logo"
+            width="44"
+            height="44"
+            class="h-11 w-11 object-contain"
+            loading="lazy"
+          />
+          <div class="flex flex-col">
+            <span class="font-headline-sm text-primary tracking-tight font-semibold">The Blooming Ones</span>
+            <span class="font-label-caps text-secondary font-bold tracking-wider">Edifying • Nourishing • Empowering</span>
+          </div>
+        </div>
+
+        <p class="font-body-md text-on-surface-variant max-w-sm leading-relaxed">
+          Every girl deserves the dignity and opportunity to bloom, never wither. Dedicated to adolescent girls across Nigeria and Africa through menstrual health, mentorship, and community care.
+        </p>
+
+        <!-- Verified Contact Channels -->
+        <div class="flex flex-col gap-2.5 pt-2">
+          <div class="flex items-center gap-2.5 font-body-sm text-on-surface-variant">
+            <Mail class="w-4 h-4 text-secondary flex-shrink-0" />
+            <a href="mailto:info@thebloomingones.org" class="hover:text-primary transition-colors">info@thebloomingones.org</a>
+          </div>
+          <div class="flex items-center gap-2.5 font-body-sm text-on-surface-variant">
+            <Phone class="w-4 h-4 text-secondary flex-shrink-0" />
+            <a href="tel:+2348002566666" class="hover:text-primary transition-colors">+234 (0) 800 BLOOM ONES [Official Contact]</a>
+          </div>
+          <div class="flex items-center gap-2.5 font-body-sm text-on-surface-variant">
+            <MapPin class="w-4 h-4 text-secondary flex-shrink-0" />
+            <span>Lagos & Abuja, Nigeria</span>
+          </div>
+        </div>
+
+        <!-- Social Channels -->
+        <div class="flex items-center gap-3 pt-2">
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram community channel"
+            class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:bg-primary-container hover:text-on-primary transition-all duration-200"
+          >
+            <Globe class="w-4 h-4" />
+          </a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn organizational profile"
+            class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:bg-primary-container hover:text-on-primary transition-all duration-200"
+          >
+            <Users class="w-4 h-4" />
+          </a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="X Twitter updates"
+            class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:bg-primary-container hover:text-on-primary transition-all duration-200"
+          >
+            <Share2 class="w-4 h-4" />
+          </a>
+          <a
+            href="https://wa.me/2348000000000"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp Community Desk"
+            class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:bg-primary-container hover:text-on-primary transition-all duration-200"
+          >
+            <MessageSquare class="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Navigation Links (5 cols across 2 rows or flex) -->
+      <div class="lg:col-span-5 grid grid-cols-2 sm:grid-cols-2 gap-8">
+        <!-- Subcol A: About & Programs -->
+        <div class="flex flex-col gap-6">
+          <div class="flex flex-col gap-3">
+            <h3 class="font-label-caps uppercase tracking-wider text-secondary font-bold">About Us</h3>
+            <ul class="flex flex-col gap-2 font-body-sm text-on-surface-variant">
+              <li><a href="/about" class="hover:text-primary transition-colors">About Overview</a></li>
+              <li><a href="/about/story" class="hover:text-primary transition-colors">Our Story & Heritage</a></li>
+              <li><a href="/about/mission" class="hover:text-primary transition-colors">Mission & Vision</a></li>
+              <li><a href="/about/team" class="hover:text-primary transition-colors">Leadership & Team</a></li>
+              <li><a href="/about/partners" class="hover:text-primary transition-colors">Partners & Allies</a></li>
+            </ul>
+          </div>
+
+          <div class="flex flex-col gap-3">
+            <h3 class="font-label-caps uppercase tracking-wider text-secondary font-bold">Programs</h3>
+            <ul class="flex flex-col gap-2 font-body-sm text-on-surface-variant">
+              <li><a href="/our-work/menstrual-health" class="hover:text-primary transition-colors">Menstrual Health</a></li>
+              <li><a href="/our-work/education" class="hover:text-primary transition-colors">Education & Mentorship</a></li>
+              <li><a href="/our-work/empowerment" class="hover:text-primary transition-colors">Girl Empowerment</a></li>
+              <li><a href="/our-work/girls-hangouts" class="hover:text-primary transition-colors">Girls' Hangouts</a></li>
+              <li><a href="/our-work/community-outreach" class="hover:text-primary transition-colors">Community Outreach</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Subcol B: Impact & Get Involved -->
+        <div class="flex flex-col gap-6">
+          <div class="flex flex-col gap-3">
+            <h3 class="font-label-caps uppercase tracking-wider text-secondary font-bold">Impact & Voice</h3>
+            <ul class="flex flex-col gap-2 font-body-sm text-on-surface-variant">
+              <li><a href="/impact" class="hover:text-primary transition-colors">Impact Overview</a></li>
+              <li><a href="/stories" class="hover:text-primary transition-colors">Stories of Blooming</a></li>
+              <li><a href="/gallery" class="hover:text-primary transition-colors">Photo & Video Gallery</a></li>
+              <li><a href="/impact/reports" class="hover:text-primary transition-colors">Audited Reports</a></li>
+            </ul>
+          </div>
+
+          <div class="flex flex-col gap-3">
+            <h3 class="font-label-caps uppercase tracking-wider text-secondary font-bold">Get Involved</h3>
+            <ul class="flex flex-col gap-2 font-body-sm text-on-surface-variant">
+              <li><a href="/get-involved/volunteer" class="hover:text-primary transition-colors">Volunteer Network</a></li>
+              <li><a href="/get-involved/partner" class="hover:text-primary transition-colors">Partner With Us</a></li>
+              <li><a href="/get-involved/sponsor" class="hover:text-primary transition-colors">Sponsor a Program</a></li>
+              <li><a href="/donate" class="hover:text-primary font-semibold text-secondary transition-colors">Donate Now</a></li>
+              <li><a href="/contact" class="hover:text-primary transition-colors">Contact Office</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 3: Newsletter Box -->
+      <div class="lg:col-span-3 flex flex-col gap-4">
+        <div class="p-6 rounded-2xl bg-surface-container-lowest shadow-[0_8px_24px_-4px_rgba(74,18,40,0.06)] border border-outline-variant/30">
+          <h3 class="font-headline-sm text-primary">Join Our Bloom Community</h3>
+          <p class="font-body-sm text-on-surface-variant mt-2 mb-4">
+            Receive heartfelt stories of transformation, outreach updates, and transparent annual briefs.
+          </p>
+          <form class="flex flex-col gap-2.5" id="newsletterForm">
+            <label for="newsletterEmail" class="sr-only">Your email address</label>
+            <input
+              id="newsletterEmail"
+              type="email"
+              required
+              class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-low font-body-sm text-on-surface placeholder:text-outline border border-outline-variant/40 focus:outline-none focus:ring-2 focus:ring-primary/20"
+              placeholder="Your email address"
+            />
+            <button
+              type="submit"
+              class="w-full py-2.5 rounded-full bg-primary-container text-on-primary font-label-md hover:bg-primary transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+            >
+              <Send class="w-3.5 h-3.5" />
+              <span>Subscribe</span>
+            </button>
+            <p id="newsletterSuccess" class="hidden text-xs text-secondary font-medium text-center pt-1">
+              Thank you for standing with our girls!
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Legal Bar -->
+    <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 font-body-sm text-on-surface-variant text-center md:text-left">
+      <p>© 2026 The Blooming Ones Initiative. All rights reserved. Formerly The Testybam Initiative.</p>
+      <div class="flex flex-wrap items-center justify-center gap-6 font-label-md">
+        <a href="/privacy" class="hover:text-primary transition-colors">Privacy Policy</a>
+        <a href="/terms" class="hover:text-primary transition-colors">Terms of Service</a>
+        <a href="/safeguarding" class="hover:text-primary text-secondary font-semibold transition-colors">Safeguarding Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nForm = document.getElementById('newsletterForm');
+  const nSuccess = document.getElementById('newsletterSuccess');
+  if (nForm && nSuccess) {
+    nForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      nSuccess.classList.remove('hidden');
+      (nForm.querySelector('input') as HTMLInputElement).value = '';
+    });
+  }
+</script>

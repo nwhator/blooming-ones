@@ -1,0 +1,192 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Button from '../../components/Button.astro';
+import { Users, Send, ShieldCheck, Heart, Sparkles, CheckCircle2 } from 'lucide-astro';
+---
+
+<PageLayout
+  title="Volunteer Application"
+  eyebrow="Join The Grassroots Corps"
+  description="Lend your heart, skills, and presence to our school outreaches, mentorship circles, and clinical dignity distributions."
+  breadcrumbs={[
+    { label: 'Get Involved', href: '/get-involved' },
+    { label: 'Volunteer' },
+  ]}
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="mb-12">
+      <SectionHeading
+        eyebrow="Application Form"
+        title="Walk Beside Our Girls in the Field"
+        subtitle="Please complete this expression of interest. Our volunteer coordination desk reviews applications on a weekly basis and facilitates mandatory child safeguarding onboarding."
+      />
+    </div>
+
+    <!-- Form Container -->
+    <div class="p-8 sm:p-12 rounded-3xl bg-surface-container-low border border-outline-variant/30 shadow-sm">
+      <form id="volunteerForm" class="space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Full Name -->
+          <div>
+            <label for="volName" class="block text-xs font-bold uppercase tracking-wider text-secondary font-label-caps mb-2">
+              Full Name <span class="text-error">*</span>
+            </label>
+            <input
+              type="text"
+              id="volName"
+              name="fullName"
+              required
+              placeholder="e.g. Adeola Johnson"
+              class="w-full px-4 py-3 rounded-xl bg-surface-bright border border-outline-variant/40 text-on-surface placeholder:text-outline text-sm focus:outline-none focus:ring-2 focus:ring-secondary/40"
+            />
+          </div>
+
+          <!-- Email Address -->
+          <div>
+            <label for="volEmail" class="block text-xs font-bold uppercase tracking-wider text-secondary font-label-caps mb-2">
+              Email Address <span class="text-error">*</span>
+            </label>
+            <input
+              type="email"
+              id="volEmail"
+              name="email"
+              required
+              placeholder="e.g. adeola@example.com"
+              class="w-full px-4 py-3 rounded-xl bg-surface-bright border border-outline-variant/40 text-on-surface placeholder:text-outline text-sm focus:outline-none focus:ring-2 focus:ring-secondary/40"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Phone Number -->
+          <div>
+            <label for="volPhone" class="block text-xs font-bold uppercase tracking-wider text-secondary font-label-caps mb-2">
+              Phone / WhatsApp Number <span class="text-error">*</span>
+            </label>
+            <input
+              type="tel"
+              id="volPhone"
+              name="phone"
+              required
+              placeholder="e.g. +234 801 234 5678"
+              class="w-full px-4 py-3 rounded-xl bg-surface-bright border border-outline-variant/40 text-on-surface placeholder:text-outline text-sm focus:outline-none focus:ring-2 focus:ring-secondary/40"
+            />
+          </div>
+
+          <!-- Location -->
+          <div>
+            <label for="volLocation" class="block text-xs font-bold uppercase tracking-wider text-secondary font-label-caps mb-2">
+              City / State of Residence <span class="text-error">*</span>
+            </label>
+            <input
+              type="text"
+              id="volLocation"
+              name="location"
+              required
+              placeholder="e.g. Lagos, Ibadan, Abuja, etc."
+              class="w-full px-4 py-3 rounded-xl bg-surface-bright border border-outline-variant/40 text-on-surface placeholder:text-outline text-sm focus:outline-none focus:ring-2 focus:ring-secondary/40"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Area of Interest -->
+          <div>
+            <label for="volInterest" class="block text-xs font-bold uppercase tracking-wider text-secondary font-label-caps mb-2">
+              Primary Area of Interest <span class="text-error">*</span>
+            </label>
+            <select
+              id="volInterest"
+              name="areaOfInterest"
+              required
+              class="w-full px-4 py-3 rounded-xl bg-surface-bright border border-outline-variant/40 text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-secondary/40"
+            >
+              <option value="">Select your preferred area</option>
+              <option value="menstrual-clinics">Menstrual Hygiene & School Clinics</option>
+              <option value="mentorship-hangouts">Girls' Hangouts & Mentorship</option>
+              <option value="medical-nursing">Medical / Nursing Clinical Support</option>
+              <option value="logistics-events">Outreach Logistics & Event Coordination</option>
+              <option value="media-storytelling">Photography, Video & Storytelling</option>
+              <option value="stem-education">STEM & Academic Tutoring</option>
+            </select>
+          </div>
+
+          <!-- Skills -->
+          <div>
+            <label for="volSkills" class="block text-xs font-bold uppercase tracking-wider text-secondary font-label-caps mb-2">
+              Relevant Skills / Profession
+            </label>
+            <input
+              type="text"
+              id="volSkills"
+              name="skills"
+              placeholder="e.g. Nurse, Teacher, Counselor, Student"
+              class="w-full px-4 py-3 rounded-xl bg-surface-bright border border-outline-variant/40 text-on-surface placeholder:text-outline text-sm focus:outline-none focus:ring-2 focus:ring-secondary/40"
+            />
+          </div>
+        </div>
+
+        <!-- Message / Motivation -->
+        <div>
+          <label for="volMessage" class="block text-xs font-bold uppercase tracking-wider text-secondary font-label-caps mb-2">
+            Why do you want to volunteer with The Blooming Ones? <span class="text-error">*</span>
+          </label>
+          <textarea
+            id="volMessage"
+            name="message"
+            rows="4"
+            required
+            placeholder="Tell us a little about your personal motivation and availability..."
+            class="w-full px-4 py-3 rounded-xl bg-surface-bright border border-outline-variant/40 text-on-surface placeholder:text-outline text-sm focus:outline-none focus:ring-2 focus:ring-secondary/40"
+          ></textarea>
+        </div>
+
+        <!-- Safeguarding Consent Checkbox -->
+        <div class="p-4 rounded-2xl bg-surface-bright border border-outline-variant/30 flex items-start gap-3">
+          <input
+            type="checkbox"
+            id="volSafeguarding"
+            required
+            class="mt-1 w-4 h-4 rounded text-primary focus:ring-secondary cursor-pointer"
+          />
+          <label for="volSafeguarding" class="text-xs text-on-surface-variant leading-relaxed">
+            I agree to undergo mandatory child safeguarding vetting and background verification in compliance with The Blooming Ones Initiative Child Protection Policy before participating in beneficiary activities.
+          </label>
+        </div>
+
+        <!-- Integration Hook & Feedback Box -->
+        <div id="volFeedback" class="hidden p-4 rounded-2xl bg-secondary-fixed text-on-secondary-fixed text-sm font-medium text-center">
+          Thank you for applying! Your expression of interest has been received. Our volunteer coordinator will reach out via WhatsApp/email within 3 business days.
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="w-full py-4 rounded-full bg-primary-container text-on-primary font-label-lg text-base flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(74,18,40,0.25)] hover:bg-primary transition-all cursor-pointer"
+        >
+          <Send class="w-4 h-4" />
+          <span>Submit Volunteer Application</span>
+        </button>
+
+        <p class="text-xs text-on-surface-variant text-center pt-2">
+          Your personal details are treated with utmost confidentiality. No third-party data sharing.
+        </p>
+      </form>
+    </div>
+  </div>
+</PageLayout>
+
+<script>
+  const form = document.getElementById('volunteerForm') as HTMLFormElement;
+  const feedback = document.getElementById('volFeedback');
+  if (form && feedback) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Integration point for future API service
+      feedback.classList.remove('hidden');
+      form.reset();
+      window.scrollTo({ top: feedback.offsetTop - 100, behavior: 'smooth' });
+    });
+  }
+</script>

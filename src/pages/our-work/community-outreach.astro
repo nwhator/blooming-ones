@@ -1,0 +1,113 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Button from '../../components/Button.astro';
+import CTA from '../../components/CTA.astro';
+import { HandHeart, Home, Heart, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-astro';
+---
+
+<PageLayout
+  title="Community Outreach & Orphanage Care"
+  eyebrow="Grassroots Humanitarian Care"
+  description="Delivering life-affirming personal care packages, nutritional provisions, and clinical check-ins to children's homes and underserved settlements across Nigeria."
+  breadcrumbs={[
+    { label: 'Our Work', href: '/our-work' },
+    { label: 'Community Outreach & Orphanage Care' },
+  ]}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+      <div class="lg:col-span-7 flex flex-col gap-6">
+        <SectionHeading
+          eyebrow="Reaching Beyond The School Gates"
+          title="Bringing Warmth, Health, and Family Care to Vulnerable Children"
+          subtitle="Adolescent girls living in residential orphanages and displaced settlements face acute vulnerabilities. Many homes operate with strained monthly budgets where menstrual dignity packs and personal toiletries become impossible luxuries."
+        />
+
+        <p class="font-body-md text-on-surface-variant leading-relaxed">
+          The Blooming Ones Initiative operates a permanent quarterly outreach program serving 12 partner orphanages and children’s residential homes across Lagos, Ogun, and Oyo States. We provide wholesome nutritional provisions, beddings, sanitary kits, dental hygiene supplies, and confidential health screenings.
+        </p>
+
+        <div class="flex flex-wrap gap-4 pt-2">
+          <Button href="/donate" variant="primary">
+            <span>Sponsor an Orphanage Care Pack</span>
+          </Button>
+          <Button href="/stories/grace-and-the-light-ebenezer-orphanage" variant="secondary">
+            <span>Read Grace's Story at Ebenezer Home</span>
+            <ArrowRight class="w-4 h-4" />
+          </Button>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5">
+        <div class="rounded-3xl overflow-hidden shadow-xl aspect-[4/3] bg-surface-container border border-outline-variant/30">
+          <img
+            src="/images/volunteers-healthcare.png"
+            alt="Healthcare volunteers distributing care packages during community outreach"
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 Pillars of Community Outreach -->
+    <div class="p-8 sm:p-12 rounded-3xl bg-surface-container-low border border-outline-variant/30 mb-20">
+      <div class="max-w-3xl mb-12">
+        <span class="font-label-caps text-secondary font-bold uppercase tracking-wider">Compassionate Coverage</span>
+        <h2 class="font-headline-lg text-primary tracking-tight mt-1">What We Deliver to Partner Homes</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/20 shadow-sm flex flex-col justify-between">
+          <div>
+            <Home class="w-8 h-8 text-secondary mb-4" />
+            <h3 class="font-title-md text-primary font-semibold">12 Permanent Care Homes</h3>
+            <p class="font-body-sm text-on-surface-variant mt-2 leading-relaxed">
+              Quarterly scheduled visits ensuring that residential homes never run out of sanitary products or basic soap.
+            </p>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/20 shadow-sm flex flex-col justify-between">
+          <div>
+            <HandHeart class="w-8 h-8 text-secondary mb-4" />
+            <h3 class="font-title-md text-primary font-semibold">Nutritional Provisions</h3>
+            <p class="font-body-sm text-on-surface-variant mt-2 leading-relaxed">
+              Supplying fortified cereals, grains, cooking oil, powdered milk, and protein staples to support healthy physical growth.
+            </p>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/20 shadow-sm flex flex-col justify-between">
+          <div>
+            <ShieldCheck class="w-8 h-8 text-secondary mb-4" />
+            <h3 class="font-title-md text-primary font-semibold">Volunteer Medical Clinics</h3>
+            <p class="font-body-sm text-on-surface-variant mt-2 leading-relaxed">
+              Volunteer female physicians provide confidential general check-ups, skincare treatments, and address menstrual ailments.
+            </p>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/20 shadow-sm flex flex-col justify-between">
+          <div>
+            <Heart class="w-8 h-8 text-secondary mb-4" />
+            <h3 class="font-title-md text-primary font-semibold">Emotional Warmth</h3>
+            <p class="font-body-sm text-on-surface-variant mt-2 leading-relaxed">
+              Spending intentional afternoons reading together, sharing meals, playing games, and building enduring big-sister friendships.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <CTA
+    eyebrow="Deliver Compassion"
+    title="Sponsor an Orphanage Care Mission"
+    description="Your corporate or individual sponsorship delivers nutritious foods and complete dignity kits to 65+ residential girls."
+    primaryText="Sponsor an Outreach (₦100,000)"
+    primaryHref="/donate"
+    secondaryText="Volunteer for Field Deployment"
+    secondaryHref="/get-involved/volunteer"
+  />
+</PageLayout>

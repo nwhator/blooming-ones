@@ -1,0 +1,41 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  align?: 'left' | 'center';
+  light?: boolean;
+  class?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  subtitle,
+  align = 'left',
+  light = false,
+  class: className = '',
+} = Astro.props;
+
+const alignClass = align === 'center' ? 'text-center mx-auto items-center' : 'text-left items-start';
+const maxWClass = align === 'center' ? 'max-w-2xl' : 'max-w-3xl';
+---
+
+<div class={`flex flex-col gap-3 ${alignClass} ${maxWClass} ${className}`}>
+  {eyebrow && (
+    <div class={`inline-flex items-center gap-2 font-label-caps tracking-wider uppercase font-bold ${light ? 'text-secondary-fixed' : 'text-secondary'}`}>
+      <span class={`w-2 h-2 rounded-full ${light ? 'bg-secondary-fixed' : 'bg-secondary'}`} aria-hidden="true"></span>
+      <span>{eyebrow}</span>
+    </div>
+  )}
+  
+  <h2 class={`font-headline-lg tracking-tight ${light ? 'text-surface' : 'text-primary'}`}>
+    <Fragment set:html={title} />
+  </h2>
+
+  {subtitle && (
+    <p class={`font-body-lg leading-relaxed ${light ? 'text-surface-dim' : 'text-on-surface-variant'}`}>
+      <Fragment set:html={subtitle} />
+    </p>
+  )}
+</div>

@@ -1,0 +1,158 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Button from '../../components/Button.astro';
+import { Handshake, Send, Building, ShieldCheck, CheckCircle2 } from 'lucide-astro';
+---
+
+<PageLayout
+  title="Partner With Us"
+  eyebrow="Institutional Alliances"
+  description="Collaborate with The Blooming Ones Initiative to expand dignity kits, school mentorship, and healthcare clinics across Nigerian communities."
+  breadcrumbs={[
+    { label: 'Get Involved', href: '/get-involved' },
+    { label: 'Partner With Us' },
+  ]}
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="mb-12">
+      <SectionHeading
+        eyebrow="Institutional Collaboration"
+        title="Multiply Impact Through Strategic Alliances"
+        subtitle="We welcome formal inquiries from state education boards, secondary school administrators, healthcare organizations, corporate CSR directors, and international grantmakers."
+      />
+    </div>
+
+    <!-- Form Container -->
+    <div class="p-8 sm:p-12 rounded-3xl bg-surface-container-low border border-outline-variant/30 shadow-sm">
+      <form id="partnerForm" class="space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Organization Name -->
+          <div>
+            <label for="orgName" class="block text-xs font-bold uppercase tracking-wider text-secondary font-label-caps mb-2">
+              Organization / School Name <span class="text-error">*</span>
+            </label>
+            <input
+              type="text"
+              id="orgName"
+              name="organizationName"
+              required
+              placeholder="e.g. Lagos State Senior Model College"
+              class="w-full px-4 py-3 rounded-xl bg-surface-bright border border-outline-variant/40 text-on-surface placeholder:text-outline text-sm focus:outline-none focus:ring-2 focus:ring-secondary/40"
+            />
+          </div>
+
+          <!-- Contact Person -->
+          <div>
+            <label for="contactPerson" class="block text-xs font-bold uppercase tracking-wider text-secondary font-label-caps mb-2">
+              Contact Person & Title <span class="text-error">*</span>
+            </label>
+            <input
+              type="text"
+              id="contactPerson"
+              name="contactPerson"
+              required
+              placeholder="e.g. Dr. Kemi Adeleke, Principal / CSR Lead"
+              class="w-full px-4 py-3 rounded-xl bg-surface-bright border border-outline-variant/40 text-on-surface placeholder:text-outline text-sm focus:outline-none focus:ring-2 focus:ring-secondary/40"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Email Address -->
+          <div>
+            <label for="partnerEmail" class="block text-xs font-bold uppercase tracking-wider text-secondary font-label-caps mb-2">
+              Official Email Address <span class="text-error">*</span>
+            </label>
+            <input
+              type="email"
+              id="partnerEmail"
+              name="email"
+              required
+              placeholder="e.g. k.adeleke@school.edu.ng"
+              class="w-full px-4 py-3 rounded-xl bg-surface-bright border border-outline-variant/40 text-on-surface placeholder:text-outline text-sm focus:outline-none focus:ring-2 focus:ring-secondary/40"
+            />
+          </div>
+
+          <!-- Phone Number -->
+          <div>
+            <label for="partnerPhone" class="block text-xs font-bold uppercase tracking-wider text-secondary font-label-caps mb-2">
+              Official Phone / Hotline <span class="text-error">*</span>
+            </label>
+            <input
+              type="tel"
+              id="partnerPhone"
+              name="phone"
+              required
+              placeholder="e.g. +234 802 345 6789"
+              class="w-full px-4 py-3 rounded-xl bg-surface-bright border border-outline-variant/40 text-on-surface placeholder:text-outline text-sm focus:outline-none focus:ring-2 focus:ring-secondary/40"
+            />
+          </div>
+        </div>
+
+        <!-- Partnership Type -->
+        <div>
+          <label for="partnershipType" class="block text-xs font-bold uppercase tracking-wider text-secondary font-label-caps mb-2">
+            Type of Partnership Envisioned <span class="text-error">*</span>
+          </label>
+          <select
+            id="partnershipType"
+            name="partnershipType"
+            required
+            class="w-full px-4 py-3 rounded-xl bg-surface-bright border border-outline-variant/40 text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-secondary/40"
+          >
+            <option value="">Select partnership type</option>
+            <option value="school-adoption">School Adoption / Outreach Hosting</option>
+            <option value="corporate-csr">Corporate CSR & Philanthropic Sponsorship</option>
+            <option value="healthcare-alliance">Healthcare / Clinical Delivery Collaboration</option>
+            <option value="orphanage-partnership">Orphanage & Residential Care Integration</option>
+            <option value="government-board">State Ministry / Universal Education Board</option>
+            <option value="other">Other Strategic Alignment</option>
+          </select>
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label for="partnerMessage" class="block text-xs font-bold uppercase tracking-wider text-secondary font-label-caps mb-2">
+            Scope of Proposal or Objectives <span class="text-error">*</span>
+          </label>
+          <textarea
+            id="partnerMessage"
+            name="message"
+            rows="5"
+            required
+            placeholder="Please outline the target student population, geographic location, proposed timeline, or specific resources your organization brings to the partnership..."
+            class="w-full px-4 py-3 rounded-xl bg-surface-bright border border-outline-variant/40 text-on-surface placeholder:text-outline text-sm focus:outline-none focus:ring-2 focus:ring-secondary/40"
+          ></textarea>
+        </div>
+
+        <!-- Feedback Box -->
+        <div id="partnerFeedback" class="hidden p-4 rounded-2xl bg-secondary-fixed text-on-secondary-fixed text-sm font-medium text-center">
+          Thank you! Your institutional partnership inquiry has been forwarded to the Executive Directorate. Our partnerships team will review the proposal and reply within 2 business days.
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="w-full py-4 rounded-full bg-primary-container text-on-primary font-label-lg text-base flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(74,18,40,0.25)] hover:bg-primary transition-all cursor-pointer"
+        >
+          <Send class="w-4 h-4" />
+          <span>Submit Partnership Inquiry</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</PageLayout>
+
+<script>
+  const pForm = document.getElementById('partnerForm') as HTMLFormElement;
+  const pFeedback = document.getElementById('partnerFeedback');
+  if (pForm && pFeedback) {
+    pForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      pFeedback.classList.remove('hidden');
+      pForm.reset();
+      window.scrollTo({ top: pFeedback.offsetTop - 100, behavior: 'smooth' });
+    });
+  }
+</script>

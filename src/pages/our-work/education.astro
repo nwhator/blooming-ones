@@ -1,0 +1,151 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Button from '../../components/Button.astro';
+import CTA from '../../components/CTA.astro';
+import { BookOpen, GraduationCap, CheckCircle2, ArrowRight, Sparkles, Award } from 'lucide-astro';
+---
+
+<PageLayout
+  title="Education & Mentorship"
+  eyebrow="Intellectual Flourishing"
+  description="Unlocking the academic and technical ambitions of promising Nigerian girls through 1-on-1 female mentorship, STEM immersion, and secondary-to-tertiary transition support."
+  breadcrumbs={[
+    { label: 'Our Work', href: '/our-work' },
+    { label: 'Education & Mentorship' },
+  ]}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+      <div class="lg:col-span-7 flex flex-col gap-6">
+        <SectionHeading
+          eyebrow="Beyond The Basics"
+          title="Nurturing Minds to Break Generational Poverty"
+          subtitle="A girl equipped with formal secondary and tertiary education has the power to transform her family, community, and nation. We provide the mentorship scaffolding and financial cushions required to ensure academic completion."
+        />
+
+        <p class="font-body-md text-on-surface-variant leading-relaxed">
+          Through structured pairings with professional women in STEM, medicine, law, and business, our students gain exposure to career horizons that would otherwise remain unimaginable. We also provide exam fee sponsorships, UTME preparatory classes, and laptop micro-grants.
+        </p>
+
+        <div class="flex flex-wrap gap-4 pt-2">
+          <Button href="/donate" variant="primary">
+            <span>Sponsor A Scholar (₦25,000)</span>
+          </Button>
+          <Button href="/stories/chidinmas-stem-ambition" variant="secondary">
+            <span>Read Chidinma's STEM Story</span>
+            <ArrowRight class="w-4 h-4" />
+          </Button>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5">
+        <div class="rounded-3xl overflow-hidden shadow-xl aspect-[4/3] bg-surface-container border border-outline-variant/30">
+          <img
+            src="/images/hero-schoolgirls.png"
+            alt="Empowered students reading and learning together"
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Why It Matters -->
+    <div class="p-8 sm:p-12 rounded-3xl bg-surface-container-low border border-outline-variant/30 mb-20">
+      <div class="max-w-3xl mb-8">
+        <span class="font-label-caps text-secondary font-bold uppercase tracking-wider">The Academic Divide</span>
+        <h2 class="font-headline-lg text-primary tracking-tight mt-1">Why Educational Mentorship Is Crucial</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/20 shadow-sm">
+          <div class="font-headline-lg text-primary font-serif">50%+</div>
+          <h3 class="font-title-md text-primary font-semibold mt-1">Secondary Attrition</h3>
+          <p class="font-body-sm text-on-surface-variant mt-2 leading-relaxed">
+            In low-income communities, economic pressures often lead families to discontinue girls' education after junior secondary school in favor of informal trade.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/20 shadow-sm">
+          <div class="font-headline-lg text-primary font-serif">&lt;15%</div>
+          <h3 class="font-title-md text-primary font-semibold mt-1">STEM Enrollment</h3>
+          <p class="font-body-sm text-on-surface-variant mt-2 leading-relaxed">
+            Due to gender stereotyping and lack of visible female role models, few adolescent girls pursue mathematical, engineering, or computing degrees.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/20 shadow-sm">
+          <div class="font-headline-lg text-primary font-serif">98%</div>
+          <h3 class="font-title-md text-primary font-semibold mt-1">Mentee Retention Rate</h3>
+          <p class="font-body-sm text-on-surface-variant mt-2 leading-relaxed">
+            Students enrolled in The Blooming Ones mentorship programs complete senior secondary school and sit for university matriculation examinations.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- What We Do Activities -->
+    <div class="mb-20">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <SectionHeading
+          align="center"
+          eyebrow="Key Initiatives"
+          title="Our Educational Pathways"
+          subtitle="Delivering structured interventions at every milestone of a student’s secondary education."
+        />
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="p-8 rounded-3xl bg-surface-bright border border-outline-variant/30 flex flex-col gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-primary-container text-on-primary flex items-center justify-center">
+            <GraduationCap class="w-6 h-6" />
+          </div>
+          <h3 class="font-title-lg text-primary font-semibold">1-on-1 Sister Mentorship</h3>
+          <p class="font-body-sm text-on-surface-variant leading-relaxed">
+            Pairing students with female professionals who provide bi-weekly coaching, academic accountability, guidance on study habits, and psychological encouragement.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-surface-bright border border-outline-variant/30 flex flex-col gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-secondary text-on-secondary flex items-center justify-center">
+            <BookOpen class="w-6 h-6" />
+          </div>
+          <h3 class="font-title-lg text-primary font-semibold">STEM Discovery & Coding</h3>
+          <p class="font-body-sm text-on-surface-variant leading-relaxed">
+            Hands-on workshops in software logic, science experiments, and technical problem-solving to demystify STEM pathways early in junior secondary school.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-surface-bright border border-outline-variant/30 flex flex-col gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-tertiary-leaf text-on-tertiary flex items-center justify-center">
+            <Award class="w-6 h-6" />
+          </div>
+          <h3 class="font-title-lg text-primary font-semibold">Tertiary Exam Micro-Grants</h3>
+          <p class="font-body-sm text-on-surface-variant leading-relaxed">
+            Covering UTME (JAMB) and WAEC registration fees for top-performing girls from indigent backgrounds so financial hurdles don't block university entrance.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-surface-bright border border-outline-variant/30 flex flex-col gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-primary-fixed text-on-primary-fixed flex items-center justify-center">
+            <Sparkles class="w-6 h-6" />
+          </div>
+          <h3 class="font-title-lg text-primary font-semibold">Life-Skills & Digital Literacy</h3>
+          <p class="font-body-sm text-on-surface-variant leading-relaxed">
+            Equipping scholars with digital tool proficiencies, basic financial literacy, professional email etiquette, and interview confidence.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <CTA
+    eyebrow="Fuel A Dream"
+    title="Sponsor A Girl's Educational Journey"
+    description="Your gift pays examination fees, provides study materials, and pairs promising young women with life-changing mentors."
+    primaryText="Sponsor an Exam (₦25,000)"
+    primaryHref="/donate"
+    secondaryText="Become a Volunteer Mentor"
+    secondaryHref="/get-involved/volunteer"
+  />
+</PageLayout>

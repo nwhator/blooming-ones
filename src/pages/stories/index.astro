@@ -1,0 +1,116 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import StoryCard from '../../components/StoryCard.astro';
+import CTA from '../../components/CTA.astro';
+import { getCollection } from 'astro:content';
+
+const allStories = await getCollection('stories');
+// Sort by date or id
+const categories = ['All', 'Girl Child', 'Menstrual Health', 'Education', 'Community', 'Events'];
+---
+
+<PageLayout
+  title="Stories of Blooming"
+  eyebrow="Beneficiary Chronicles"
+  description="Heartfelt field dispatches and documentary stories of adolescent girls, teachers, mentors, and communities flourishing across Nigeria."
+  breadcrumbs={[{ label: 'Stories' }]}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <!-- Category Filter Bar (Client-side interactive tabs) -->
+    <div class="mb-12">
+      <div class="flex items-center gap-2 overflow-x-auto pb-4 scrollbar-none" id="categoryFilterBar">
+        {categories.map((cat, idx) => (
+          <button
+            type="button"
+            data-category={cat}
+            class={`category-tab px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider font-label-caps transition-all cursor-pointer whitespace-nowrap border ${
+              idx === 0
+                ? 'bg-primary-container text-on-primary border-primary-container shadow-sm active'
+                : 'bg-surface-container-low text-on-surface-variant border-outline-variant/30 hover:border-secondary hover:text-primary'
+            }`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Stories Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="storiesGrid">
+      {allStories.map((story) => (
+        <div class="story-item" data-category={story.data.category}>
+          <StoryCard
+            title={story.data.title}
+            description={story.data.description}
+            date={story.data.date}
+            category={story.data.category}
+            image={story.data.image}
+            imageAlt={story.data.imageAlt}
+            slug={story.id.replace(/\.md$/, '')}
+          />
+        </div>
+      ))}
+    </div>
+
+    <!-- Empty State notice -->
+    <div id="noStoriesNotice" class="hidden text-center py-20 bg-surface-container-low rounded-3xl p-8 border border-outline-variant/30">
+      <h3 class="font-headline-sm text-primary">No Stories in This Category Yet</h3>
+      <p class="font-body-sm text-on-surface-variant mt-2">Check back soon for new field dispatches and dispatches from our upcoming outreaches.</p>
+    </div>
+  </div>
+
+  <CTA
+    eyebrow="Every Story Matters"
+    title="Help Us Write The Next Story of Transformation"
+    description="Your ₦5,000 gift provides one term of menstrual dignity kits to two adolescent girls."
+    primaryText="Donate Now"
+    primaryHref="/donate"
+    secondaryText="Volunteer Storyteller"
+    secondaryHref="/get-involved/volunteer"
+  />
+</PageLayout>
+
+<script>
+  const initCategoryFilters = () => {
+    const tabs = document.querySelectorAll('.category-tab');
+    const items = document.querySelectorAll('.story-item');
+    const emptyNotice = document.getElementById('noStoriesNotice');
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        tabs.forEach((t) => {
+          t.classList.remove('bg-primary-container', 'text-on-primary', 'border-primary-container', 'shadow-sm', 'active');
+          t.classList.add('bg-surface-container-low', 'text-on-surface-variant', 'border-outline-variant/30');
+        });
+
+        tab.classList.remove('bg-surface-container-low', 'text-on-surface-variant', 'border-outline-variant/30');
+        tab.classList.add('bg-primary-container', 'text-on-primary', 'border-primary-container', 'shadow-sm', 'active');
+
+        const selectedCat = tab.getAttribute('data-category');
+        let visibleCount = 0;
+
+        items.forEach((item) => {
+          const itemCat = item.getAttribute('data-category');
+          if (selectedCat === 'All' || itemCat === selectedCat) {
+            (item as HTMLElement).style.display = 'block';
+            visibleCount++;
+          } else {
+            (item as HTMLElement).style.display = 'none';
+          }
+        });
+
+        if (emptyNotice) {
+          if (visibleCount === 0) {
+            emptyNotice.classList.remove('hidden');
+          } else {
+            emptyNotice.classList.add('hidden');
+          }
+        }
+      });
+    });
+  };
+
+  initCategoryFilters();
+  document.addEventListener('astro:after-swap', initCategoryFilters);
+</script>

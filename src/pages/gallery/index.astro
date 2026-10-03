@@ -1,0 +1,373 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Button from '../../components/Button.astro';
+import CTA from '../../components/CTA.astro';
+import { X, ChevronLeft, ChevronRight, Maximize2, Calendar, MapPin, Sparkles } from 'lucide-astro';
+
+const categories = ['All', 'Outreach', "Girls' Hangouts", 'Menstrual Health', 'Education', 'Volunteers', 'Events'];
+
+const galleryItems = [
+  {
+    id: 1,
+    title: "Empowered Schoolgirls in Golden Sunlight",
+    category: "Education",
+    date: "October 2025",
+    location: "Govt. Senior College, Agege, Lagos",
+    image: "/images/hero-schoolgirls.png",
+    caption: "Students celebrate academic completion and steady attendance supported by continuous dignity kits."
+  },
+  {
+    id: 2,
+    title: "Clinical Menstrual Health Guidance Session",
+    category: "Menstrual Health",
+    date: "September 2025",
+    location: "Mushin Junior Secondary School, Lagos",
+    image: "/images/menstrual-mentor.png",
+    caption: "Volunteer healthcare mentor demonstrating menstrual hygiene tracking and bodily milestone education."
+  },
+  {
+    id: 3,
+    title: "Adolescent Girls in Sanctuary Circle",
+    category: "Girls' Hangouts",
+    date: "November 2025",
+    location: "Community Center, Ikeja, Lagos",
+    image: "/images/girls-circle.png",
+    caption: "Bi-weekly Girls' Hangout gathering discussing rights, emotional wellbeing, and peer solidarity."
+  },
+  {
+    id: 4,
+    title: "Healthcare Volunteer Mobilization",
+    category: "Volunteers",
+    date: "September 2025",
+    location: "Community Outreach Hub, Lagos",
+    image: "/images/volunteers-healthcare.png",
+    caption: "Volunteer medical doctors and nurses preparing dignity kits and medical supplies for school deployment."
+  },
+  {
+    id: 5,
+    title: "Field Volunteer Coordinator Engagement",
+    category: "Outreach",
+    date: "August 2025",
+    location: "Ikorodu Community Wards, Lagos",
+    image: "/images/volunteer-coordinator.png",
+    caption: "Listening to adolescent girls and caregivers to assess ongoing hygiene and educational needs."
+  },
+  {
+    id: 6,
+    title: "Adolescent Health Doctor Consultation",
+    category: "Menstrual Health",
+    date: "July 2025",
+    location: "Public Secondary School Clinic, Abeokuta",
+    image: "/images/doctor-portrait.png",
+    caption: "Volunteer physician answering sensitive reproductive healthcare and nutrition questions."
+  },
+  {
+    id: 7,
+    title: "Founder Vision & Community Address",
+    category: "Events",
+    date: "May 2025",
+    location: "The Blooming Ones Annual Stakeholders Brief",
+    image: "/images/founder-portrait.png",
+    caption: "Temitope Babatunde outlining the 2025-2026 roadmap for school retention and dignity expansion."
+  },
+  {
+    id: 8,
+    title: "Annual Dignity Outreach Volunteers",
+    category: "Events",
+    date: "September 2025",
+    location: "Multipurpose Hall, Lagos",
+    image: "/images/volunteers-healthcare.png",
+    caption: "Over 120 volunteers gathered before deploying to 14 public secondary schools."
+  }
+];
+---
+
+<PageLayout
+  title="Media & Field Gallery"
+  eyebrow="Documentary Archives"
+  description="Visual chronicles of dignity, sisterhood circles, school outreaches, and joyful transformation across Nigeria."
+  breadcrumbs={[{ label: 'Gallery' }]}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <!-- Category Tabs -->
+    <div class="mb-12">
+      <div class="flex items-center gap-2 overflow-x-auto pb-4 scrollbar-none" id="galleryCategoryBar">
+        {categories.map((cat, idx) => (
+          <button
+            type="button"
+            data-category={cat}
+            class={`gallery-tab px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider font-label-caps transition-all cursor-pointer whitespace-nowrap border ${
+              idx === 0
+                ? 'bg-primary-container text-on-primary border-primary-container shadow-sm active'
+                : 'bg-surface-container-low text-on-surface-variant border-outline-variant/30 hover:border-secondary hover:text-primary'
+            }`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="galleryGrid">
+      {galleryItems.map((item, idx) => (
+        <div
+          class="gallery-item group rounded-3xl overflow-hidden bg-surface-container-lowest border border-outline-variant/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer"
+          data-category={item.category}
+          data-index={idx}
+          data-title={item.title}
+          data-image={item.image}
+          data-caption={item.caption}
+          data-date={item.date}
+          data-location={item.location}
+        >
+          <!-- Thumbnail -->
+          <div class="aspect-[4/3] overflow-hidden bg-surface-container relative">
+            <img
+              src={item.image}
+              alt={item.title}
+              width="600"
+              height="450"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <span class="p-3 rounded-full bg-surface-bright/90 text-primary shadow-lg backdrop-blur-sm">
+                <Maximize2 class="w-5 h-5 text-primary" />
+              </span>
+            </div>
+            <!-- Category Badge -->
+            <div class="absolute top-4 left-4">
+              <span class="px-3 py-1 rounded-full bg-surface-bright/95 backdrop-blur-sm text-secondary font-label-caps text-xs font-bold uppercase tracking-wider shadow-sm border border-secondary/20">
+                {item.category}
+              </span>
+            </div>
+          </div>
+
+          <!-- Metadata -->
+          <div class="p-5 flex flex-col gap-1.5">
+            <h3 class="font-headline-sm text-primary tracking-tight text-base sm:text-lg group-hover:text-secondary transition-colors line-clamp-1">
+              {item.title}
+            </h3>
+            <p class="text-xs text-on-surface-variant line-clamp-2 leading-relaxed">
+              {item.caption}
+            </p>
+            <div class="pt-2 flex items-center justify-between text-[11px] text-outline border-t border-outline-variant/20 mt-2">
+              <span class="flex items-center gap-1">
+                <Calendar class="w-3 h-3 text-secondary" />
+                <span>{item.date}</span>
+              </span>
+              <span class="flex items-center gap-1 line-clamp-1">
+                <MapPin class="w-3 h-3 text-secondary" />
+                <span>{item.location}</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Empty State -->
+    <div id="noGalleryNotice" class="hidden text-center py-20 bg-surface-container-low rounded-3xl p-8 border border-outline-variant/30">
+      <h3 class="font-headline-sm text-primary">No Images Found in This Category</h3>
+      <p class="font-body-sm text-on-surface-variant mt-2">Check back soon as we upload new media from current field deployments.</p>
+    </div>
+  </div>
+
+  <!-- LIGHTWEIGHT ACCESSIBLE LIGHTBOX MODAL -->
+  <div
+    id="galleryLightbox"
+    class="fixed inset-0 z-50 bg-primary/90 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Media Preview"
+  >
+    <div class="relative w-full max-w-4xl bg-surface-container-lowest rounded-3xl overflow-hidden shadow-2xl border border-outline-variant/40 flex flex-col">
+      <!-- Top Bar -->
+      <div class="p-4 sm:px-6 flex items-center justify-between border-b border-outline-variant/30 bg-surface-bright">
+        <div class="flex items-center gap-2">
+          <span id="lbCategory" class="px-3 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-xs font-bold font-label-caps uppercase">Category</span>
+          <span id="lbDate" class="text-xs text-on-surface-variant font-medium">Date</span>
+        </div>
+        <button
+          type="button"
+          id="lbCloseBtn"
+          aria-label="Close Lightbox"
+          class="p-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors cursor-pointer"
+        >
+          <X class="w-6 h-6" />
+        </button>
+      </div>
+
+      <!-- Image Area -->
+      <div class="relative bg-black flex items-center justify-center max-h-[60vh] overflow-hidden">
+        <img id="lbImage" src="" alt="" class="max-h-[60vh] w-auto max-w-full object-contain" />
+
+        <!-- Navigation Buttons -->
+        <button
+          type="button"
+          id="lbPrevBtn"
+          aria-label="Previous Image"
+          class="absolute left-4 p-3 rounded-full bg-surface-bright/80 hover:bg-surface-bright text-primary shadow-lg backdrop-blur-sm transition-all cursor-pointer"
+        >
+          <ChevronLeft class="w-6 h-6" />
+        </button>
+        <button
+          type="button"
+          id="lbNextBtn"
+          aria-label="Next Image"
+          class="absolute right-4 p-3 rounded-full bg-surface-bright/80 hover:bg-surface-bright text-primary shadow-lg backdrop-blur-sm transition-all cursor-pointer"
+        >
+          <ChevronRight class="w-6 h-6" />
+        </button>
+      </div>
+
+      <!-- Caption Area -->
+      <div class="p-6 bg-surface-container-low border-t border-outline-variant/30 flex flex-col gap-1.5">
+        <h3 id="lbTitle" class="font-headline-sm text-primary text-xl">Image Title</h3>
+        <p id="lbCaption" class="font-body-sm text-on-surface-variant leading-relaxed">Image Caption</p>
+        <div id="lbLocation" class="text-xs text-secondary font-medium flex items-center gap-1 mt-1">
+          <MapPin class="w-3.5 h-3.5" />
+          <span>Location</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <CTA
+    eyebrow="Ethical Media"
+    title="Support Our Grassroots Documentation"
+    description="Your donations allow our volunteers and healthcare workers to reach more remote public schools."
+    primaryText="Donate Today"
+    primaryHref="/donate"
+    secondaryText="Volunteer With Us"
+    secondaryHref="/get-involved/volunteer"
+  />
+</PageLayout>
+
+<script>
+  const initGallery = () => {
+    const tabs = document.querySelectorAll('.gallery-tab');
+    const items = document.querySelectorAll('.gallery-item');
+    const emptyNotice = document.getElementById('noGalleryNotice');
+
+    const lightbox = document.getElementById('galleryLightbox');
+    const lbImage = document.getElementById('lbImage') as HTMLImageElement;
+    const lbTitle = document.getElementById('lbTitle');
+    const lbCategory = document.getElementById('lbCategory');
+    const lbDate = document.getElementById('lbDate');
+    const lbCaption = document.getElementById('lbCaption');
+    const lbLocation = document.getElementById('lbLocation');
+    const lbClose = document.getElementById('lbCloseBtn');
+    const lbPrev = document.getElementById('lbPrevBtn');
+    const lbNext = document.getElementById('lbNextBtn');
+
+    let visibleItems: HTMLElement[] = Array.from(items) as HTMLElement[];
+    let currentIndex = 0;
+
+    // Filter Logic
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        tabs.forEach((t) => {
+          t.classList.remove('bg-primary-container', 'text-on-primary', 'border-primary-container', 'shadow-sm', 'active');
+          t.classList.add('bg-surface-container-low', 'text-on-surface-variant', 'border-outline-variant/30');
+        });
+
+        tab.classList.remove('bg-surface-container-low', 'text-on-surface-variant', 'border-outline-variant/30');
+        tab.classList.add('bg-primary-container', 'text-on-primary', 'border-primary-container', 'shadow-sm', 'active');
+
+        const selectedCat = tab.getAttribute('data-category');
+        visibleItems = [];
+
+        items.forEach((item) => {
+          const itemCat = item.getAttribute('data-category');
+          if (selectedCat === 'All' || itemCat === selectedCat) {
+            (item as HTMLElement).style.display = 'flex';
+            visibleItems.push(item as HTMLElement);
+          } else {
+            (item as HTMLElement).style.display = 'none';
+          }
+        });
+
+        if (emptyNotice) {
+          if (visibleItems.length === 0) {
+            emptyNotice.classList.remove('hidden');
+          } else {
+            emptyNotice.classList.add('hidden');
+          }
+        }
+      });
+    });
+
+    // Lightbox Logic
+    const openLightbox = (index: number) => {
+      currentIndex = index;
+      const el = visibleItems[index];
+      if (!el || !lightbox || !lbImage || !lbTitle) return;
+
+      lbImage.src = el.getAttribute('data-image') || '';
+      lbImage.alt = el.getAttribute('data-title') || '';
+      lbTitle.textContent = el.getAttribute('data-title') || '';
+      if (lbCategory) lbCategory.textContent = el.getAttribute('data-category') || '';
+      if (lbDate) lbDate.textContent = el.getAttribute('data-date') || '';
+      if (lbCaption) lbCaption.textContent = el.getAttribute('data-caption') || '';
+      if (lbLocation) {
+        lbLocation.innerHTML = `<svg class="w-3.5 h-3.5 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>${el.getAttribute('data-location') || ''}`;
+      }
+
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeLightbox = () => {
+      if (!lightbox) return;
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+      document.body.style.overflow = '';
+    };
+
+    const showPrev = () => {
+      if (currentIndex > 0) {
+        openLightbox(currentIndex - 1);
+      } else {
+        openLightbox(visibleItems.length - 1);
+      }
+    };
+
+    const showNext = () => {
+      if (currentIndex < visibleItems.length - 1) {
+        openLightbox(currentIndex + 1);
+      } else {
+        openLightbox(0);
+      }
+    };
+
+    items.forEach((item) => {
+      item.addEventListener('click', () => {
+        const idx = visibleItems.indexOf(item as HTMLElement);
+        if (idx !== -1) openLightbox(idx);
+      });
+    });
+
+    lbClose?.addEventListener('click', closeLightbox);
+    lbPrev?.addEventListener('click', showPrev);
+    lbNext?.addEventListener('click', showNext);
+
+    lightbox?.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (!lightbox?.classList.contains('hidden')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showPrev();
+        if (e.key === 'ArrowRight') showNext();
+      }
+    });
+  };
+
+  initGallery();
+  document.addEventListener('astro:after-swap', initGallery);
+</script>

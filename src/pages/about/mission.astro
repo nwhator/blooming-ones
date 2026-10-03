@@ -1,0 +1,154 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Button from '../../components/Button.astro';
+import CTA from '../../components/CTA.astro';
+import { Target, Eye, Sparkles, Heart, ShieldCheck, Compass, CheckCircle2 } from 'lucide-astro';
+---
+
+<PageLayout
+  title="Mission, Vision & Core Values"
+  eyebrow="Institutional Compass"
+  description="Discover the core philosophical pillars and unwavering commitments that guide every program, outreach, and engagement at The Blooming Ones Initiative."
+  breadcrumbs={[
+    { label: 'About', href: '/about' },
+    { label: 'Mission & Vision' },
+  ]}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <!-- Mission & Vision Cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-20">
+      <!-- Mission -->
+      <div class="p-10 rounded-3xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-primary-container text-on-primary flex items-center justify-center mb-6 shadow-sm">
+            <Target class="w-7 h-7" />
+          </div>
+          <span class="font-label-caps text-secondary font-bold uppercase tracking-wider">Our Mission</span>
+          <h2 class="font-headline-lg text-primary tracking-tight mt-2 mb-4">
+            To Edify, Nourish & Empower Girls
+          </h2>
+          <p class="font-body-lg text-primary font-serif italic text-xl leading-relaxed mb-6">
+            “To edify, nourish and empower girls so they can bloom and never wither.”
+          </p>
+          <div class="space-y-3 text-on-surface-variant font-body-md">
+            <div class="flex items-start gap-2.5">
+              <CheckCircle2 class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+              <span><strong>Edify:</strong> Cultivating moral courage, intellectual rigor, rights awareness, and spiritual groundedness.</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <CheckCircle2 class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+              <span><strong>Nourish:</strong> Providing bodily dignity, menstrual healthcare kits, mental wellness, and compassionate nutritional support.</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <CheckCircle2 class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+              <span><strong>Empower:</strong> Equipping adolescent girls with leadership skills, STEM exposure, and academic persistence so they shape their own destiny.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vision -->
+      <div class="p-10 rounded-3xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-secondary text-on-secondary flex items-center justify-center mb-6 shadow-sm">
+            <Eye class="w-7 h-7" />
+          </div>
+          <span class="font-label-caps text-secondary font-bold uppercase tracking-wider">Our Vision</span>
+          <h2 class="font-headline-lg text-primary tracking-tight mt-2 mb-4">
+            An Africa Where No Girl Withers
+          </h2>
+          <p class="font-body-lg text-primary font-serif italic text-xl leading-relaxed mb-6">
+            “An equitable Africa where every adolescent girl has unconditional dignity, access to quality education, bodily safety, and the lifelong agency to thrive without fear or shame.”
+          </p>
+          <div class="space-y-3 text-on-surface-variant font-body-md">
+            <div class="flex items-start gap-2.5">
+              <CheckCircle2 class="w-5 h-5 text-tertiary-leaf flex-shrink-0 mt-0.5" />
+              <span>Zero school dropouts caused by period poverty across all target operational districts.</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <CheckCircle2 class="w-5 h-5 text-tertiary-leaf flex-shrink-0 mt-0.5" />
+              <span>Safe sisterhood networks active across secondary schools and community youth clubs.</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <CheckCircle2 class="w-5 h-5 text-tertiary-leaf flex-shrink-0 mt-0.5" />
+              <span>Equitable tertiary education transitions for orphaned and economically vulnerable young women.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core Values In Depth -->
+    <div class="mb-20">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <SectionHeading
+          align="center"
+          eyebrow="Our Guiding Code"
+          title="The Values That Shape Every Action"
+          subtitle="How our volunteers, staff, and partners conduct themselves in the field and within our communities."
+        />
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-8 rounded-3xl bg-surface-bright border border-outline-variant/30 flex flex-col gap-3">
+          <span class="font-label-caps text-secondary font-bold uppercase tracking-wider">Pillar 01</span>
+          <h3 class="font-title-lg text-primary font-semibold">Radical Dignity</h3>
+          <p class="font-body-sm text-on-surface-variant leading-relaxed">
+            We reject pity-based philanthropic approaches. Every beneficiary is treated as a sister endowed with innate genius, deserving of respect, privacy, and celebration.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-surface-bright border border-outline-variant/30 flex flex-col gap-3">
+          <span class="font-label-caps text-secondary font-bold uppercase tracking-wider">Pillar 02</span>
+          <h3 class="font-title-lg text-primary font-semibold">Compassionate Wholeness</h3>
+          <p class="font-body-sm text-on-surface-variant leading-relaxed">
+            We believe you cannot educate a girl while ignoring her bodily health, nor can you distribute sanitary kits without nurturing her mind and spiritual self-confidence.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-surface-bright border border-outline-variant/30 flex flex-col gap-3">
+          <span class="font-label-caps text-secondary font-bold uppercase tracking-wider">Pillar 03</span>
+          <h3 class="font-title-lg text-primary font-semibold">Unbroken Sisterhood</h3>
+          <p class="font-body-sm text-on-surface-variant leading-relaxed">
+            Our circles are judgment-free sanctuaries where adolescent girls are encouraged to speak openly about trauma, body transitions, and dreams without fear of condemnation.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-surface-bright border border-outline-variant/30 flex flex-col gap-3">
+          <span class="font-label-caps text-secondary font-bold uppercase tracking-wider">Pillar 04</span>
+          <h3 class="font-title-lg text-primary font-semibold">Grassroots Authenticity</h3>
+          <p class="font-body-sm text-on-surface-variant leading-relaxed">
+            We spend our hours directly in school assembly halls, rural meeting sheds, and children's homes, designing interventions together with local elders, mothers, and teachers.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-surface-bright border border-outline-variant/30 flex flex-col gap-3">
+          <span class="font-label-caps text-secondary font-bold uppercase tracking-wider">Pillar 05</span>
+          <h3 class="font-title-lg text-primary font-semibold">Accountability & Transparency</h3>
+          <p class="font-body-sm text-on-surface-variant leading-relaxed">
+            We maintain strict fiduciary standards, publishing regular impact breakdowns and ensuring that every contribution reaches our girls with traceable impact.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-surface-bright border border-outline-variant/30 flex flex-col gap-3">
+          <span class="font-label-caps text-secondary font-bold uppercase tracking-wider">Pillar 06</span>
+          <h3 class="font-title-lg text-primary font-semibold">Child Safeguarding First</h3>
+          <p class="font-body-sm text-on-surface-variant leading-relaxed">
+            Unwavering adherence to child protection protocols. All staff and volunteers undergo mandatory safeguarding vetting before interacting with beneficiaries.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <CTA
+    eyebrow="Live The Values"
+    title="Align With Our Mission"
+    description="Join hundreds of volunteers and supporters who embody these principles daily across Nigerian communities."
+    primaryText="Support Our Mission"
+    primaryHref="/donate"
+    secondaryText="Volunteer With Us"
+    secondaryHref="/get-involved/volunteer"
+  />
+</PageLayout>

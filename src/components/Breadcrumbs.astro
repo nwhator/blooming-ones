@@ -1,0 +1,35 @@
+---
+interface Props {
+  items: {
+    label: string;
+    href?: string;
+  }[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav aria-label="Breadcrumb" class="w-full py-3">
+  <ol class="flex flex-wrap items-center gap-2 text-xs font-medium text-on-surface-variant" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="/" class="hover:text-primary transition-colors flex items-center gap-1" itemprop="item">
+        <span itemprop="name">Home</span>
+      </a>
+      <meta itemprop="position" content="1" />
+    </li>
+    
+    {items.map((item, index) => (
+      <li class="flex items-center gap-2" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span class="text-outline" aria-hidden="true">/</span>
+        {item.href ? (
+          <a href={item.href} class="hover:text-primary transition-colors" itemprop="item">
+            <span itemprop="name">{item.label}</span>
+          </a>
+        ) : (
+          <span class="text-primary font-semibold" aria-current="page" itemprop="name">{item.label}</span>
+        )}
+        <meta itemprop="position" content={String(index + 2)} />
+      </li>
+    ))}
+  </ol>
+</nav>

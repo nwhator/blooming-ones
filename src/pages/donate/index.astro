@@ -1,0 +1,149 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import DonationSelector from '../../components/DonationSelector.astro';
+import { ShieldCheck, Heart, Landmark, CheckCircle2, HelpCircle, FileText, Lock } from 'lucide-astro';
+
+const donateFaqs = [
+  {
+    q: "How will my donation be used?",
+    a: "Over 88% of every donation goes directly into purchasing biodegradable sanitary kits, nutritional packages for orphanages, WAEC exam fees, and hosting safe sisterhood circles in public schools."
+  },
+  {
+    q: "Can I donate via Nigerian Direct Bank Transfer?",
+    a: "Yes! For corporate or local bank transfers, we provide our verified organizational bank details below. Please send your transaction receipt to accounts@thebloomingones.org for immediate digital acknowledgement."
+  },
+  {
+    q: "Can international donors give in USD, GBP, or EUR?",
+    a: "Yes. Our payment gateway seamlessly converts debit and credit cards worldwide at current interbank exchange rates with zero international surcharge."
+  },
+  {
+    q: "Can I cancel my recurring monthly donation anytime?",
+    a: "Absolutely. Monthly sustainers receive a direct link in every receipt allowing one-click cancellation or amount adjustment at any time without questions."
+  }
+];
+---
+
+<PageLayout
+  title="Support Our Girls: Donate Today"
+  eyebrow="Sacred Investment"
+  description="Your generosity equips vulnerable adolescent girls with unconditional menstrual dignity, secondary education retention, and empowering mentorship."
+  breadcrumbs={[{ label: 'Donate' }]}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <!-- Donation Widget Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-24">
+      <!-- Left: Emotional Motivation & Impact Pillars -->
+      <div class="lg:col-span-6 flex flex-col gap-6">
+        <div class="inline-flex items-center gap-2 text-secondary font-bold text-xs uppercase font-label-caps">
+          <Heart class="w-4 h-4 fill-current text-secondary" />
+          <span>Restoring Dignity & School Attendance</span>
+        </div>
+
+        <h1 class="font-display-hero text-primary tracking-tight">
+          Every Seed Sown Helps Her Bloom, <span class="italic font-normal text-secondary">Never Wither.</span>
+        </h1>
+
+        <p class="font-body-lg text-on-surface-variant leading-relaxed">
+          In Nigeria, ₦5,000 is the difference between an adolescent girl staying home in isolation and sitting proudly in class with sanitary dignity for an entire academic term.
+        </p>
+
+        <!-- Tangible Breakdown List -->
+        <div class="p-6 rounded-3xl bg-surface-container-low border border-outline-variant/30 space-y-4">
+          <h3 class="font-title-md text-primary font-semibold">What Your Contribution Unlocks:</h3>
+          <div class="space-y-3 font-body-sm text-on-surface-variant">
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center text-xs font-bold flex-shrink-0">₦5k</span>
+              <span><strong>₦5,000:</strong> Provides 2 secondary schoolgirls with 3-month dignity kits and nurse counseling.</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center text-xs font-bold flex-shrink-0">₦10k</span>
+              <span><strong>₦10,000:</strong> Equips 4 girls with complete sanitary supplies, soaps, and underwear.</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center text-xs font-bold flex-shrink-0">₦25k</span>
+              <span><strong>₦25,000:</strong> Sponsors 10 girls with continuous kits and bi-weekly Girls’ Hangouts.</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center text-xs font-bold flex-shrink-0">₦50k</span>
+              <span><strong>₦50,000:</strong> Funds an entire secondary school classroom workshop led by certified medical staff.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust & Security Badges -->
+        <div class="flex items-center gap-6 text-xs text-on-surface-variant pt-2">
+          <div class="flex items-center gap-2">
+            <Lock class="w-4 h-4 text-tertiary-leaf" />
+            <span>256-bit SSL Security</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <ShieldCheck class="w-4 h-4 text-tertiary-leaf" />
+            <span>Audited Annual Fiduciary Reporting</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Interactive Donation Component -->
+      <div class="lg:col-span-6 w-full">
+        <DonationSelector />
+      </div>
+    </div>
+
+    <!-- Direct Bank Transfer Card -->
+    <div class="mb-24 p-8 sm:p-12 rounded-3xl bg-surface-bright border border-outline-variant/30 shadow-sm max-w-4xl mx-auto">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-12 h-12 rounded-2xl bg-primary-container text-on-primary flex items-center justify-center shadow-sm">
+          <Landmark class="w-6 h-6" />
+        </div>
+        <div>
+          <h2 class="font-headline-sm text-primary">Direct Nigerian Bank Transfer Details</h2>
+          <p class="text-xs text-on-surface-variant font-medium">For local corporate gifts, wire transfers, and standing orders</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 p-6 rounded-2xl bg-surface-container-low border border-outline-variant/20 mb-6">
+        <div>
+          <span class="text-xs uppercase font-bold text-secondary font-label-caps">Bank Name</span>
+          <p class="font-title-md text-primary font-semibold mt-1">[Verified Partner Bank Name]</p>
+        </div>
+        <div>
+          <span class="text-xs uppercase font-bold text-secondary font-label-caps">Account Name</span>
+          <p class="font-title-md text-primary font-semibold mt-1">The Blooming Ones Initiative</p>
+        </div>
+        <div>
+          <span class="text-xs uppercase font-bold text-secondary font-label-caps">Account Number (NGN)</span>
+          <p class="font-title-md text-primary font-semibold mt-1 font-mono tracking-wider">[Add verified account number]</p>
+        </div>
+      </div>
+
+      <p class="text-xs text-on-surface-variant leading-relaxed">
+        * Please email proof of transfer to <a href="mailto:accounts@thebloomingones.org" class="text-secondary font-semibold hover:underline">accounts@thebloomingones.org</a> with your full name or company title to receive your formal tax receipt and impact report.
+      </p>
+    </div>
+
+    <!-- Donation FAQ Section -->
+    <div class="mb-16 max-w-4xl mx-auto">
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <SectionHeading
+          align="center"
+          eyebrow="Donor Transparency"
+          title="Frequently Asked Questions"
+          subtitle="Everything you need to know about financial stewardship and receipting."
+        />
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {donateFaqs.map((faq) => (
+          <div class="p-6 rounded-2xl bg-surface-container-low border border-outline-variant/30 flex flex-col gap-2">
+            <h3 class="font-title-md text-primary font-semibold flex items-start gap-2">
+              <HelpCircle class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+              <span>{faq.q}</span>
+            </h3>
+            <p class="font-body-sm text-on-surface-variant leading-relaxed pl-7">{faq.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</PageLayout>

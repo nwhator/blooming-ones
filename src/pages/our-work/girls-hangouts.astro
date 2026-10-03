@@ -1,0 +1,114 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Button from '../../components/Button.astro';
+import CTA from '../../components/CTA.astro';
+import { Smile, Heart, CheckCircle2, ArrowRight, Sparkles, Coffee, Calendar } from 'lucide-astro';
+---
+
+<PageLayout
+  title="Girls' Hangouts"
+  eyebrow="Safe Sisterhood Circles"
+  description="Judgment-free weekend gatherings where adolescent girls connect, heal, learn life-skills, and build lifelong sisterhood."
+  breadcrumbs={[
+    { label: 'Our Work', href: '/our-work' },
+    { label: "Girls' Hangouts" },
+  ]}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+      <div class="lg:col-span-7 flex flex-col gap-6">
+        <SectionHeading
+          eyebrow="Unconditional Sisterhood"
+          title="A Sanctuary Where Every Girl Can Breathe, Share, and Flourish"
+          subtitle="Adolescence in dense urban or under-resourced communities can be profoundly isolating. Girls often bear heavy domestic burdens without a single quiet space to speak honestly about their fears, dreams, or pain."
+        />
+
+        <p class="font-body-md text-on-surface-variant leading-relaxed">
+          Our bi-weekly Girls’ Hangouts transform neighborhood halls, courtyards, and school lawns into sacred sanctuary circles. Sitting in an equal circle with warm tea and snacks, young women engage in guided discussions, artistic expression, mental wellness check-ins, and shared laughter.
+        </p>
+
+        <div class="flex flex-wrap gap-4 pt-2">
+          <Button href="/donate" variant="primary">
+            <span>Sponsor a Hangout Session</span>
+          </Button>
+          <Button href="/gallery" variant="secondary">
+            <span>View Hangouts Gallery</span>
+            <ArrowRight class="w-4 h-4" />
+          </Button>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5">
+        <div class="rounded-3xl overflow-hidden shadow-xl aspect-[4/3] bg-surface-container border border-outline-variant/30">
+          <img
+            src="/images/volunteer-coordinator.png"
+            alt="Coordinator with smiling participants during outdoor hangout"
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Anatomy of a Hangout -->
+    <div class="p-8 sm:p-12 rounded-3xl bg-surface-container-low border border-outline-variant/30 mb-20">
+      <div class="max-w-3xl mb-12">
+        <span class="font-label-caps text-secondary font-bold uppercase tracking-wider">Session Rhythm</span>
+        <h2 class="font-headline-lg text-primary tracking-tight mt-1">What Happens at a Girls' Hangout?</h2>
+        <p class="font-body-md text-on-surface-variant mt-2 leading-relaxed">Each 3-hour weekend gathering follows an unhurried, intentional sequence of connection and care.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/20 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="font-label-caps text-secondary uppercase font-bold">Step 1 • 30 Mins</span>
+            <h3 class="font-title-md text-primary font-semibold mt-2">Check-In & Grounding</h3>
+            <p class="font-body-sm text-on-surface-variant mt-2 leading-relaxed">
+              Sharing a light meal and emotional temperature checks: "How is your heart today?"
+            </p>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/20 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="font-label-caps text-secondary uppercase font-bold">Step 2 • 60 Mins</span>
+            <h3 class="font-title-md text-primary font-semibold mt-2">Candid Circle Dialogue</h3>
+            <p class="font-body-sm text-on-surface-variant mt-2 leading-relaxed">
+              Facilitated discussions on puberty, emotional transitions, family pressures, and career dreams.
+            </p>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/20 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="font-label-caps text-secondary uppercase font-bold">Step 3 • 45 Mins</span>
+            <h3 class="font-title-md text-primary font-semibold mt-2">Creative Expression</h3>
+            <p class="font-body-sm text-on-surface-variant mt-2 leading-relaxed">
+              Journaling, vision boarding, poetry writing, or hands-on craft therapy.
+            </p>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/20 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="font-label-caps text-secondary uppercase font-bold">Step 4 • 45 Mins</span>
+            <h3 class="font-title-md text-primary font-semibold mt-2">Life-Skills & Affirmations</h3>
+            <p class="font-body-sm text-on-surface-variant mt-2 leading-relaxed">
+              Closing sisterhood affirmations, goal commitments, and distribution of personal care treats.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <CTA
+    eyebrow="Create A Safe Space"
+    title="Sponsor a Girls' Hangout Hub in 2026"
+    description="Your gift covers refreshments, art journals, sanitary provisions, and trained counselor stipends."
+    primaryText="Sponsor a Session (₦50,000)"
+    primaryHref="/donate"
+    secondaryText="Volunteer Facilitator"
+    secondaryHref="/get-involved/volunteer"
+  />
+</PageLayout>

@@ -1,0 +1,105 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Button from '../../components/Button.astro';
+import CTA from '../../components/CTA.astro';
+import { Sparkles, Calendar, Heart, ArrowRight, Quote } from 'lucide-astro';
+---
+
+<PageLayout
+  title="Our Story: From Testybam to Blooming Ones"
+  eyebrow="Three Years of Growing Together"
+  description="The journey of an urgent community response that blossomed into a nationwide movement for adolescent girl-child dignity and empowerment."
+  breadcrumbs={[
+    { label: 'About', href: '/about' },
+    { label: 'Our Story' },
+  ]}
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <!-- Featured Image -->
+    <div class="rounded-3xl overflow-hidden shadow-xl aspect-[16/9] bg-surface-container border border-outline-variant/30 mb-12">
+      <img
+        src="/images/hero-schoolgirls.png"
+        alt="Schoolgirls walking together outdoors in Lagos"
+        width="1200"
+        height="675"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <!-- Editorial Story Body -->
+    <div class="prose prose-lg max-w-none text-on-surface leading-relaxed
+      [&>p]:text-body-lg [&>p]:text-on-surface-variant [&>p]:mb-6 [&>p]:leading-relaxed
+      [&>h2]:font-headline-md [&>h2]:text-primary [&>h2]:mt-10 [&>h2]:mb-4
+      [&>h3]:font-title-lg [&>h3]:text-primary [&>h3]:mt-8 [&>h3]:mb-3
+    ">
+      <h2>The Spark: Silence at the Classroom Door</h2>
+      <p>
+        In early 2023, during an informal mentoring engagement at a public secondary school in suburban Lagos, founder Temitope Babatunde noticed an alarming pattern: on any given week, several of the most academically promising girls in senior secondary classes were mysteriously absent for three to five consecutive days.
+      </p>
+      <p>
+        Discussions with teachers revealed an open secret that few were willing to confront openly: period poverty. Without access to sanitary pads, clean private restrooms, or supportive menstrual education, girls stayed behind locked doors at home rather than risk shame, soiled school uniforms, and ridicule from peers.
+      </p>
+
+      <!-- Founder Quote Callout -->
+      <div class="my-10 p-8 rounded-3xl bg-surface-container-low border border-outline-variant/30 flex gap-6 items-start">
+        <Quote class="w-10 h-10 text-secondary flex-shrink-0 mt-1" />
+        <div>
+          <p class="font-serif italic text-primary text-xl leading-relaxed">
+            “Menstruation is the biological bedrock of human life. For a young girl to feel degraded or locked out of her education simply because her body does what nature intended is a quiet tragedy that we refused to accept.”
+          </p>
+          <span class="block mt-3 text-xs font-bold uppercase tracking-wider text-secondary font-label-caps">
+            — Temitope Babatunde, Founder & Lead Advocate
+          </span>
+        </div>
+      </div>
+
+      <h2>The Founding: The Testybam Initiative (2023)</h2>
+      <p>
+        With self-funded resources and contributions from family and friends, <strong>The Testybam Initiative</strong> was born. The first outreach mobilized five volunteers and delivered fifty dignity packs containing sanitary pads, washing soaps, and pain relief guidance to adolescent girls in Agege.
+      </p>
+      <p>
+        The response was overwhelming. Girls did not merely take the supplies; they wept with relief, stayed back after school to ask questions about puberty they had kept hidden for years, and returned to class the following Monday with renewed poise. Word spread to neighboring schools, and invitations poured in from community leaders and heads of local orphanages.
+      </p>
+
+      <h2>Deepening the Roots: Safe Spaces & Mentorship (2024)</h2>
+      <p>
+        By mid-2024, our team recognized that distributing pads, while urgently necessary, was only treating the symptoms of a deeper structural vulnerability. A girl who received pads for three months would still face unequal societal pressures, early marriage risks, academic disengagement, and emotional isolation.
+      </p>
+      <p>
+        To address this, we established <strong>The Girls’ Hangout</strong>—bi-weekly non-formal sanctuary circles where adolescent girls gather to build self-worth, learn leadership and public speaking, receive career advice in STEM and arts, and unburden their hearts with empathetic older female mentors. We also extended regular quarterly care missions to residential child care centers and orphanages across Lagos and surrounding states.
+      </p>
+
+      <h2>The Evolution: Becoming The Blooming Ones Initiative (2025–Present)</h2>
+      <p>
+        After reaching over 10,000 girls across 40+ schools and community clusters, our leadership convened to evaluate our long-term trajectory. Our mission had transcended an emergency relief project; it was now an institutional engine for holistic adolescent human flourishing.
+      </p>
+      <p>
+        We rebranded to <strong>The Blooming Ones Initiative</strong>. The blossom is not fragile; it is an emblem of nature’s quiet, unstoppable resilience. A plant nourished with good soil, sunlight, and clean water will inevitably blossom into fullness. Our motto—<em>To edify, nourish, and empower girls so they can bloom and never wither</em>—reflects this sacred covenant.
+      </p>
+      <p>
+        Today, with over 120 certified volunteers, an advisory board of educators and medical practitioners, and rigorous financial transparency, The Blooming Ones Initiative continues to walk beside the African girl-child every single step of her journey.
+      </p>
+    </div>
+
+    <!-- Action Bar -->
+    <div class="mt-12 pt-8 border-t border-outline-variant/30 flex flex-wrap items-center justify-between gap-4">
+      <Button href="/about/team" variant="primary">
+        <span>Meet Our Leadership & Team</span>
+        <ArrowRight class="w-4 h-4" />
+      </Button>
+      <Button href="/our-work" variant="secondary">
+        <span>Explore Our Programs</span>
+      </Button>
+    </div>
+  </div>
+
+  <CTA
+    eyebrow="Write The Next Chapter"
+    title="Be Part of Our Next 3 Years"
+    description="Your sponsorship enables us to expand from 48 schools to 100 communities by 2027."
+    primaryText="Donate Today"
+    primaryHref="/donate"
+    secondaryText="Volunteer Network"
+    secondaryHref="/get-involved/volunteer"
+  />
+</PageLayout>

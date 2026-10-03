@@ -1,0 +1,240 @@
+---
+import { Heart, Sparkles, ShieldCheck } from 'lucide-astro';
+---
+
+<div class="w-full max-w-xl mx-auto rounded-3xl bg-surface-container-lowest p-6 sm:p-8 border border-outline-variant/40 shadow-[0_8px_32px_rgba(74,18,40,0.08)]" id="donationWidget">
+  <!-- Frequency Toggle (One-Time / Monthly) -->
+  <div class="flex items-center p-1 rounded-full bg-surface-container-low border border-outline-variant/30 mb-6" role="tablist" aria-label="Donation Frequency">
+    <button
+      type="button"
+      id="freqOneTime"
+      role="tab"
+      aria-selected="true"
+      class="flex-1 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 bg-primary-container text-on-primary shadow-sm cursor-pointer"
+    >
+      One-Time Gift
+    </button>
+    <button
+      type="button"
+      id="freqMonthly"
+      role="tab"
+      aria-selected="false"
+      class="flex-1 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 text-on-surface-variant hover:text-primary cursor-pointer flex items-center justify-center gap-1.5"
+    >
+      <span>Monthly Sustainer</span>
+      <Sparkles class="w-3.5 h-3.5 text-secondary" />
+    </button>
+  </div>
+
+  <!-- Amount Selection Grid -->
+  <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6" role="radiogroup" aria-label="Select Gift Tier">
+    <button
+      type="button"
+      class="tier-btn active py-3 px-3 rounded-2xl border text-center transition-all cursor-pointer bg-primary-container text-on-primary border-primary-container shadow-sm"
+      data-amount="₦5,000"
+      data-raw="5000"
+      data-desc="Provides menstrual dignity packs for 2 secondary schoolgirls for a full term."
+    >
+      <div class="font-headline-sm font-serif text-lg">₦5,000</div>
+      <div class="text-[11px] opacity-90 mt-0.5">2 Girls / Term</div>
+    </button>
+
+    <button
+      type="button"
+      class="tier-btn py-3 px-3 rounded-2xl border text-center transition-all cursor-pointer bg-surface-container-low text-on-surface-variant border-outline-variant/30 hover:border-secondary"
+      data-amount="₦10,000"
+      data-raw="10000"
+      data-desc="Equips 4 girls with comprehensive sanitary kits, underwear, and educational guides."
+    >
+      <div class="font-headline-sm font-serif text-lg">₦10,000</div>
+      <div class="text-[11px] opacity-90 mt-0.5">4 Girls Dignity</div>
+    </button>
+
+    <button
+      type="button"
+      class="tier-btn py-3 px-3 rounded-2xl border text-center transition-all cursor-pointer bg-surface-container-low text-on-surface-variant border-outline-variant/30 hover:border-secondary"
+      data-amount="₦25,000"
+      data-raw="25000"
+      data-desc="Sponsors 10 adolescent girls with ongoing dignity support and monthly safe hangout sessions."
+    >
+      <div class="font-headline-sm font-serif text-lg">₦25,000</div>
+      <div class="text-[11px] opacity-90 mt-0.5">10 Girls / Mentorship</div>
+    </button>
+
+    <button
+      type="button"
+      class="tier-btn py-3 px-3 rounded-2xl border text-center transition-all cursor-pointer bg-surface-container-low text-on-surface-variant border-outline-variant/30 hover:border-secondary"
+      data-amount="₦50,000"
+      data-raw="50000"
+      data-desc="Funds an entire classroom outreach workshop led by healthcare practitioners with free supplies."
+    >
+      <div class="font-headline-sm font-serif text-lg">₦50,000</div>
+      <div class="text-[11px] opacity-90 mt-0.5">Classroom Workshop</div>
+    </button>
+
+    <button
+      type="button"
+      class="tier-btn py-3 px-3 rounded-2xl border text-center transition-all cursor-pointer bg-surface-container-low text-on-surface-variant border-outline-variant/30 hover:border-secondary"
+      data-amount="₦100,000"
+      data-raw="100000"
+      data-desc="Directly powers a rural community outreach mission with complete medical checks and hygiene packs."
+    >
+      <div class="font-headline-sm font-serif text-lg">₦100,000</div>
+      <div class="text-[11px] opacity-90 mt-0.5">Village Mission</div>
+    </button>
+
+    <button
+      type="button"
+      class="tier-btn py-3 px-3 rounded-2xl border text-center transition-all cursor-pointer bg-surface-container-low text-on-surface-variant border-outline-variant/30 hover:border-secondary"
+      data-amount="Custom"
+      data-raw="custom"
+      data-desc="Choose your custom amount to support our ongoing girl-child programs and educational interventions."
+    >
+      <div class="font-headline-sm font-serif text-lg">Custom</div>
+      <div class="text-[11px] opacity-90 mt-0.5">Your Choice</div>
+    </button>
+  </div>
+
+  <!-- Custom Input Box (visible when custom selected) -->
+  <div id="customInputWrap" class="hidden mb-6">
+    <label for="customAmountInput" class="block text-xs font-semibold uppercase text-secondary mb-1 tracking-wider">
+      Enter Amount (₦ Naira)
+    </label>
+    <div class="relative">
+      <span class="absolute left-4 top-1/2 -translate-y-1/2 font-serif text-lg text-primary font-bold">₦</span>
+      <input
+        id="customAmountInput"
+        type="number"
+        min="1000"
+        step="500"
+        placeholder="e.g. 15,000"
+        class="w-full pl-9 pr-4 py-3 rounded-xl bg-surface border border-outline-variant text-primary font-medium focus:outline-none focus:ring-2 focus:ring-secondary/40 text-lg"
+      />
+    </div>
+  </div>
+
+  <!-- Tangible Impact Description Box -->
+  <div class="p-4 rounded-2xl bg-surface-container-low border border-outline-variant/30 mb-6 text-center">
+    <div class="inline-flex items-center gap-1.5 text-xs font-bold text-secondary uppercase tracking-wider mb-1 font-label-caps">
+      <Heart class="w-3.5 h-3.5 fill-current text-secondary" />
+      <span>Tangible Impact</span>
+    </div>
+    <p id="tierDesc" class="font-body-sm text-on-surface-variant leading-relaxed">
+      Provides menstrual dignity packs for 2 secondary schoolgirls for a full term.
+    </p>
+  </div>
+
+  <!-- Payment Provider Dispatch CTA -->
+  <div class="flex flex-col gap-3">
+    <button
+      type="button"
+      id="donateSubmitBtn"
+      class="w-full py-3.5 rounded-full bg-primary-container text-on-primary font-label-lg flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(74,18,40,0.25)] hover:bg-primary hover:shadow-[0_6px_22px_rgba(74,18,40,0.35)] hover:-translate-y-0.5 transition-all cursor-pointer"
+    >
+      <Heart class="w-4 h-4 fill-current text-secondary-fixed" />
+      <span id="donateBtnLabel">Donate ₦5,000 Today</span>
+    </button>
+
+    <div class="flex items-center justify-center gap-2 text-xs text-on-surface-variant pt-1">
+      <ShieldCheck class="w-4 h-4 text-tertiary-leaf" />
+      <span>Secure Checkout • Paystack / Flutterwave Integration Ready</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  const initDonationWidget = () => {
+    const root = document.getElementById('donationWidget');
+    if (!root) return;
+
+    const freqOneTime = root.querySelector('#freqOneTime') as HTMLButtonElement;
+    const freqMonthly = root.querySelector('#freqMonthly') as HTMLButtonElement;
+    const buttons = root.querySelectorAll('.tier-btn') as NodeListOf<HTMLButtonElement>;
+    const descEl = root.querySelector('#tierDesc') as HTMLElement;
+    const donateLabel = root.querySelector('#donateBtnLabel') as HTMLElement;
+    const customWrap = root.querySelector('#customInputWrap') as HTMLElement;
+    const customInput = root.querySelector('#customAmountInput') as HTMLInputElement;
+    const submitBtn = root.querySelector('#donateSubmitBtn') as HTMLButtonElement;
+
+    let isMonthly = false;
+    let selectedAmount = '₦5,000';
+    let selectedRaw = '5000';
+
+    // Frequency switches
+    const updateFreq = (monthly: boolean) => {
+      isMonthly = monthly;
+      if (monthly) {
+        freqMonthly.classList.add('bg-primary-container', 'text-on-primary', 'shadow-sm');
+        freqMonthly.classList.remove('text-on-surface-variant');
+        freqOneTime.classList.remove('bg-primary-container', 'text-on-primary', 'shadow-sm');
+        freqOneTime.classList.add('text-on-surface-variant');
+        freqMonthly.setAttribute('aria-selected', 'true');
+        freqOneTime.setAttribute('aria-selected', 'false');
+      } else {
+        freqOneTime.classList.add('bg-primary-container', 'text-on-primary', 'shadow-sm');
+        freqOneTime.classList.remove('text-on-surface-variant');
+        freqMonthly.classList.remove('bg-primary-container', 'text-on-primary', 'shadow-sm');
+        freqMonthly.classList.add('text-on-surface-variant');
+        freqOneTime.setAttribute('aria-selected', 'true');
+        freqMonthly.setAttribute('aria-selected', 'false');
+      }
+      updateLabel();
+    };
+
+    if (freqOneTime && freqMonthly) {
+      freqOneTime.addEventListener('click', () => updateFreq(false));
+      freqMonthly.addEventListener('click', () => updateFreq(true));
+    }
+
+    const updateLabel = () => {
+      const suffix = isMonthly ? ' Monthly' : ' Today';
+      if (selectedRaw === 'custom') {
+        const val = customInput && customInput.value ? `₦${Number(customInput.value).toLocaleString()}` : '';
+        donateLabel.textContent = val ? `Donate ${val}${suffix}` : `Donate Custom Amount${suffix}`;
+      } else {
+        donateLabel.textContent = `Donate ${selectedAmount}${suffix}`;
+      }
+    };
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        buttons.forEach((b) => {
+          b.classList.remove('bg-primary-container', 'text-on-primary', 'border-primary-container', 'shadow-sm', 'active');
+          b.classList.add('bg-surface-container-low', 'text-on-surface-variant', 'border-outline-variant/30');
+        });
+
+        btn.classList.remove('bg-surface-container-low', 'text-on-surface-variant', 'border-outline-variant/30');
+        btn.classList.add('bg-primary-container', 'text-on-primary', 'border-primary-container', 'shadow-sm', 'active');
+
+        selectedAmount = btn.getAttribute('data-amount') || '';
+        selectedRaw = btn.getAttribute('data-raw') || '';
+        const desc = btn.getAttribute('data-desc') || '';
+
+        if (descEl) descEl.textContent = desc;
+
+        if (selectedRaw === 'custom') {
+          customWrap.classList.remove('hidden');
+          customInput?.focus();
+        } else {
+          customWrap.classList.add('hidden');
+        }
+
+        updateLabel();
+      });
+    });
+
+    if (customInput) {
+      customInput.addEventListener('input', updateLabel);
+    }
+
+    if (submitBtn) {
+      submitBtn.addEventListener('click', () => {
+        const amount = selectedRaw === 'custom' ? (customInput?.value || '5000') : selectedRaw;
+        alert(`[Payment Gateway Simulation]\nPreparing checkout for ${selectedAmount} (${isMonthly ? 'Monthly Recurring' : 'One-Time'}).\n\nIn production, this integrates directly with Paystack or Flutterwave.`);
+      });
+    }
+  };
+
+  initDonationWidget();
+  document.addEventListener('astro:after-swap', initDonationWidget);
+</script>

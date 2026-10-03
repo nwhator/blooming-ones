@@ -1,0 +1,134 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Button from '../components/Button.astro';
+import { Calendar, User, ArrowLeft, Heart, Share2 } from 'lucide-astro';
+
+interface Props {
+  story: {
+    title: string;
+    description: string;
+    date: string;
+    category: string;
+    author: string;
+    image: string;
+    imageAlt: string;
+  };
+  slug: string;
+  relatedStories?: any[];
+}
+
+const { story, slug, relatedStories = [] } = Astro.props;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": story.title,
+  "description": story.description,
+  "image": new URL(story.image, Astro.site || Astro.url.origin).href,
+  "datePublished": story.date,
+  "author": {
+    "@type": "Organization",
+    "name": story.author
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Blooming Ones Initiative",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thebloomingones.org/images/logo.png"
+    }
+  }
+};
+---
+
+<BaseLayout
+  title={story.title}
+  description={story.description}
+  image={story.image}
+  type="article"
+  schema={articleSchema}
+>
+  <article class="w-full pb-20">
+    <!-- Article Header -->
+    <header class="w-full bg-surface-container-low py-12 md:py-16 border-b border-outline-variant/30">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Breadcrumbs
+          items={[
+            { label: 'Stories of Blooming', href: '/stories' },
+            { label: story.title },
+          ]}
+        />
+
+        <div class="mt-6 flex flex-wrap items-center gap-3">
+          <span class="px-3.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-xs font-bold uppercase tracking-wider">
+            {story.category}
+          </span>
+          <div class="flex items-center gap-1.5 text-xs text-on-surface-variant font-medium">
+            <Calendar class="w-3.5 h-3.5 text-secondary" />
+            <span>{story.date}</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-xs text-on-surface-variant font-medium">
+            <User class="w-3.5 h-3.5 text-secondary" />
+            <span>{story.author}</span>
+          </div>
+        </div>
+
+        <h1 class="font-display-hero text-primary tracking-tight mt-4 text-3xl sm:text-4xl lg:text-5xl">
+          {story.title}
+        </h1>
+
+        <p class="font-body-lg text-on-surface-variant mt-4 text-lg sm:text-xl leading-relaxed">
+          {story.description}
+        </p>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+      <!-- Story Hero Image -->
+      <div class="rounded-3xl overflow-hidden shadow-xl aspect-[16/9] bg-surface-container border border-outline-variant/30 mb-12">
+        <img
+          src={story.image}
+          alt={story.imageAlt}
+          width="1200"
+          height="675"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <!-- Markdown Article Body with Editorial Prose Styling -->
+      <div class="prose prose-lg max-w-none text-on-surface leading-relaxed
+        [&>p]:text-body-lg [&>p]:text-on-surface-variant [&>p]:mb-6 [&>p]:leading-relaxed
+        [&>h2]:font-headline-md [&>h2]:text-primary [&>h2]:mt-10 [&>h2]:mb-4
+        [&>h3]:font-title-lg [&>h3]:text-primary [&>h3]:mt-8 [&>h3]:mb-3
+        [&>blockquote]:border-l-4 [&>blockquote]:border-secondary [&>blockquote]:pl-6 [&>blockquote]:my-8 [&>blockquote]:italic [&>blockquote]:text-primary [&>blockquote]:font-serif [&>blockquote]:text-xl
+        [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:mb-6 [&>ul]:space-y-2 [&>ul>li]:text-on-surface-variant
+        [&>ol]:list-decimal [&>ol]:pl-6 [&>ol]:mb-6 [&>ol]:space-y-2 [&>ol>li]:text-on-surface-variant
+      ">
+        <slot />
+      </div>
+
+      <!-- Action & Donation Callout within Story -->
+      <div class="mt-16 p-8 rounded-3xl bg-surface-container-low border border-outline-variant/40 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+        <div>
+          <span class="font-label-caps text-secondary font-bold uppercase tracking-wider">Join Her Journey</span>
+          <h3 class="font-headline-sm text-primary mt-1">Help More Girls Bloom Like Amina & Chidinma</h3>
+          <p class="font-body-sm text-on-surface-variant mt-1 max-w-lg">
+            Your support directly provides menstrual dignity kits, safe mentorship circles, and secondary school retention.
+          </p>
+        </div>
+        <div class="flex items-center gap-3 flex-shrink-0">
+          <Button href="/donate" variant="primary">
+            <Heart class="w-4 h-4 fill-current text-secondary-fixed" />
+            <span>Donate Now</span>
+          </Button>
+          <Button href="/stories" variant="secondary">
+            <ArrowLeft class="w-4 h-4" />
+            <span>All Stories</span>
+          </Button>
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

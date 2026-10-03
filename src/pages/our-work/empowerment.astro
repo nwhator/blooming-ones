@@ -1,0 +1,117 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Button from '../../components/Button.astro';
+import CTA from '../../components/CTA.astro';
+import { Users2, ShieldCheck, CheckCircle2, ArrowRight, Mic, Heart, Award } from 'lucide-astro';
+---
+
+<PageLayout
+  title="Girl-Child Empowerment & Advocacy"
+  eyebrow="Agency & Leadership"
+  description="Equipping adolescent girls with rights awareness, self-advocacy skills, boundary setting, and public leadership voice."
+  breadcrumbs={[
+    { label: 'Our Work', href: '/our-work' },
+    { label: 'Girl-Child Empowerment' },
+  ]}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+      <div class="lg:col-span-7 flex flex-col gap-6">
+        <SectionHeading
+          eyebrow="Voice, Agency & Rights"
+          title="Raising Confident Young Women Who Speak Boldly and Stand Tall"
+          subtitle="True empowerment goes beyond providing resources; it awakens the deep recognition within a young woman that her thoughts matter, her boundaries are sacred, and her future belongs to her."
+        />
+
+        <p class="font-body-md text-on-surface-variant leading-relaxed">
+          Through our structured workshops on child rights, bodily sovereignty, self-advocacy, and emotional resilience, we teach girls how to identify and resist exploitation, speak in front of audiences with poise, and advocate for themselves in homes, schools, and communities.
+        </p>
+
+        <div class="flex flex-wrap gap-4 pt-2">
+          <Button href="/donate" variant="primary">
+            <span>Support Empowerment Workshops</span>
+          </Button>
+          <Button href="/stories/the-power-of-safe-circles" variant="secondary">
+            <span>Read Safe Circles Story</span>
+            <ArrowRight class="w-4 h-4" />
+          </Button>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5">
+        <div class="rounded-3xl overflow-hidden shadow-xl aspect-[4/3] bg-surface-container border border-outline-variant/30">
+          <img
+            src="/images/girls-circle.png"
+            alt="Girls sitting in an empowerment circle smiling and speaking"
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Core Pillars of Empowerment -->
+    <div class="mb-20">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <SectionHeading
+          align="center"
+          eyebrow="Key Modules"
+          title="The 4 Foundations of Our Empowerment Curriculum"
+          subtitle="Created by psychologists, educators, and child protection specialists."
+        />
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="p-8 rounded-3xl bg-surface-container-low border border-outline-variant/30 flex flex-col gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-primary-container text-on-primary flex items-center justify-center">
+            <Mic class="w-6 h-6" />
+          </div>
+          <h3 class="font-title-lg text-primary font-semibold">1. Public Voice & Assertiveness</h3>
+          <p class="font-body-sm text-on-surface-variant leading-relaxed">
+            Overcoming internalized timidity and conditioned silence. Girls learn vocal projection, constructive debate, body language, and how to express dissent respectfully yet firmly.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-surface-container-low border border-outline-variant/30 flex flex-col gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-secondary text-on-secondary flex items-center justify-center">
+            <ShieldCheck class="w-6 h-6" />
+          </div>
+          <h3 class="font-title-lg text-primary font-semibold">2. Rights & Bodily Sovereignty</h3>
+          <p class="font-body-sm text-on-surface-variant leading-relaxed">
+            Understanding provisions of Nigeria's Child Rights Act, consent, identifying grooming and gender-based violence, and confidential safety reporting mechanisms.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-surface-container-low border border-outline-variant/30 flex flex-col gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-tertiary-leaf text-on-tertiary flex items-center justify-center">
+            <Heart class="w-6 h-6" />
+          </div>
+          <h3 class="font-title-lg text-primary font-semibold">3. Self-Image & Emotional Wellness</h3>
+          <p class="font-body-sm text-on-surface-variant leading-relaxed">
+            Dismantling societal beauty pressures, dealing with social media comparison, managing anxiety, and building unconditional internal self-compassion.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-surface-container-low border border-outline-variant/30 flex flex-col gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-primary-fixed text-on-primary-fixed flex items-center justify-center">
+            <Award class="w-6 h-6" />
+          </div>
+          <h3 class="font-title-lg text-primary font-semibold">4. Peer Leadership & Civic Action</h3>
+          <p class="font-body-sm text-on-surface-variant leading-relaxed">
+            Training girls to become peer ambassadors who establish dignity corners, organize study groups, and protect younger students from bullying.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <CTA
+    eyebrow="Nurture Her Voice"
+    title="Help Us Raise 5,000 More Empowered Leaders in 2026"
+    description="Your contribution powers workshops, prints rights handbooks, and brings professional trainers to public schools."
+    primaryText="Donate Today"
+    primaryHref="/donate"
+    secondaryText="Partner With Us"
+    secondaryHref="/get-involved/partner"
+  />
+</PageLayout>

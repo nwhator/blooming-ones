@@ -1,0 +1,60 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { ShieldCheck } from 'lucide-astro';
+---
+
+<PageLayout
+  title="Privacy Policy"
+  eyebrow="Data Protection"
+  description="How The Blooming Ones Initiative collects, safeguards, and respects the personal information of donors, volunteers, and beneficiaries."
+  breadcrumbs={[{ label: 'Privacy Policy' }]}
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="prose prose-lg max-w-none text-on-surface leading-relaxed
+      [&>p]:text-body-md [&>p]:text-on-surface-variant [&>p]:mb-6 [&>p]:leading-relaxed
+      [&>h2]:font-headline-md [&>h2]:text-primary [&>h2]:mt-10 [&>h2]:mb-4
+      [&>h3]:font-title-lg [&>h3]:text-primary [&>h3]:mt-6 [&>h3]:mb-3
+      [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:mb-6 [&>ul]:space-y-2 [&>ul>li]:text-on-surface-variant
+    ">
+      <p class="text-xs text-outline mb-6">Last updated: January 2026</p>
+
+      <h2>1. Introduction</h2>
+      <p>
+        The Blooming Ones Initiative ("we", "our", or "the Initiative") is committed to protecting your privacy and treating personal data with absolute integrity. This Privacy Policy outlines our standards concerning the collection, storage, and utilization of information collected through our website, field activities, and donor channels.
+      </p>
+
+      <h2>2. Information We Collect</h2>
+      <p>We may collect personal details when you interact with us in the following capacities:</p>
+      <ul>
+        <li><strong>Donors:</strong> Name, email address, transaction identifiers, and mailing details. Payment card data is processed directly via accredited payment gateways (such as Paystack / Flutterwave) and is never stored on our servers.</li>
+        <li><strong>Volunteers:</strong> Contact details, residential state, profession, relevant skills, and emergency contact details collected for field operations and child safeguarding vetting.</li>
+        <li><strong>Partners & Sponsors:</strong> Institutional names, official designations, and corporate contact addresses.</li>
+      </ul>
+
+      <h2>3. Protection of Child & Beneficiary Data</h2>
+      <p>
+        We operate in strict adherence to child privacy protections. We do not publicly publish full names, home addresses, or contact information of underage girls participating in our programs. Beneficiary photographs and narratives are shared only with explicit written parental/guardian consent and in accordance with our Ethical Storytelling Charter.
+      </p>
+
+      <h2>4. How We Use Your Information</h2>
+      <p>Collected information is utilized strictly to:</p>
+      <ul>
+        <li>Acknowledge and receipt financial contributions.</li>
+        <li>Coordinate volunteer assignments, training workshops, and safety briefings.</li>
+        <li>Send transparent quarterly impact reports and newsletter dispatches (with one-click unsubscribe options).</li>
+        <li>Fulfill legal and statutory regulatory compliance in Nigeria.</li>
+      </ul>
+
+      <h2>5. Non-Disclosure & Third Parties</h2>
+      <p>
+        We do not sell, rent, trade, or monetize personal information to any commercial entities or third parties under any circumstances.
+      </p>
+
+      <h2>6. Contact Regarding Data Protection</h2>
+      <p>
+        For inquiries regarding data rectification or removal, contact our privacy desk at <a href="mailto:privacy@thebloomingones.org" class="text-secondary font-semibold hover:underline">privacy@thebloomingones.org</a>.
+      </p>
+    </div>
+  </div>
+</PageLayout>

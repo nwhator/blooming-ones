@@ -1,0 +1,217 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Button from '../../components/Button.astro';
+import CTA from '../../components/CTA.astro';
+import { Sparkles, Users, Award, ShieldCheck, Heart, ArrowRight, Quote } from 'lucide-astro';
+---
+
+<PageLayout
+  title="Our Leadership & Team"
+  eyebrow="People of Purpose"
+  description="Meet the passionate leaders, healthcare professionals, educators, and field champions who dedicate their lives to helping every girl bloom."
+  breadcrumbs={[
+    { label: 'About', href: '/about' },
+    { label: 'Our Team' },
+  ]}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <!-- SECTION 1: FOUNDER SPOTLIGHT -->
+    <section class="mb-24 p-8 sm:p-12 lg:p-16 rounded-3xl bg-surface-container-low border border-outline-variant/30">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-5 relative">
+          <div class="rounded-3xl overflow-hidden shadow-xl aspect-[4/5] bg-surface-container border border-outline-variant/30">
+            <img
+              src="/images/founder-portrait.png"
+              alt="Temitope Babatunde, Founder & Executive Director"
+              width="600"
+              height="750"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="absolute -bottom-4 -right-4 px-4 py-2 rounded-2xl bg-surface-bright shadow-md border border-outline-variant/30 text-xs font-bold text-secondary font-label-caps uppercase">
+            Founder & Lead Advocate
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 flex flex-col gap-6">
+          <div class="inline-flex items-center gap-2 text-secondary font-bold text-xs uppercase font-label-caps">
+            <Sparkles class="w-4 h-4" />
+            <span>Executive Leadership</span>
+          </div>
+
+          <h2 class="font-headline-lg text-primary tracking-tight">
+            Temitope Babatunde
+          </h2>
+          <p class="font-title-md text-secondary font-semibold -mt-3">
+            Founder & Executive Director
+          </p>
+
+          <p class="font-body-lg text-on-surface-variant leading-relaxed">
+            Temitope is a passionate community organizer, youth development advocate, and the visionary founder of The Blooming Ones Initiative (formerly The Testybam Initiative). Having witnessed firsthand how menstrual taboos and socioeconomic vulnerability derail promising girls, she launched the initiative in 2023 to ensure that bodily milestones are celebrated with dignity, not concealed with shame.
+          </p>
+
+          <blockquote class="p-6 rounded-2xl bg-surface-bright border-l-4 border-secondary italic font-serif text-lg text-primary leading-relaxed shadow-sm">
+            “When we protect a girl’s dignity today, we are protecting the future scientist, teacher, doctor, and community builder of tomorrow. She only needs to know that she is seen, cherished, and believed in.”
+          </blockquote>
+
+          <div class="flex items-center gap-4 pt-2">
+            <Button href="/about/story" variant="outline" size="sm">
+              <span>Read The Founding Journey</span>
+              <ArrowRight class="w-4 h-4" />
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: CORE FIELD & PROGRAM LEADS -->
+    <section class="mb-24">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <SectionHeading
+          align="center"
+          eyebrow="Program Directorate"
+          title="Field & Clinical Leadership"
+          subtitle="Qualified professionals ensuring rigorous health guidance, ethical mentoring, and smooth community logistics."
+        />
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Team Member 1 -->
+        <div class="p-6 rounded-3xl bg-surface-bright border border-outline-variant/30 shadow-sm flex flex-col justify-between group">
+          <div>
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-surface-container mb-6">
+              <img
+                src="/images/doctor-portrait.png"
+                alt="Dr. Nneka Eze, Clinical Director"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <span class="text-xs font-bold uppercase font-label-caps text-secondary">Clinical Lead</span>
+            <h3 class="font-headline-sm text-primary mt-1">Dr. Nneka Eze</h3>
+            <p class="text-xs text-on-surface-variant font-medium mb-3">Director of Menstrual Health & Clinical Care</p>
+            <p class="font-body-sm text-on-surface-variant leading-relaxed">
+              Medical doctor with specialization in adolescent reproductive health. Leads our volunteer healthcare team, curriculum validation, and community hygiene clinics.
+            </p>
+          </div>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="p-6 rounded-3xl bg-surface-bright border border-outline-variant/30 shadow-sm flex flex-col justify-between group">
+          <div>
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-surface-container mb-6">
+              <img
+                src="/images/volunteer-coordinator.png"
+                alt="Zainab Alabi, Mentorship Director"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <span class="text-xs font-bold uppercase font-label-caps text-secondary">Sisterhood Director</span>
+            <h3 class="font-headline-sm text-primary mt-1">Zainab Alabi</h3>
+            <p class="text-xs text-on-surface-variant font-medium mb-3">Head of Girls' Hangouts & Mentorship</p>
+            <p class="font-body-sm text-on-surface-variant leading-relaxed">
+              Certified educational counselor. Oversees our bi-weekly hangout circles, safe space facilitators, and university transition coaching programs.
+            </p>
+          </div>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="p-6 rounded-3xl bg-surface-bright border border-outline-variant/30 shadow-sm flex flex-col justify-between group">
+          <div>
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-surface-container mb-6">
+              <img
+                src="/images/volunteers-healthcare.png"
+                alt="Blessing Okafor, Community Outreach Lead"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <span class="text-xs font-bold uppercase font-label-caps text-secondary">Operations Lead</span>
+            <h3 class="font-headline-sm text-primary mt-1">Blessing Okafor</h3>
+            <p class="text-xs text-on-surface-variant font-medium mb-3">Community Outreach & Orphanage Care Liaison</p>
+            <p class="font-body-sm text-on-surface-variant leading-relaxed">
+              Grassroots logistics coordinator managing school relationships, orphanage quarterly provisions, and emergency care kit dispatches across Nigeria.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: BOARD OF ADVISORS & GOVERNANCE -->
+    <section class="mb-24 p-8 sm:p-12 rounded-3xl bg-surface-container-low border border-outline-variant/30">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <SectionHeading
+          align="center"
+          eyebrow="Governance"
+          title="Board of Advisors & Counsel"
+          subtitle="Independent advisors providing oversight in education policy, child safeguarding, financial auditing, and legal compliance."
+        />
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/20 shadow-sm">
+          <span class="text-xs font-bold uppercase text-secondary font-label-caps">Education Policy</span>
+          <h4 class="font-title-md text-primary font-semibold mt-1">Prof. Yetunde Balogun</h4>
+          <p class="text-xs text-on-surface-variant mb-2">Senior Education Specialist</p>
+          <p class="font-body-sm text-on-surface-variant leading-relaxed">Advises on school curriculum alignment and retention metrics across public education boards.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/20 shadow-sm">
+          <span class="text-xs font-bold uppercase text-secondary font-label-caps">Child Protection</span>
+          <h4 class="font-title-md text-primary font-semibold mt-1">Barr. Chika Nwachukwu</h4>
+          <p class="text-xs text-on-surface-variant mb-2">Legal Counsel & Child Rights Advocate</p>
+          <p class="font-body-sm text-on-surface-variant leading-relaxed">Supervises organizational compliance with Child Rights Acts and beneficiary protection protocols.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/20 shadow-sm">
+          <span class="text-xs font-bold uppercase text-secondary font-label-caps">Financial Governance</span>
+          <h4 class="font-title-md text-primary font-semibold mt-1">Oladipo Adeleke, FCA</h4>
+          <p class="text-xs text-on-surface-variant mb-2">Chartered Accountant & Audit Advisor</p>
+          <p class="font-body-sm text-on-surface-variant leading-relaxed">Reviews financial controls, grant reporting, and independent annual audit transparency.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: VOLUNTEER NETWORK IN NUMBERS -->
+    <section class="mb-20 text-center">
+      <div class="inline-flex items-center gap-2 text-secondary font-bold text-xs uppercase font-label-caps mb-3">
+        <Users class="w-4 h-4" />
+        <span>The Heartbeat of Our Work</span>
+      </div>
+      <h2 class="font-headline-lg text-primary tracking-tight mb-4">
+        120+ Certified Field Volunteers
+      </h2>
+      <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10 leading-relaxed">
+        Our volunteers include registered nurses, university undergraduates, teachers, psychologists, and youth workers who give freely of their time and compassion.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto">
+        <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/30">
+          <div class="font-headline-lg text-primary font-serif">120+</div>
+          <div class="font-body-sm text-on-surface-variant mt-1">Active Volunteers</div>
+        </div>
+        <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/30">
+          <div class="font-headline-lg text-primary font-serif">2,400+</div>
+          <div class="font-body-sm text-on-surface-variant mt-1">Hours in the Field</div>
+        </div>
+        <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/30">
+          <div class="font-headline-lg text-primary font-serif">48+</div>
+          <div class="font-body-sm text-on-surface-variant mt-1">Schools Deployed</div>
+        </div>
+        <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/30">
+          <div class="font-headline-lg text-primary font-serif">100%</div>
+          <div class="font-body-sm text-on-surface-variant mt-1">Safeguarding Vetted</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <CTA
+    eyebrow="Join Our Ranks"
+    title="Ready to Volunteer With The Blooming Ones?"
+    description="We are constantly onboarding passionate mentors, nurses, coordinators, and content storytellers."
+    primaryText="Apply to Volunteer"
+    primaryHref="/get-involved/volunteer"
+    secondaryText="Partner With Us"
+    secondaryHref="/get-involved/partner"
+  />
+</PageLayout>

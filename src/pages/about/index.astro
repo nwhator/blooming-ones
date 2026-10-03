@@ -1,0 +1,218 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Button from '../../components/Button.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import PartnerLogos from '../../components/PartnerLogos.astro';
+import CTA from '../../components/CTA.astro';
+import { Sparkles, Heart, Target, Eye, ShieldCheck, ArrowRight, Clock, Award, Users } from 'lucide-astro';
+---
+
+<PageLayout
+  title="About Our Mission & Heritage"
+  eyebrow="Rooted in Grassroots Dignity"
+  description="From humble school gate outreaches to a multi-dimensional movement: learn how The Blooming Ones Initiative edifies, nourishes, and empowers adolescent girls across Nigeria."
+  breadcrumbs={[{ label: 'About' }]}
+>
+  <!-- SECTION 1: OUR STORY & TRANSITION SUMMARY -->
+  <section class="w-full py-20 bg-surface-container-low border-b border-outline-variant/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6 flex flex-col gap-6">
+          <SectionHeading
+            eyebrow="Our Heritage & Rebrand"
+            title="Growing from The Testybam Initiative to <span class='font-normal italic text-secondary'>The Blooming Ones</span>"
+            subtitle="In early 2023, our founder Temitope Babatunde launched a heartfelt outreach under the name <strong>The Testybam Initiative</strong> after witnessing bright girls missing classes due to menstrual poverty and social silence. What began with fifty dignity kits distributed in a single Lagos public school rapidly grew into a vibrant, multi-state sisterhood."
+          />
+
+          <p class="font-body-md text-on-surface-variant leading-relaxed">
+            As our work deepened to encompass mental health circles, academic mentorship, STEM preparation, and orphanage care, our identity expanded to mirror the enduring transformation we see in every young woman. In late 2024, we officially transitioned to <strong>The Blooming Ones Initiative</strong>—a name that celebrates the innate potential of every girl to flourish boldly.
+          </p>
+
+          <div class="flex flex-wrap gap-4 pt-2">
+            <Button href="/about/story" variant="primary">
+              <span>Read Our Full 3-Year Story</span>
+              <ArrowRight class="w-4 h-4" />
+            </Button>
+            <Button href="/about/mission" variant="secondary">
+              <span>Explore Mission & Values</span>
+            </Button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 relative">
+          <div class="rounded-3xl overflow-hidden shadow-xl aspect-[4/3] bg-surface-container border border-outline-variant/30">
+            <img
+              src="/images/founder-portrait.png"
+              alt="Founder Temitope Babatunde engaging with community partners"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="absolute -bottom-6 -left-6 p-6 rounded-2xl bg-surface-bright shadow-lg border border-outline-variant/30 max-w-xs hidden sm:block">
+            <div class="flex items-center gap-2 text-secondary font-bold text-xs uppercase font-label-caps">
+              <Sparkles class="w-4 h-4" />
+              <span>3+ Years of Continuous Service</span>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+              Every initiative is co-created alongside school teachers, community elders, and the girls themselves.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: MISSION, VISION & CORE VALUES -->
+  <section class="w-full py-20 bg-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <SectionHeading
+          align="center"
+          eyebrow="Guiding Light"
+          title="What Anchors Our Calling"
+          subtitle="A clear institutional compass committed to long-term community transformation and adolescent agency."
+        />
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <!-- Mission Card -->
+        <div class="p-8 sm:p-10 rounded-3xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-primary-container text-on-primary flex items-center justify-center mb-6 shadow-sm">
+              <Target class="w-6 h-6" />
+            </div>
+            <span class="font-label-caps text-secondary uppercase font-bold tracking-wider">Our Mission</span>
+            <h3 class="font-headline-sm text-primary mt-2 mb-4">To Edify, Nourish & Empower Girls</h3>
+            <p class="font-body-lg text-on-surface-variant leading-relaxed font-serif italic text-lg sm:text-xl">
+              “To edify, nourish and empower girls with the knowledge, safe care, and community opportunities they need so they can bloom and never wither.”
+            </p>
+          </div>
+          <div class="pt-6 border-t border-outline-variant/30 mt-6">
+            <p class="text-xs text-on-surface-variant">Focusing on menstrual dignity, secondary retention, and leadership confidence.</p>
+          </div>
+        </div>
+
+        <!-- Vision Card -->
+        <div class="p-8 sm:p-10 rounded-3xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-secondary text-on-secondary flex items-center justify-center mb-6 shadow-sm">
+              <Eye class="w-6 h-6" />
+            </div>
+            <span class="font-label-caps text-secondary uppercase font-bold tracking-wider">Our Vision</span>
+            <h3 class="font-headline-sm text-primary mt-2 mb-4">A Future Where No Girl Withers</h3>
+            <p class="font-body-lg text-on-surface-variant leading-relaxed font-serif italic text-lg sm:text-xl">
+              “An Africa where every adolescent girl enjoys unconditional menstrual dignity, body autonomy, educational completion, and unconstrained freedom to fulfill her highest potential.”
+            </p>
+          </div>
+          <div class="pt-6 border-t border-outline-variant/30 mt-6">
+            <p class="text-xs text-on-surface-variant">Active in grassroots communities across Nigeria with expanding West African partnerships.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Values -->
+      <div class="p-8 sm:p-10 rounded-3xl bg-surface-bright border border-outline-variant/30">
+        <h3 class="font-headline-sm text-primary mb-8 text-center">Our Five Core Pillars of Value</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div class="flex flex-col gap-2">
+            <div class="font-label-caps text-secondary uppercase font-bold">1. Radical Dignity</div>
+            <h4 class="font-title-md text-primary font-semibold">Unconditional Respect</h4>
+            <p class="font-body-sm text-on-surface-variant leading-relaxed">No girl is a victim or charity project; she is an agent of dignity deserving unconditional honor.</p>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="font-label-caps text-secondary uppercase font-bold">2. Wholeness</div>
+            <h4 class="font-title-md text-primary font-semibold">Edify, Nourish, Empower</h4>
+            <p class="font-body-sm text-on-surface-variant leading-relaxed">We nurture mind, physical health, and personal agency together in equal measure.</p>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="font-label-caps text-secondary uppercase font-bold">3. Safe Haven</div>
+            <h4 class="font-title-md text-primary font-semibold">Unbroken Sisterhood</h4>
+            <p class="font-body-sm text-on-surface-variant leading-relaxed">Judgment-free safe spaces where taboo topics are voiced with warmth and safety.</p>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="font-label-caps text-secondary uppercase font-bold">4. Grassroots Depth</div>
+            <h4 class="font-title-md text-primary font-semibold">Real Community Roots</h4>
+            <p class="font-body-sm text-on-surface-variant leading-relaxed">Rooted directly inside schools and orphanages, not distant corporate halls.</p>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="font-label-caps text-secondary uppercase font-bold">5. Transparency</div>
+            <h4 class="font-title-md text-primary font-semibold">Complete Integrity</h4>
+            <p class="font-body-sm text-on-surface-variant leading-relaxed">Strict governance, clear financial reporting, and audited metrics for every donor dollar and naira.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: 3-YEAR TIMELINE SUMMARY -->
+  <section class="w-full py-20 bg-surface-container-low border-t border-outline-variant/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <SectionHeading
+          align="center"
+          eyebrow="Milestones"
+          title="Three Years of Deepening Impact"
+          subtitle="From a small emergency pad distribution to an institutional girl-child empowerment model."
+        />
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-8 rounded-3xl bg-surface-bright border border-outline-variant/30 flex flex-col justify-between">
+          <div>
+            <span class="px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-xs font-bold font-label-caps uppercase">2023 • Founding</span>
+            <h4 class="font-headline-sm text-primary mt-4 mb-2">The Testybam Outreaches</h4>
+            <p class="font-body-sm text-on-surface-variant leading-relaxed">
+              Launched initial school visits in Agege and Mushin, Lagos. Provided 2,500 sanitary kits and conducted basic menstrual hygiene awareness.
+            </p>
+          </div>
+          <div class="pt-6 border-t border-outline-variant/20 mt-6 text-xs text-primary font-semibold flex items-center gap-1">
+            <Clock class="w-3.5 h-3.5 text-secondary" />
+            <span>Rooted in grassroots urgency</span>
+          </div>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-surface-bright border border-outline-variant/30 flex flex-col justify-between">
+          <div>
+            <span class="px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-xs font-bold font-label-caps uppercase">2024 • Expansion</span>
+            <h4 class="font-headline-sm text-primary mt-4 mb-2">Safe Circles & Orphanages</h4>
+            <p class="font-body-sm text-on-surface-variant leading-relaxed">
+              Inaugurated bi-weekly Girls’ Hangouts and regular quarterly care packages to 12 partner orphanages. Reached 7,000+ girls with life-skills training.
+            </p>
+          </div>
+          <div class="pt-6 border-t border-outline-variant/20 mt-6 text-xs text-primary font-semibold flex items-center gap-1">
+            <Users class="w-3.5 h-3.5 text-secondary" />
+            <span>120+ active volunteer corps</span>
+          </div>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-surface-bright border border-outline-variant/30 flex flex-col justify-between">
+          <div>
+            <span class="px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-xs font-bold font-label-caps uppercase">2025-2026 • Rebrand</span>
+            <h4 class="font-headline-sm text-primary mt-4 mb-2">The Blooming Ones Era</h4>
+            <p class="font-body-sm text-on-surface-variant leading-relaxed">
+              Rebranded into The Blooming Ones Initiative. Launched formal STEM mentorship pathways, school retention tracking, and audited governance disclosures.
+            </p>
+          </div>
+          <div class="pt-6 border-t border-outline-variant/20 mt-6 text-xs text-primary font-semibold flex items-center gap-1">
+            <Award class="w-3.5 h-3.5 text-secondary" />
+            <span>12,500+ lifetime beneficiaries</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partner Logos -->
+  <PartnerLogos />
+
+  <!-- CTA -->
+  <CTA
+    eyebrow="Join The Sisterhood"
+    title="Ready to Walk With Us in Transforming Lives?"
+    description="Whether as a monthly donor, volunteer facilitator, or institutional partner, your involvement ensures that no girl is left in silence."
+    primaryText="Become a Volunteer"
+    primaryHref="/get-involved/volunteer"
+    secondaryText="Partner With Us"
+    secondaryHref="/get-involved/partner"
+  />
+</PageLayout>

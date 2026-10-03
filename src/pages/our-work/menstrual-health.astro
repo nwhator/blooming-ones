@@ -1,0 +1,176 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Button from '../../components/Button.astro';
+import CTA from '../../components/CTA.astro';
+import { Droplets, CheckCircle2, ArrowRight, Heart, AlertCircle, Sparkles } from 'lucide-astro';
+---
+
+<PageLayout
+  title="Menstrual Health & Dignity"
+  eyebrow="Core Dignity Pillar"
+  description="Restoring biological pride and eliminating period-induced classroom absenteeism across Nigerian public secondary schools."
+  breadcrumbs={[
+    { label: 'Our Work', href: '/our-work' },
+    { label: 'Menstrual Health & Dignity' },
+  ]}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <!-- Hero Photography & Overview -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+      <div class="lg:col-span-7 flex flex-col gap-6">
+        <SectionHeading
+          eyebrow="The Challenge & The Mission"
+          title="No Girl Should Ever Have to Choose Between Her Period and Her Education"
+          subtitle="Menstruation is a biological testament to human vitality, yet for millions of adolescent girls in Nigeria, it remains an excruciating monthly crisis characterized by lack of products, intense social stigma, and missed school."
+        />
+
+        <p class="font-body-md text-on-surface-variant leading-relaxed">
+          Through our flagship Menstrual Health & Dignity program, The Blooming Ones Initiative provides comprehensive sanitary hygiene kits, demystifies biological taboos through nurse-led school workshops, and establishes permanent dignity supply points directly in guidance counseling offices.
+        </p>
+
+        <div class="flex flex-wrap gap-4 pt-2">
+          <Button href="/donate" variant="primary">
+            <Heart class="w-4 h-4 fill-current text-secondary-fixed" />
+            <span>Sponsor Dignity Kits (₦5,000)</span>
+          </Button>
+          <Button href="/stories/aminas-return-to-class" variant="secondary">
+            <span>Read Amina's Story</span>
+            <ArrowRight class="w-4 h-4" />
+          </Button>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5">
+        <div class="rounded-3xl overflow-hidden shadow-xl aspect-[4/3] bg-surface-container border border-outline-variant/30">
+          <img
+            src="/images/menstrual-mentor.png"
+            alt="Healthcare mentor providing menstrual hygiene education to schoolgirl"
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Why It Matters Section -->
+    <div class="p-8 sm:p-12 rounded-3xl bg-surface-container-low border border-outline-variant/30 mb-20">
+      <div class="max-w-3xl mb-8">
+        <span class="font-label-caps text-secondary font-bold uppercase tracking-wider">The Urgent Reality</span>
+        <h2 class="font-headline-lg text-primary tracking-tight mt-1">Why Period Dignity Matters</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/20 shadow-sm">
+          <div class="font-headline-lg text-primary font-serif">20%</div>
+          <h3 class="font-title-md text-primary font-semibold mt-1">Classroom Time Lost</h3>
+          <p class="font-body-sm text-on-surface-variant mt-2 leading-relaxed">
+            Adolescent girls without sanitary pads miss an average of 3 to 5 school days each month, leading to chronic academic lag and eventual dropout.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/20 shadow-sm">
+          <div class="font-headline-lg text-primary font-serif">70%+</div>
+          <h3 class="font-title-md text-primary font-semibold mt-1">Experience Cultural Stigma</h3>
+          <p class="font-body-sm text-on-surface-variant mt-2 leading-relaxed">
+            Persistent societal taboos cause young girls to associate menstruation with filth and moral impurity, severely injuring their developing self-worth.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/20 shadow-sm">
+          <div class="font-headline-lg text-primary font-serif">3x</div>
+          <h3 class="font-title-md text-primary font-semibold mt-1">Cost Inflation</h3>
+          <p class="font-body-sm text-on-surface-variant mt-2 leading-relaxed">
+            Economic inflation has made commercial disposable pads an unattainable luxury for low-income families who must prioritize basic dietary staples.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- What We Do & Activities -->
+    <div class="mb-20">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <SectionHeading
+          align="center"
+          eyebrow="Our Intervention"
+          title="What We Do in the Field"
+          subtitle="Our evidence-based model combines physical material provision with deep psychosocial education."
+        />
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="p-8 rounded-3xl bg-surface-bright border border-outline-variant/30 flex flex-col gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-primary-container text-on-primary flex items-center justify-center">
+            <Droplets class="w-6 h-6" />
+          </div>
+          <h3 class="font-title-lg text-primary font-semibold">1. Dignity Kit Distribution</h3>
+          <p class="font-body-sm text-on-surface-variant leading-relaxed">
+            Each beneficiary receives a custom-packaged Bloom Kit containing a multi-month supply of high-grade biodegradable sanitary pads, clean underwear, antibacterial soap, and a discreet carrying pouch.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-surface-bright border border-outline-variant/30 flex flex-col gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-secondary text-on-secondary flex items-center justify-center">
+            <Sparkles class="w-6 h-6" />
+          </div>
+          <h3 class="font-title-lg text-primary font-semibold">2. Nurse-Led Hygiene Clinics</h3>
+          <p class="font-body-sm text-on-surface-variant leading-relaxed">
+            Certified female nurses and doctors conduct interactive workshops covering menstrual cycle tracking, pain management, reproductive anatomy, and dispel pervasive cultural taboos.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-surface-bright border border-outline-variant/30 flex flex-col gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-tertiary-leaf text-on-tertiary flex items-center justify-center">
+            <Heart class="w-6 h-6" />
+          </div>
+          <h3 class="font-title-lg text-primary font-semibold">3. School Dignity Pantries</h3>
+          <p class="font-body-sm text-on-surface-variant leading-relaxed">
+            We install permanently stocked emergency pads in guidance counselors’ offices so any student caught unawares can access clean supplies immediately without leaving school.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-surface-bright border border-outline-variant/30 flex flex-col gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-primary-fixed text-on-primary-fixed flex items-center justify-center">
+            <CheckCircle2 class="w-6 h-6" />
+          </div>
+          <h3 class="font-title-lg text-primary font-semibold">4. Boys & Community Education</h3>
+          <p class="font-body-sm text-on-surface-variant leading-relaxed">
+            We conduct targeted sensitization for adolescent boys and male teachers, transforming potential teasers into empathetic allies who respect and protect their female peers.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Who We Serve & Impact -->
+    <div class="p-8 sm:p-12 rounded-3xl bg-surface-container-low border border-outline-variant/30 mb-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-6 flex flex-col gap-4">
+          <span class="font-label-caps text-secondary font-bold uppercase tracking-wider">Beneficiaries</span>
+          <h3 class="font-headline-sm text-primary">Who We Serve</h3>
+          <p class="font-body-md text-on-surface-variant leading-relaxed">
+            Our primary beneficiaries are girls aged 10–19 attending public secondary schools in low-income urban and rural wards across Lagos, Ogun, and Oyo States, as well as young women in residential care homes and internally displaced communities.
+          </p>
+        </div>
+        <div class="lg:col-span-6 grid grid-cols-2 gap-4 text-center">
+          <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/20">
+            <div class="font-headline-lg text-primary font-serif">28,000+</div>
+            <div class="text-xs text-on-surface-variant mt-1">Dignity Kits Delivered</div>
+          </div>
+          <div class="p-6 rounded-2xl bg-surface-bright border border-outline-variant/20">
+            <div class="font-headline-lg text-primary font-serif">0%</div>
+            <div class="text-xs text-on-surface-variant mt-1">Cost to Beneficiaries</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <CTA
+    eyebrow="Restore A Girl's Dignity"
+    title="₦5,000 Protects A Schoolgirl For An Entire Term"
+    description="Join our sustainer circle and ensure that no girl misses a single classroom hour because of her natural biological cycle."
+    primaryText="Donate Menstrual Kits"
+    primaryHref="/donate"
+    secondaryText="Volunteer for Next Outreach"
+    secondaryHref="/get-involved/volunteer"
+  />
+</PageLayout>

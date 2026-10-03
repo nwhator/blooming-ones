@@ -1,0 +1,71 @@
+---
+import Button from './Button.astro';
+import { Heart, ArrowRight } from 'lucide-astro';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description: string;
+  primaryText?: string;
+  primaryHref?: string;
+  secondaryText?: string;
+  secondaryHref?: string;
+  dark?: boolean;
+}
+
+const {
+  eyebrow = "Stand With Her Future",
+  title,
+  description,
+  primaryText = "Donate Today",
+  primaryHref = "/donate",
+  secondaryText = "Explore Our Programs",
+  secondaryHref = "/our-work",
+  dark = true,
+} = Astro.props;
+---
+
+<section class={`w-full py-20 lg:py-24 relative overflow-hidden ${
+  dark ? 'bg-primary text-on-primary' : 'bg-surface-container-low text-on-surface'
+}`}>
+  <!-- Subtle ambient decorative glow -->
+  <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-secondary-container/15 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <div class="inline-flex items-center gap-2 font-label-caps uppercase tracking-wider font-bold mb-4 px-3.5 py-1.5 rounded-full bg-surface/10 backdrop-blur-sm border border-outline-variant/20">
+      <span class="w-2 h-2 rounded-full bg-secondary-fixed" aria-hidden="true"></span>
+      <span class={dark ? 'text-secondary-fixed' : 'text-secondary'}>{eyebrow}</span>
+    </div>
+
+    <h2 class={`font-headline-lg tracking-tight mb-4 ${dark ? 'text-on-primary' : 'text-primary'}`}>
+      <Fragment set:html={title} />
+    </h2>
+
+    <p class={`font-body-lg max-w-2xl mx-auto mb-8 leading-relaxed ${
+      dark ? 'text-surface-dim' : 'text-on-surface-variant'
+    }`}>
+      <Fragment set:html={description} />
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      {primaryHref && (
+        <Button href={primaryHref} variant="primary" size="lg" class="bg-secondary text-on-secondary hover:bg-secondary/90 shadow-lg">
+          <Heart class="w-4 h-4 fill-current text-secondary-fixed" />
+          <span>{primaryText}</span>
+        </Button>
+      )}
+
+      {secondaryHref && (
+        <Button
+          href={secondaryHref}
+          variant={dark ? "secondary" : "outline"}
+          size="lg"
+          class={dark ? "bg-surface/10 text-on-primary border-surface/20 hover:bg-surface/20" : ""}
+        >
+          <span>{secondaryText}</span>
+          <ArrowRight class="w-4 h-4" />
+        </Button>
+      )}
+    </div>
+  </div>
+</section>

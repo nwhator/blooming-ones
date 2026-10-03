@@ -1,0 +1,46 @@
+---
+interface Props {
+  value: string;
+  label: string;
+  description: string;
+  badge?: string;
+  badgeVariant?: 'rose' | 'leaf' | 'cream';
+}
+
+const {
+  value,
+  label,
+  description,
+  badge = 'Verified',
+  badgeVariant = 'leaf',
+} = Astro.props;
+
+const badgeClasses = {
+  rose: 'bg-secondary-fixed text-on-secondary-fixed border-secondary/20',
+  leaf: 'bg-tertiary-fixed text-on-tertiary-fixed border-tertiary-container/20',
+  cream: 'bg-surface-container text-on-surface-variant border-outline-variant/30',
+};
+---
+
+<div class="p-8 rounded-3xl bg-surface-bright border border-outline-variant/30 shadow-[0_4px_20px_rgba(74,18,40,0.03)] hover:shadow-[0_8px_28px_rgba(74,18,40,0.06)] hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between">
+  <div class="flex items-center justify-between mb-4">
+    <span class="w-2.5 h-2.5 rounded-full bg-secondary" aria-hidden="true"></span>
+    {badge && (
+      <span class={`px-2.5 py-0.5 rounded-full font-label-caps text-xs font-bold border ${badgeClasses[badgeVariant]}`}>
+        {badge}
+      </span>
+    )}
+  </div>
+
+  <div>
+    <div class="font-headline-lg text-primary tracking-tight font-serif text-3xl sm:text-4xl">
+      {value}
+    </div>
+    <div class="font-title-md text-primary font-semibold mt-1.5">
+      {label}
+    </div>
+    <p class="font-body-sm text-on-surface-variant mt-2 leading-relaxed">
+      {description}
+    </p>
+  </div>
+</div>

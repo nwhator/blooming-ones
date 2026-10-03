@@ -1,0 +1,194 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Button from '../../components/Button.astro';
+import CTA from '../../components/CTA.astro';
+import { Users, Handshake, HeartHandshake, ArrowRight, CheckCircle2, HelpCircle, Phone, Mail, Sparkles } from 'lucide-astro';
+
+const faqs = [
+  {
+    q: "Who can volunteer with The Blooming Ones Initiative?",
+    a: "Anyone passionate about adolescent girl-child empowerment! We welcome university undergraduates, certified healthcare workers (nurses, doctors), teachers, counselors, photographers, and general community champions. All volunteers undergo child safeguarding vetting."
+  },
+  {
+    q: "How does an institutional partnership work?",
+    a: "We collaborate with public education boards, secondary schools, healthcare organizations, and corporate bodies. Partnerships can involve joint school outreaches, co-financing dignity kits, employee volunteer days, or clinical health provisions."
+  },
+  {
+    q: "Can I sponsor an entire school or orphanage?",
+    a: "Yes! Program sponsors can adopt an entire school (providing termly dignity kits and nurse workshops) or adopt an orphanage (providing quarterly nutrition and personal care packages). Transparent impact reporting is provided after every visit."
+  },
+  {
+    q: "Are donations tax-deductible or accompanied by receipts?",
+    a: "All financial contributions receive official digital acknowledgement receipts and transparent utilization statements from our fiduciary desk."
+  }
+];
+---
+
+<PageLayout
+  title="Get Involved: Sow Seeds of Impact"
+  eyebrow="Community Action Hub"
+  description="Whether through your hands, institutional influence, or generous sponsorship, discover how you can walk with us in edifying and protecting adolescent girls."
+  breadcrumbs={[{ label: 'Get Involved' }]}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <!-- Three Pillars of Involvement Gateway Cards -->
+    <div class="mb-24">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <SectionHeading
+          align="center"
+          eyebrow="Three Pathways"
+          title="Choose How You Sow Impact"
+          subtitle="Every hand that joins our mission strengthens the protective circle around an adolescent girl."
+        />
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Pathway 1: Volunteer -->
+        <div class="p-8 sm:p-10 rounded-3xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between hover:shadow-lg transition-shadow group">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center mb-6 shadow-sm">
+              <Users class="w-7 h-7 text-secondary" />
+            </div>
+            <span class="font-label-caps text-secondary font-bold uppercase tracking-wider">Pathway 01</span>
+            <h3 class="font-headline-sm text-primary mt-2 mb-3">Volunteer With Us</h3>
+            <p class="font-body-sm text-on-surface-variant leading-relaxed mb-6">
+              Join our active corps of over 120 certified field volunteers. Mentor young girls in Girls’ Hangouts, assist during school kit distributions, or lend your medical, media, or teaching skills.
+            </p>
+            <ul class="space-y-2 text-xs text-on-surface-variant mb-6">
+              <li class="flex items-center gap-2">
+                <CheckCircle2 class="w-4 h-4 text-tertiary-leaf" />
+                <span>Field and virtual mentorship opportunities</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <CheckCircle2 class="w-4 h-4 text-tertiary-leaf" />
+                <span>Child safeguarding certification provided</span>
+              </li>
+            </ul>
+          </div>
+
+          <Button href="/get-involved/volunteer" variant="primary" class="w-full">
+            <span>Apply as a Volunteer</span>
+            <ArrowRight class="w-4 h-4" />
+          </Button>
+        </div>
+
+        <!-- Pathway 2: Partner -->
+        <div class="p-8 sm:p-10 rounded-3xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between hover:shadow-lg transition-shadow group">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-primary-container text-on-primary flex items-center justify-center mb-6 shadow-sm">
+              <Handshake class="w-7 h-7" />
+            </div>
+            <span class="font-label-caps text-secondary font-bold uppercase tracking-wider">Pathway 02</span>
+            <h3 class="font-headline-sm text-primary mt-2 mb-3">Partner With Us</h3>
+            <p class="font-body-sm text-on-surface-variant leading-relaxed mb-6">
+              Bring The Blooming Ones to your school, local government ward, corporate CSR initiative, or healthcare clinic. We co-create interventions tailored to local community needs.
+            </p>
+            <ul class="space-y-2 text-xs text-on-surface-variant mb-6">
+              <li class="flex items-center gap-2">
+                <CheckCircle2 class="w-4 h-4 text-tertiary-leaf" />
+                <span>Public school onboarding & district programs</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <CheckCircle2 class="w-4 h-4 text-tertiary-leaf" />
+                <span>Corporate ESG and philanthropic alliances</span>
+              </li>
+            </ul>
+          </div>
+
+          <Button href="/get-involved/partner" variant="outline" class="w-full">
+            <span>Become an Institutional Partner</span>
+            <ArrowRight class="w-4 h-4" />
+          </Button>
+        </div>
+
+        <!-- Pathway 3: Sponsor -->
+        <div class="p-8 sm:p-10 rounded-3xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between hover:shadow-lg transition-shadow group">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-tertiary-leaf text-on-tertiary flex items-center justify-center mb-6 shadow-sm">
+              <HeartHandshake class="w-7 h-7" />
+            </div>
+            <span class="font-label-caps text-secondary font-bold uppercase tracking-wider">Pathway 03</span>
+            <h3 class="font-headline-sm text-primary mt-2 mb-3">Sponsor a Program</h3>
+            <p class="font-body-sm text-on-surface-variant leading-relaxed mb-6">
+              Fund specific initiatives: adopt a partner orphanage, finance an entire school's annual dignity kits, or sponsor tertiary university entrance examination fees for top scholars.
+            </p>
+            <ul class="space-y-2 text-xs text-on-surface-variant mb-6">
+              <li class="flex items-center gap-2">
+                <CheckCircle2 class="w-4 h-4 text-tertiary-leaf" />
+                <span>Direct traceable program accountability</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <CheckCircle2 class="w-4 h-4 text-tertiary-leaf" />
+                <span>Quarterly impact and attendance reports</span>
+              </li>
+            </ul>
+          </div>
+
+          <Button href="/get-involved/sponsor" variant="secondary" class="w-full">
+            <span>Sponsor a Dedicated Program</span>
+            <ArrowRight class="w-4 h-4" />
+          </Button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="mb-24 p-8 sm:p-12 lg:p-16 rounded-3xl bg-surface-bright border border-outline-variant/30">
+      <div class="max-w-3xl mb-12">
+        <span class="font-label-caps text-secondary font-bold uppercase tracking-wider">Common Questions</span>
+        <h2 class="font-headline-lg text-primary tracking-tight mt-1">Frequently Asked Questions</h2>
+        <p class="font-body-md text-on-surface-variant mt-2 leading-relaxed">Everything you need to know about walking beside us in community service.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {faqs.map((faq) => (
+          <div class="p-6 rounded-2xl bg-surface-container-low border border-outline-variant/20 flex flex-col gap-2">
+            <h3 class="font-title-md text-primary font-semibold flex items-start gap-2">
+              <HelpCircle class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+              <span>{faq.q}</span>
+            </h3>
+            <p class="font-body-sm text-on-surface-variant leading-relaxed pl-7">{faq.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Direct Hotline & Coordinator Desk -->
+    <div class="p-8 sm:p-12 rounded-3xl bg-primary text-on-primary border border-outline-variant/30 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
+      <div>
+        <span class="font-label-caps text-secondary-fixed font-bold uppercase tracking-wider">Direct Liaison</span>
+        <h3 class="font-headline-sm text-on-primary mt-1">Need to Discuss a Tailored Collaboration?</h3>
+        <p class="font-body-sm text-surface-dim mt-1 max-w-xl">
+          Speak directly with our Volunteer & Partnerships Coordinator regarding group volunteer deployments or major institutional grants.
+        </p>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center gap-4 flex-shrink-0">
+        <a
+          href="mailto:partners@thebloomingones.org"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface-bright text-primary font-semibold text-sm hover:bg-surface transition-colors shadow-md"
+        >
+          <Mail class="w-4 h-4 text-secondary" />
+          <span>partners@thebloomingones.org</span>
+        </a>
+        <a
+          href="tel:+2348002566666"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface/10 text-on-primary font-semibold text-sm border border-surface/20 hover:bg-surface/20 transition-colors"
+        >
+          <Phone class="w-4 h-4 text-secondary-fixed" />
+          <span>+234 (0) 800 BLOOM ONES</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <CTA
+    eyebrow="Take The First Step"
+    title="Every Seed Sown Helps A Girl Blossom"
+    description="Join hands with hundreds of everyday changemakers walking with adolescent girls across Nigeria."
+    primaryText="Donate Today"
+    primaryHref="/donate"
+    secondaryText="Volunteer Now"
+    secondaryHref="/get-involved/volunteer"
+  />
+</PageLayout>

@@ -1,0 +1,24 @@
+---
+import { getCollection, render } from 'astro:content';
+import StoryLayout from '../../layouts/StoryLayout.astro';
+
+export async function getStaticPaths() {
+  const stories = await getCollection('stories');
+  return stories.map((story) => ({
+    params: { slug: story.id.replace(/\.md$/, '') },
+    props: { story },
+  }));
+}
+
+const { story } = Astro.props;
+const { Content } = await render(story);
+
+const allStories = await getCollection('stories');
+const relatedStories = allStories
+  .filter((s) => s.id !== story.id)
+  .slice(0, 2);
+---
+
+<StoryLayout story={story.data} slug={story.id.replace(/\.md$/, '')} relatedStories={relatedStories}>
+  <Content />
+</StoryLayout>
