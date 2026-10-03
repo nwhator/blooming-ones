@@ -1,5 +1,5 @@
 ---
-import { Heart, Menu, X, ChevronDown } from 'lucide-astro';
+import { Heart, ChevronDown } from 'lucide-astro';
 
 interface Props {
   currentPath?: string;
@@ -212,183 +212,209 @@ const isActive = (path: string) => {
         aria-label="Open Navigation Menu"
         aria-expanded="false"
         aria-controls="mobileMenuDrawer"
-        class="xl:hidden p-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors cursor-pointer"
+        class="xl:hidden p-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors cursor-pointer flex items-center justify-center focus:outline-none"
       >
-        <Menu class="w-6 h-6" id="menuOpenIcon" />
-        <X class="w-6 h-6 hidden" id="menuCloseIcon" />
+        <span class="sr-only">Toggle Menu</span>
+        <svg class="w-6 h-6 menu-open-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg class="w-6 h-6 menu-close-icon hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
       </button>
-    </div>
-  </div>
-
-  <!-- Mobile Drawer Menu -->
-  <div
-    id="mobileMenuDrawer"
-    class="fixed inset-x-0 top-20 bottom-0 bg-surface/98 backdrop-blur-2xl border-t border-outline-variant/30 overflow-y-auto px-4 sm:px-6 py-6 hidden xl:hidden z-50 transition-all duration-300"
-    role="dialog"
-    aria-label="Mobile Navigation"
-  >
-    <div class="flex flex-col gap-4 max-w-lg mx-auto pb-12">
-      <!-- Home -->
-      <a
-        href="/"
-        class="py-3 px-4 rounded-xl font-title-md text-primary hover:bg-surface-container-low transition-colors border-b border-outline-variant/20"
-      >
-        Home
-      </a>
-
-      <!-- About Submenu -->
-      <div class="mobile-accordion border-b border-outline-variant/20 pb-2">
-        <button
-          type="button"
-          class="w-full flex items-center justify-between py-3 px-4 font-title-md text-primary hover:bg-surface-container-low rounded-xl transition-colors text-left"
-          aria-expanded="false"
-        >
-          <span>About</span>
-          <ChevronDown class="w-5 h-5 text-outline transition-transform duration-200 mobile-chevron" />
-        </button>
-        <div class="hidden flex-col gap-1 pl-4 pt-1 pb-2">
-          <a href="/about" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">About Overview</a>
-          <a href="/about/story" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Our Story</a>
-          <a href="/about/mission" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Mission & Vision</a>
-          <a href="/about/team" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Leadership & Team</a>
-          <a href="/about/partners" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Partners</a>
-        </div>
-      </div>
-
-      <!-- Our Work Submenu -->
-      <div class="mobile-accordion border-b border-outline-variant/20 pb-2">
-        <button
-          type="button"
-          class="w-full flex items-center justify-between py-3 px-4 font-title-md text-primary hover:bg-surface-container-low rounded-xl transition-colors text-left"
-          aria-expanded="false"
-        >
-          <span>Our Work</span>
-          <ChevronDown class="w-5 h-5 text-outline transition-transform duration-200 mobile-chevron" />
-        </button>
-        <div class="hidden flex-col gap-1 pl-4 pt-1 pb-2">
-          <a href="/our-work" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Programs Overview</a>
-          <a href="/our-work/menstrual-health" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Menstrual Health & Dignity</a>
-          <a href="/our-work/education" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Education & Mentorship</a>
-          <a href="/our-work/empowerment" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Girl-Child Empowerment</a>
-          <a href="/our-work/girls-hangouts" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Girls' Hangouts</a>
-          <a href="/our-work/community-outreach" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Community & Orphanage Care</a>
-        </div>
-      </div>
-
-      <!-- Impact Submenu -->
-      <div class="mobile-accordion border-b border-outline-variant/20 pb-2">
-        <button
-          type="button"
-          class="w-full flex items-center justify-between py-3 px-4 font-title-md text-primary hover:bg-surface-container-low rounded-xl transition-colors text-left"
-          aria-expanded="false"
-        >
-          <span>Impact</span>
-          <ChevronDown class="w-5 h-5 text-outline transition-transform duration-200 mobile-chevron" />
-        </button>
-        <div class="hidden flex-col gap-1 pl-4 pt-1 pb-2">
-          <a href="/impact" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Impact Overview</a>
-          <a href="/stories" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Stories of Blooming</a>
-          <a href="/gallery" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Photo Gallery</a>
-          <a href="/impact/reports" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Annual Reports</a>
-        </div>
-      </div>
-
-      <!-- Get Involved Submenu -->
-      <div class="mobile-accordion border-b border-outline-variant/20 pb-2">
-        <button
-          type="button"
-          class="w-full flex items-center justify-between py-3 px-4 font-title-md text-primary hover:bg-surface-container-low rounded-xl transition-colors text-left"
-          aria-expanded="false"
-        >
-          <span>Get Involved</span>
-          <ChevronDown class="w-5 h-5 text-outline transition-transform duration-200 mobile-chevron" />
-        </button>
-        <div class="hidden flex-col gap-1 pl-4 pt-1 pb-2">
-          <a href="/get-involved" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Involvement Hub</a>
-          <a href="/get-involved/volunteer" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Volunteer With Us</a>
-          <a href="/get-involved/partner" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Partner With Us</a>
-          <a href="/get-involved/sponsor" class="py-2 px-3 text-sm font-medium text-on-surface-variant hover:text-primary">Sponsor a Program</a>
-        </div>
-      </div>
-
-      <!-- Contact -->
-      <a
-        href="/contact"
-        class="py-3 px-4 rounded-xl font-title-md text-primary hover:bg-surface-container-low transition-colors border-b border-outline-variant/20"
-      >
-        Contact
-      </a>
-
-      <!-- Mobile Donate Button -->
-      <div class="pt-4 flex flex-col gap-3">
-        <a
-          href="/donate"
-          class="w-full py-3.5 rounded-full bg-primary-container text-on-primary font-label-lg flex items-center justify-center gap-2 shadow-md hover:bg-primary transition-all text-center"
-        >
-          <Heart class="w-4 h-4 fill-current text-secondary-fixed" />
-          <span>Support Our Mission (Donate)</span>
-        </a>
-      </div>
     </div>
   </div>
 </header>
 
+<!-- Mobile Navigation Drawer (Rendered outside <header> to avoid backdrop-filter containing block trap) -->
+<div
+  id="mobileMenuDrawer"
+  class="fixed inset-x-0 top-20 bottom-0 bg-surface/98 backdrop-blur-2xl border-t border-outline-variant/30 overflow-y-auto px-4 sm:px-6 py-6 hidden xl:hidden z-40 transition-opacity"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Mobile Navigation Menu"
+>
+  <div class="flex flex-col gap-2.5 max-w-lg mx-auto pb-12">
+    <!-- Home -->
+    <a
+      href="/"
+      class="py-3 px-4 rounded-2xl font-title-md text-primary hover:bg-surface-container-low transition-colors flex items-center justify-between"
+    >
+      <span>Home</span>
+    </a>
+
+    <!-- About Submenu Accordion -->
+    <div class="mobile-accordion rounded-2xl border border-outline-variant/20 bg-surface-container-lowest/50 overflow-hidden">
+      <button
+        type="button"
+        class="w-full flex items-center justify-between py-3 px-4 font-title-md text-primary hover:bg-surface-container-low transition-colors text-left cursor-pointer"
+        aria-expanded="false"
+      >
+        <span>About Us</span>
+        <ChevronDown class="w-4 h-4 text-outline transition-transform duration-200 mobile-chevron" />
+      </button>
+      <div class="hidden flex-col gap-1 px-3 pb-3 pt-1 border-t border-outline-variant/10 bg-surface-container-low/40">
+        <a href="/about" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">About Overview</a>
+        <a href="/about/story" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Our Story (3+ Years)</a>
+        <a href="/about/mission" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Mission & Vision</a>
+        <a href="/about/team" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Leadership Team</a>
+      </div>
+    </div>
+
+    <!-- Our Work Submenu Accordion -->
+    <div class="mobile-accordion rounded-2xl border border-outline-variant/20 bg-surface-container-lowest/50 overflow-hidden">
+      <button
+        type="button"
+        class="w-full flex items-center justify-between py-3 px-4 font-title-md text-primary hover:bg-surface-container-low transition-colors text-left cursor-pointer"
+        aria-expanded="false"
+      >
+        <span>Our Work</span>
+        <ChevronDown class="w-4 h-4 text-outline transition-transform duration-200 mobile-chevron" />
+      </button>
+      <div class="hidden flex-col gap-1 px-3 pb-3 pt-1 border-t border-outline-variant/10 bg-surface-container-low/40">
+        <a href="/our-work" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">All Programs Overview</a>
+        <a href="/our-work/menstrual-health" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Menstrual Health & Dignity</a>
+        <a href="/our-work/education" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Education & Mentorship</a>
+        <a href="/our-work/empowerment" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Girl-Child Empowerment</a>
+        <a href="/our-work/girls-hangouts" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Girls' Hangouts</a>
+        <a href="/our-work/community-outreach" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Community & Orphanages</a>
+      </div>
+    </div>
+
+    <!-- Impact Submenu Accordion -->
+    <div class="mobile-accordion rounded-2xl border border-outline-variant/20 bg-surface-container-lowest/50 overflow-hidden">
+      <button
+        type="button"
+        class="w-full flex items-center justify-between py-3 px-4 font-title-md text-primary hover:bg-surface-container-low transition-colors text-left cursor-pointer"
+        aria-expanded="false"
+      >
+        <span>Impact & Stories</span>
+        <ChevronDown class="w-4 h-4 text-outline transition-transform duration-200 mobile-chevron" />
+      </button>
+      <div class="hidden flex-col gap-1 px-3 pb-3 pt-1 border-t border-outline-variant/10 bg-surface-container-low/40">
+        <a href="/impact" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Our Impact & Data</a>
+        <a href="/stories" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Stories of Blooming</a>
+        <a href="/gallery" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Field Media Gallery</a>
+        <a href="/impact/reports" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Annual Reports</a>
+      </div>
+    </div>
+
+    <!-- Get Involved Submenu Accordion -->
+    <div class="mobile-accordion rounded-2xl border border-outline-variant/20 bg-surface-container-lowest/50 overflow-hidden">
+      <button
+        type="button"
+        class="w-full flex items-center justify-between py-3 px-4 font-title-md text-primary hover:bg-surface-container-low transition-colors text-left cursor-pointer"
+        aria-expanded="false"
+      >
+        <span>Get Involved</span>
+        <ChevronDown class="w-4 h-4 text-outline transition-transform duration-200 mobile-chevron" />
+      </button>
+      <div class="hidden flex-col gap-1 px-3 pb-3 pt-1 border-t border-outline-variant/10 bg-surface-container-low/40">
+        <a href="/get-involved" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Involvement Hub</a>
+        <a href="/get-involved/volunteer" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Volunteer With Us</a>
+        <a href="/get-involved/partner" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Partner With Us</a>
+        <a href="/get-involved/sponsor" class="py-2 px-3 rounded-xl text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container">Sponsor a Program</a>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <a
+      href="/contact"
+      class="py-3 px-4 rounded-2xl font-title-md text-primary hover:bg-surface-container-low transition-colors flex items-center justify-between"
+    >
+      <span>Contact</span>
+    </a>
+
+    <!-- Mobile Donate Button -->
+    <div class="pt-4 flex flex-col gap-3">
+      <a
+        href="/donate"
+        class="w-full py-3.5 px-6 rounded-full bg-primary-container text-on-primary font-label-lg flex items-center justify-center gap-2 shadow-md hover:bg-primary transition-all text-center"
+      >
+        <Heart class="w-4 h-4 fill-current text-secondary-fixed" />
+        <span>Support Our Mission (Donate)</span>
+      </a>
+    </div>
+  </div>
+</div>
+
 <script>
-  // Mobile drawer logic with clean accessibility
-  const initMobileNav = () => {
+  const setupNavigation = () => {
     const btn = document.getElementById('mobileMenuBtn');
     const drawer = document.getElementById('mobileMenuDrawer');
-    const openIcon = document.getElementById('menuOpenIcon');
-    const closeIcon = document.getElementById('menuCloseIcon');
+    if (!btn || !drawer) return;
 
-    if (!btn || !drawer || !openIcon || !closeIcon) return;
+    const openIcon = btn.querySelector('.menu-open-icon');
+    const closeIcon = btn.querySelector('.menu-close-icon');
 
-    const toggleDrawer = () => {
-      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!isExpanded));
-      drawer.classList.toggle('hidden');
-      openIcon.classList.toggle('hidden');
-      closeIcon.classList.toggle('hidden');
-      document.body.style.overflow = isExpanded ? '' : 'hidden';
+    const openDrawer = () => {
+      btn.setAttribute('aria-expanded', 'true');
+      btn.setAttribute('aria-label', 'Close Navigation Menu');
+      drawer.classList.remove('hidden');
+      openIcon?.classList.add('hidden');
+      closeIcon?.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
     };
 
-    btn.addEventListener('click', toggleDrawer);
+    const closeDrawer = () => {
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Open Navigation Menu');
+      drawer.classList.add('hidden');
+      openIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      document.body.style.overflow = '';
+    };
+
+    btn.onclick = (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
+    };
 
     // Mobile accordions
-    const accordions = document.querySelectorAll('.mobile-accordion');
+    const accordions = drawer.querySelectorAll('.mobile-accordion');
     accordions.forEach((acc) => {
       const toggle = acc.querySelector('button');
       const panel = acc.querySelector('div');
       const chevron = acc.querySelector('.mobile-chevron');
-      if (toggle && panel && chevron) {
-        toggle.addEventListener('click', () => {
+      if (toggle && panel) {
+        toggle.onclick = (e) => {
+          e.stopPropagation();
           const isOpened = toggle.getAttribute('aria-expanded') === 'true';
           toggle.setAttribute('aria-expanded', String(!isOpened));
           panel.classList.toggle('hidden');
-          chevron.classList.toggle('rotate-180');
-        });
+          chevron?.classList.toggle('rotate-180');
+        };
       }
     });
 
     // Close drawer on link click
     const drawerLinks = drawer.querySelectorAll('a');
     drawerLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        if (!drawer.classList.contains('hidden')) {
-          toggleDrawer();
-        }
-      });
+      link.onclick = () => {
+        closeDrawer();
+      };
     });
 
     // Close drawer on Escape key
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        if (!drawer.classList.contains('hidden')) {
-          toggleDrawer();
-        }
+        closeDrawer();
         document.querySelectorAll('.nav-dropdown').forEach((dd) => {
           dd.classList.remove('active');
         });
+      }
+    });
+
+    // Close drawer if resized to desktop (>= 1280px)
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1280 && btn.getAttribute('aria-expanded') === 'true') {
+        closeDrawer();
       }
     });
 
@@ -397,17 +423,18 @@ const isActive = (path: string) => {
     desktopDropdowns.forEach((dd) => {
       const toggle = dd.querySelector('button');
       if (!toggle) return;
-      toggle.addEventListener('click', (e) => {
+      toggle.onclick = (e) => {
         e.stopPropagation();
         const wasActive = dd.classList.contains('active');
-        desktopDropdowns.forEach((d) => d.classList.remove('active'));
+        desktopDropdowns.forEach((d) => {
+          d.classList.remove('active');
+          d.querySelector('button')?.setAttribute('aria-expanded', 'false');
+        });
         if (!wasActive) {
           dd.classList.add('active');
           toggle.setAttribute('aria-expanded', 'true');
-        } else {
-          toggle.setAttribute('aria-expanded', 'false');
         }
-      });
+      };
     });
 
     // Close desktop dropdowns when clicking outside
@@ -419,6 +446,11 @@ const isActive = (path: string) => {
     });
   };
 
-  initMobileNav();
-  document.addEventListener('astro:after-swap', initMobileNav);
+  // Immediate and DOM ready invocation
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupNavigation);
+  } else {
+    setupNavigation();
+  }
+  document.addEventListener('astro:after-swap', setupNavigation);
 </script>
